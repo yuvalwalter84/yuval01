@@ -2,6 +2,7 @@
 Vision Stack 2026: Full Autonomous Mode - Main Orchestrator
 This file acts as the main orchestrator, importing functions from modular components.
 """
+# Lightweight imports only at top level to reduce memory footprint on Render
 import streamlit as st
 import asyncio
 import json
@@ -9,14 +10,11 @@ import os
 import PyPDF2
 import hashlib
 import pandas as pd
-from jobspy import scrape_jobs
-from browser_bot import JobAppBot, send_confirmation_email, auto_fill_ats, submit_application, scrape_israeli_job_boards, discover_job_sources, scrape_discovered_sources
-from integrity_check import verify_system
 
 # Google OAuth Authentication - Must be imported first
 from auth import authenticate_user, render_login_page, check_user_onboarding
 
-# Import from modular components
+# Import lightweight utilities from modular components
 from utils import (
     load_profile, save_profile, load_blacklist, save_blacklist, add_to_blacklist,
     filter_blacklisted_jobs, load_user_learnings, save_user_learnings, add_rejection_learning,
@@ -25,8 +23,6 @@ from utils import (
     load_preferences, save_preferences, check_if_applied, load_recycle_bin, get_cv_metadata,
     get_user_id, get_user_file_path, log_event
 )
-from core_engine import CoreEngine
-from pdf_generator import PDFGenerator
 from ui_layout import (
     render_sidebar, render_job_list, render_human_in_the_loop,
     inject_global_css, render_custom_job_card, create_circular_gauge_svg
@@ -35,6 +31,9 @@ from ui_layout import (
 # Application Status Constants (for tracking flow)
 APPLICATION_STATUS_DRAFT = 'Draft'
 APPLICATION_STATUS_FINAL_LAUNCH = 'Final Launch'
+
+# Health check log before st.set_page_config (required by Streamlit)
+print('Persona System: Booting sequence complete')
 
 # הגדרות עמוד
 st.set_page_config(page_title="Persona: Your Career, Synchronized", layout="wide", initial_sidebar_state="expanded")
@@ -332,7 +331,9 @@ except Exception as browser_error:
 # 🛡️ בדיקת אינטגריטי (חוק: קוד מלא בלבד)
 # Expose Error: Replace generic message with st.exception(e) to show full traceback
 # Post-Reset Safety: Never hard-stop on missing profile_data.json
+# Lazy load integrity_check to reduce memory footprint
 try:
+    from integrity_check import verify_system
     integrity_errors = verify_system()
 except Exception as e:
     integrity_errors = []
@@ -438,14 +439,18 @@ if not profile:
 if not profile:
     profile = {"master_cv_text": "", "auto_query": ""}
 
+# Lazy load CoreEngine only when needed (reduces memory footprint on Render)
 try:
+    from core_engine import CoreEngine
     engine = CoreEngine()
 except Exception as e:
     st.error("❌ שגיאה באתחול CoreEngine")
     st.exception(e)
     st.stop()
 
+# Lazy load PDFGenerator only when needed (reduces memory footprint on Render)
 try:
+    from pdf_generator import PDFGenerator
     pdf_generator = PDFGenerator()
     # Update active model from engine
     st.session_state.active_model = engine.model_id
@@ -913,7 +918,12 @@ if st.button("🔍 Analyze Match & Prepare Draft", key="manual_analyze_btn"):
                 
                 # Debug the 0%: Log AI reason for 0% score
                 score = analysis.get('match_score', analysis.get('score', 0))
-                verify_system()  # Ensure system integrity check is performed here
+                # Lazy load verify_system to reduce memory footprint
+                try:
+                    from integrity_check import verify_system
+                    verify_system()  # Ensure system integrity check is performed here
+                except Exception:
+                    pass  # Non-blocking integrity check
                 if score == 0:
                     print(f"DEBUG: AI Reason for 0% score (Manual Analysis): {analysis.get('explanation', analysis.get('reasoning', 'No explanation provided'))}")
                 
