@@ -1,0 +1,32 @@
+# Core Framework
+streamlit
+pandas
+
+# API Framework
+fastapi
+uvicorn[standard]
+gunicorn
+
+# Database & Cloud
+supabase
+
+# HTTP & Async
+aiohttp
+anyio
+requests
+
+# Data Validation
+pydantic
+
+# Environment Management
+python-dotenv
+
+# PDF Processing
+pdfplumber
+PyPDF2
+
+# Job Scraping
+python-jobspy
+
+# Browser Automation
+playwright==1.57.0

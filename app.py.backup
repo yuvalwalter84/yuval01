@@ -1,0 +1,1105 @@
+"""
+Vision Stack 2026: Full Autonomous Mode - Main Orchestrator
+This file acts as the main orchestrator, importing functions from modular components.
+"""
+import streamlit as st
+import asyncio
+import json
+import os
+import PyPDF2
+import hashlib
+import pandas as pd
+from jobspy import scrape_jobs
+from browser_bot import JobAppBot, send_confirmation_email, auto_fill_ats, submit_application, scrape_israeli_job_boards, discover_job_sources, scrape_discovered_sources
+from integrity_check import verify_system
+
+# Import from modular components
+from utils import (
+    load_profile, save_profile, load_blacklist, save_blacklist, add_to_blacklist,
+    filter_blacklisted_jobs, load_user_learnings, save_user_learnings, add_rejection_learning,
+    validate_job_source, validate_job_description, log_application,
+    scrape_jobs_with_timeout, scrape_israeli_job_boards_with_timeout, initialize_session_state,
+    load_preferences, save_preferences, check_if_applied, load_recycle_bin, get_cv_metadata
+)
+from core_engine import CoreEngine
+from pdf_generator import PDFGenerator
+from ui_layout import render_sidebar, render_job_list, render_human_in_the_loop
+
+# Application Status Constants (for tracking flow)
+APPLICATION_STATUS_DRAFT = 'Draft'
+APPLICATION_STATUS_FINAL_LAUNCH = 'Final Launch'
+
+# הגדרות עמוד
+st.set_page_config(page_title="Vision Stack 2026: Autonomous Mode", layout="wide")
+
+# Pre-Flight Setup: Browser installation check - runs exactly once when app starts
+# Ensure it runs before anything else and NOT inside the "Start Hunting" button loop
+try:
+    from browser_bot import check_and_install_chromium
+    # Browser Speed: This will skip if .playwright_done flag exists
+    browser_check = check_and_install_chromium()
+    if not browser_check.get("status", False):
+        # Only show warning if installation actually failed (not just skipped)
+        if not os.path.exists('.playwright_done'):
+            st.warning(f"⚠️ Browser setup: {browser_check.get('message', 'Unknown issue')}")
+except Exception as browser_error:
+    # Don't block the app if browser check fails
+    print(f"⚠️ Browser check error (non-blocking): {browser_error}")
+
+# 🛡️ בדיקת אינטגריטי (חוק: קוד מלא בלבד)
+# Expose Error: Replace generic message with st.exception(e) to show full traceback
+try:
+    integrity_errors = verify_system()
+    if integrity_errors:
+        st.error("🚨 שגיאת מערכת: יכולות ליבה חסרות.")
+        st.exception(Exception(f"Integrity check failed: {integrity_errors}"))
+        st.stop()
+except Exception as e:
+    st.error("🚨 שגיאת מערכת: שגיאה בבדיקת אינטגריטי")
+    st.exception(e)
+    st.stop()
+
+# Initialize session state
+try:
+    initialize_session_state()
+except Exception as e:
+    st.error("❌ שגיאה באתחול Session State")
+    st.exception(e)
+    st.stop()
+
+# Force Sidebar: Move render_sidebar() to the very top, immediately after initialize_session_state()
+# BUT: render_sidebar needs engine and profile, so we need to initialize them first
+# Initialize core components (engine, profile, pdf_generator) - NO try-except wrapper
+# We'll handle errors with st.exception() inside
+profile = None
+engine = None
+pdf_generator = None
+
+try:
+    profile = load_profile()
+except Exception as e:
+    st.error("❌ שגיאה בטעינת Profile")
+    st.exception(e)
+    st.stop()
+
+try:
+    engine = CoreEngine()
+except Exception as e:
+    st.error("❌ שגיאה באתחול CoreEngine")
+    st.exception(e)
+    st.stop()
+
+try:
+    pdf_generator = PDFGenerator()
+    # Update active model from engine
+    st.session_state.active_model = engine.model_id
+except Exception as e:
+    st.error("❌ שגיאה באתחול PDFGenerator")
+    st.exception(e)
+    st.stop()
+
+# Force Sidebar: Render sidebar immediately after initialization - NO try-except wrapper
+# This ensures sidebar is always visible, even if there are errors later
+try:
+    must_have_keywords, exclude_keywords = render_sidebar(engine, profile)
+except Exception as e:
+    st.error("❌ שגיאה ב-render_sidebar")
+    st.exception(e)
+    # Set defaults to prevent NameError
+    must_have_keywords = []
+    exclude_keywords = []
+
+st.title("🤖 Vision Stack: Full Autonomous Mode")
+
+# --- שלב 1: ניתוח CV (הבסיס למערכת) ---
+st.header("📄 Resume Intelligence")
+# Multi-CV Management: Allow multiple CV uploads
+uploaded_files = st.file_uploader("Upload Master CV(s) to train the Agent", type="pdf", accept_multiple_files=True)
+
+# Multi-CV Management: Process all uploaded files
+if uploaded_files and len(uploaded_files) > 0:
+    # Hash-Based Check: Compare current CV files with metadata in preferences.json
+    current_cv_metadata = get_cv_metadata(uploaded_files)
+    combined_hash = current_cv_metadata['combined_hash'] if current_cv_metadata else hashlib.md5(b''.join([f.getvalue() for f in uploaded_files])).hexdigest()
+    
+    # Load preferences to check stored CV metadata
+    preferences = load_preferences()
+    stored_cv_metadata = preferences.get('cv_metadata', {})
+    stored_hash = stored_cv_metadata.get('combined_hash')
+    
+    # Auto-Sync: Trigger re-analysis if CV files have changed
+    cv_changed = (
+        stored_hash is None or  # No stored metadata
+        stored_hash != combined_hash or  # Hash mismatch
+        stored_cv_metadata.get('file_count', 0) != len(uploaded_files) or  # File count changed
+        stored_cv_metadata.get('filenames', []) != [f.name for f in uploaded_files]  # Filenames changed
+    )
+    
+    # Only process if these are new files (hash doesn't match processed hash) OR CV metadata changed
+    if st.session_state.pdf_processed_hash != combined_hash or cv_changed:
+        if cv_changed and stored_hash:
+            print(f"🔄 Auto-Sync: CV files changed (hash: {stored_hash[:8]}... -> {combined_hash[:8]}...). Triggering re-analysis.")
+            st.info("🔄 **Auto-Sync:** CV files have changed. Re-analyzing Digital Persona...")
+        with st.status("📄 **מנתח קורות חיים...**", expanded=True) as status:
+            try:
+                status.update(label=f"📖 קורא {len(uploaded_files)} קובצי PDF...")
+                cv_texts_list = []
+                
+                # Extract text from all uploaded CVs
+                for i, uploaded_file in enumerate(uploaded_files, 1):
+                    status.update(label=f"📖 קורא קובץ PDF {i}/{len(uploaded_files)}...")
+                    uploaded_file.seek(0)  # Reset file pointer
+                    reader = PyPDF2.PdfReader(uploaded_file)
+                    cv_text = "".join([page.extract_text() for page in reader.pages if page.extract_text()])
+                    cv_texts_list.append(cv_text)
+                
+                # Merge all CVs into Master Profile
+                status.update(label="🔗 מיזוג קורות חיים מרובים ל-Master Profile...")
+                merged_cv_text = engine.merge_cv_data(cv_texts_list)
+                profile['master_cv_text'] = merged_cv_text
+                
+                # Store individual CV texts for reference
+                st.session_state.uploaded_cv_texts = cv_texts_list
+
+                status.update(label="🤖 בונה Digital Persona ומחלץ שאילתת חיפוש... (Building Persona & Generating Query)")
+                # Build Digital Persona first
+                # Enhanced Persona Memory: Use existing persona if available (additive expansion)
+                user_learnings = load_user_learnings()
+                existing_persona = st.session_state.get('digital_persona', None)
+                try:
+                    st.session_state.digital_persona = engine.deep_profile_analysis(
+                        merged_cv_text,
+                        skill_bucket=st.session_state.my_skill_bucket,
+                        rejection_learnings=user_learnings,
+                        existing_persona=existing_persona  # Pass existing persona for additive expansion
+                    )
+                    # Debug Visibility: Print industry focus
+                    industry_focus = st.session_state.digital_persona.get('industry_focus', 'Not specified')
+                    print(f"DEBUG: Industry Focus: {industry_focus}")
+                except Exception as persona_error:
+                    print(f"WARN: Digital Persona creation failed: {persona_error}")
+                    st.exception(persona_error)  # Expose Error
+                    # Create fallback persona
+                    st.session_state.digital_persona = {
+                        "role_level": "Senior",
+                        "industry_focus": "Technology",
+                        "tech_stack": [],
+                        "leadership_style": "Technical Leadership",
+                        "preferences": [],
+                        "avoid_patterns": [],
+                        "persona_summary": "Fallback persona - AI analysis unavailable"
+                    }
+
+                # Build Master Search Profile for query generation
+                master_profile = engine.build_master_search_profile(
+                    merged_cv_text,
+                    skill_bucket=st.session_state.my_skill_bucket,
+                    rejection_learnings=user_learnings
+                )
+                profile['auto_query'] = engine.extract_search_query(merged_cv_text, master_profile=master_profile, digital_persona=st.session_state.digital_persona)
+
+                # Task 3: Integration - Identify potential roles and save to preferences.json
+                # Sync: After CV upload, immediately call identify_potential_roles and update preferences.json
+                status.update(label="🎯 Identifying potential roles...")
+                try:
+                    potential_roles = engine.identify_potential_roles(merged_cv_text)
+                    # Save to preferences.json under user_identity['preferred_roles']
+                    preferences = load_preferences()
+                    preferences['user_identity']['preferred_roles'] = potential_roles
+                    save_preferences(preferences)
+                    # Update session state so UI reflects these roles immediately
+                    st.session_state.potential_roles = potential_roles
+                    print(f"✅ Identified {len(potential_roles)} potential roles: {potential_roles}")
+                except Exception as roles_error:
+                    print(f"⚠️ Error identifying potential roles: {roles_error}")
+                    import traceback
+                    print(traceback.format_exc())
+                    # Continue without failing the whole process
+                
+                # Zero-Click Start: Immediately set hunting_active = True after identify_potential_roles
+                st.session_state.hunting_active = True
+                print(f"✅ Zero-Click Start: hunting_active set to True")
+
+                status.update(label="💾 שומר נתונים... (Saving Data)")
+                save_profile(profile)
+                
+                # Hash-Based Check: Save CV metadata to preferences.json
+                if current_cv_metadata:
+                    preferences = load_preferences()
+                    preferences['cv_metadata'] = current_cv_metadata
+                    save_preferences(preferences, preserve_user_settings=True)  # Silent Update: Preserve user settings
+                    print(f"✅ CV metadata saved: {current_cv_metadata['file_count']} files, hash: {combined_hash[:8]}...")
+
+                # Mark these files as processed
+                st.session_state.pdf_processed_hash = combined_hash
+
+                status.update(label=f"✅ כוילה בהצלחה: {profile['auto_query']}", state="complete")
+                st.success(f"✅ המערכת כוילה לחיפוש: {profile['auto_query']}")
+
+                # Set flag to rerun once after processing completes
+                st.session_state.should_rerun_after_pdf = True
+                
+                # Auto-Start: Immediately after CV processing (after hashing), trigger background_scout.py subprocess
+                # Task 1: Auto-Start Scout - Start background_scout.py if it's not already running
+                try:
+                    import subprocess
+                    import sys
+                    
+                    # Check if background_scout.py exists
+                    if os.path.exists('background_scout.py'):
+                        # Check if background_scout_process is already running in session_state
+                        should_start = True
+                        if 'background_scout_process' in st.session_state:
+                            # Check if process is still alive
+                            existing_process = st.session_state.background_scout_process
+                            if existing_process is not None:
+                                # Check if process is still running (poll() returns None if running, return code if finished)
+                                if existing_process.poll() is None:
+                                    print(f"✅ Auto-Start: Background scout is already running (PID: {existing_process.pid})")
+                                    # Process is already running, don't start another one
+                                    should_start = False
+                                else:
+                                    # Process has finished, need to start a new one
+                                    print(f"⚠️ Auto-Start: Previous background scout process finished. Starting new one.")
+                        
+                        if should_start:
+                            # Start background scout in a separate process (persistent daemon)
+                            scout_process = subprocess.Popen(
+                                [sys.executable, 'background_scout.py'],
+                                stdout=subprocess.PIPE,
+                                stderr=subprocess.PIPE,
+                                text=True
+                            )
+                            st.session_state.background_scout_process = scout_process
+                            print(f"✅ Auto-Start: Background scout started (PID: {scout_process.pid})")
+                            st.info("🚀 **Auto-Start:** Background job scout has been started automatically.")
+                    else:
+                        print(f"⚠️ background_scout.py not found. Skipping auto-start.")
+                except Exception as scout_error:
+                    print(f"⚠️ Failed to start background scout: {scout_error}")
+                    # Don't block the app if scout fails to start
+                
+            except Exception as e:
+                status.update(label=f"❌ שגיאה: {e}", state="error")
+                st.error(f"שגיאה בניתוח הקובץ: {e}")
+                st.exception(e)  # Expose Error
+                st.session_state.should_rerun_after_pdf = False
+
+# Handle rerun only once after PDF processing
+if st.session_state.should_rerun_after_pdf:
+    st.session_state.should_rerun_after_pdf = False
+    st.rerun()
+
+# Dynamic Persona Questionnaire: Initialize questionnaire state
+# Persistence: Use st.session_state to ensure the questionnaire progress isn't lost during background scans
+if profile.get('master_cv_text') and st.session_state.get('digital_persona'):
+    # Initialize questionnaire state
+    if 'persona_questions' not in st.session_state:
+        try:
+            st.session_state.persona_questions = engine.generate_persona_questions(profile['master_cv_text'])
+            st.session_state.persona_answers = {}
+            st.session_state.questionnaire_completed = False
+            # Initialize questionnaire_active flag: True if persona is newly generated and no answers exist
+            preferences = load_preferences()
+            questionnaire_answers = preferences.get('user_identity', {}).get('questionnaire_answers', {})
+            st.session_state.questionnaire_active = len(questionnaire_answers) == 0
+            print(f"✅ Generated {len(st.session_state.persona_questions)} persona questions")
+        except Exception as q_error:
+            print(f"⚠️ Error generating persona questions: {q_error}")
+            st.session_state.persona_questions = []
+            st.session_state.persona_answers = {}
+            st.session_state.questionnaire_completed = False
+            st.session_state.questionnaire_active = False
+    else:
+        # Check if questionnaire should be active (not completed and no answers in preferences)
+        if 'questionnaire_active' not in st.session_state:
+            preferences = load_preferences()
+            questionnaire_answers = preferences.get('user_identity', {}).get('questionnaire_answers', {})
+            st.session_state.questionnaire_active = (not st.session_state.get('questionnaire_completed', False) and len(questionnaire_answers) == 0)
+
+# הגנה: אם אין טקסט של CV, המערכת עוצרת כאן
+if not profile.get('master_cv_text'):
+    st.info("אנא העלה קורות חיים כדי שהסוכן האוטונומי יוכל להתחיל לעבוד.")
+    st.stop()
+
+# הצגת סטטוס הסוכן בבטחה
+current_query = profile.get('auto_query', 'ממתין לכיול...')
+st.info(f"🕵️ **סטטוס סוכן:** מחפש משרות עבור `{current_query}`")
+
+st.divider()
+
+# --- Manual Job Analysis Section ---
+st.header("📝 Manual Job Analysis")
+st.write("Paste a job description below to analyze the match and prepare a draft immediately.")
+manual_job_description = st.text_area(
+    "Job Description:",
+    height=300,
+    placeholder="Paste the job description here...",
+    key="manual_job_description"
+)
+
+if st.button("🔍 Analyze Match & Prepare Draft", key="manual_analyze_btn"):
+    if not manual_job_description.strip():
+        st.warning("Please paste a job description first.")
+    else:
+        with st.status("🤖 **מנתח התאמה ויוצר טיוטה...**", expanded=True) as manual_status:
+            try:
+                manual_status.update(label="📊 מנתח התאמה עם CV ו-Digital Persona...")
+                # Build/load Digital Persona and Master Search Profile
+                user_learnings = load_user_learnings()
+                if st.session_state.digital_persona is None:
+                    st.session_state.digital_persona = engine.deep_profile_analysis(
+                        profile['master_cv_text'],
+                        skill_bucket=st.session_state.my_skill_bucket,
+                        rejection_learnings=user_learnings
+                    )
+                master_profile = engine.build_master_search_profile(
+                    profile['master_cv_text'],
+                    skill_bucket=st.session_state.my_skill_bucket,
+                    rejection_learnings=user_learnings
+                )
+                # Pass strict_industry_match flag to analyze_match
+                strict_industry_match = st.session_state.get('strict_industry_match', True)
+                
+                analysis = engine.analyze_match(manual_job_description, profile['master_cv_text'], 
+                                              skill_bucket=st.session_state.my_skill_bucket, 
+                                              master_profile=master_profile,
+                                              digital_persona=st.session_state.digital_persona,
+                                              strict_industry_match=strict_industry_match)
+                
+                # Debug the 0%: Log AI reason for 0% score
+                score = analysis.get('match_score', analysis.get('score', 0))
+                if score == 0:
+                    print(f"DEBUG: AI Reason for 0% score (Manual Analysis): {analysis.get('explanation', analysis.get('reasoning', 'No explanation provided'))}")
+                
+                score = analysis.get('score', 0)
+                reasoning = analysis.get('reasoning', 'No reasoning available')
+                gaps = analysis.get('gaps', [])
+
+                manual_status.update(label="📝 יוצר טיוטה מותאמת...")
+                # Cover Letter Guard: Validate result before storing
+                draft_text_result = engine.reframing_analysis(manual_job_description, profile['master_cv_text'], 
+                                                       skill_bucket=st.session_state.my_skill_bucket,
+                                                       master_profile=master_profile,
+                                                       digital_persona=st.session_state.digital_persona)
+                # Validation: Ensure draft text is not None
+                if draft_text_result and isinstance(draft_text_result, str) and len(draft_text_result) > 0:
+                    draft_text = draft_text_result
+                else:
+                    # Fallback: Generate basic cover letter
+                    from utils import detect_language
+                    job_lang = detect_language(manual_job_description)
+                    draft_text = engine._generate_fallback_cover_letter(
+                        manual_job_description,
+                        profile['master_cv_text'],
+                        job_lang
+                    )
+
+                # Store in session state for display
+                st.session_state.manual_analysis = analysis
+                st.session_state.manual_draft = draft_text
+                st.session_state.manual_job_description = manual_job_description
+
+                manual_status.update(label="✅ ניתוח וטיוטה מוכנים!", state="complete")
+                st.success(f"✅ Match Score: {score}%")
+                
+            except Exception as e:
+                manual_status.update(label=f"❌ שגיאה: {e}", state="error")
+                st.error(f"שגיאה בניתוח: {e}")
+                st.exception(e)  # Expose Error
+                import traceback
+                print(f"ERROR in manual analysis: {e}\n{traceback.format_exc()}")
+
+# Display manual analysis results
+if 'manual_analysis' in st.session_state and 'manual_draft' in st.session_state:
+    st.divider()
+    st.subheader("📊 Analysis Results")
+    analysis = st.session_state.manual_analysis
+    score = analysis.get('score', 0)
+
+    st.metric("Match Score", f"{score}%")
+    st.write(f"**Reasoning:** {analysis.get('reasoning', 'No reasoning available')}")
+    gaps = analysis.get('gaps', [])
+    if gaps:
+        st.write(f"**Gaps:** {', '.join(gaps)}")
+    else:
+        st.write("**Gaps:** None identified")
+
+    st.subheader("📝 Draft Text")
+    edited_draft = st.text_area(
+        "Edit the draft before saving:",
+        st.session_state.manual_draft,
+        height=200,
+        key="manual_edited_draft"
+    )
+
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("💾 Save Draft", key="save_manual_draft"):
+            # Create a placeholder job dict for the draft
+            manual_job = {
+                'company': 'Manual Entry',
+                'title': 'Manual Job Analysis',
+                'job_url': '',
+                'description': st.session_state.manual_job_description
+            }
+            st.session_state.selected_job = manual_job
+            st.session_state.current_draft = edited_draft
+            st.success("Draft saved! Scroll down to submit.")
+            st.rerun()
+    with col2:
+        if st.button("🗑️ Clear Analysis", key="clear_manual"):
+            del st.session_state.manual_analysis
+            del st.session_state.manual_draft
+            del st.session_state.manual_job_description
+            st.rerun()
+
+st.divider()
+
+# --- שלב 2: חיפוש ומציאת משרות אוטונומי ---
+st.header("🔍 Automated Job Matcher")
+
+# Task 1: Live Sync - Read discovered_jobs.csv and update st.session_state.jobs automatically
+DISCOVERED_JOBS_CSV = 'discovered_jobs.csv'
+
+# Initialize sync status container
+if 'sync_status_container' not in st.session_state:
+    st.session_state.sync_status_container = st.empty()
+
+# Live Sync: Read discovered_jobs.csv and append new jobs to st.session_state.jobs
+def sync_discovered_jobs():
+    """
+    Read discovered_jobs.csv and append new jobs to st.session_state.jobs.
+    Returns the number of jobs found in the CSV.
+    """
+    if not os.path.exists(DISCOVERED_JOBS_CSV):
+        return 0
+    
+    try:
+        # Read CSV
+        discovered_df = pd.read_csv(DISCOVERED_JOBS_CSV)
+        
+        if discovered_df.empty:
+            return 0
+        
+        # Convert discovered_jobs.csv format to job format (title, company, job_url, description)
+        # CSV columns: timestamp, company, title, job_url, match_score, best_role, description_preview
+        jobs_list = []
+        for _, row in discovered_df.iterrows():
+            job_dict = {
+                'title': row.get('title', ''),
+                'company': row.get('company', ''),
+                'job_url': row.get('job_url', ''),
+                'description': row.get('description_preview', '')  # Use description_preview as description
+            }
+            # Only add valid jobs (with URL)
+            if job_dict['job_url']:
+                jobs_list.append(job_dict)
+        
+        if not jobs_list:
+            return 0
+        
+        # Convert to DataFrame
+        new_jobs_df = pd.DataFrame(jobs_list)
+        
+        # Get existing jobs
+        if 'jobs' in st.session_state and st.session_state.jobs is not None and not st.session_state.jobs.empty:
+            existing_jobs_df = st.session_state.jobs
+            # Merge with existing jobs (avoid duplicates by job_url)
+            if 'job_url' in existing_jobs_df.columns and 'job_url' in new_jobs_df.columns:
+                # Find new jobs (not already in existing_jobs)
+                existing_urls = set(existing_jobs_df['job_url'].dropna())
+                new_jobs_df = new_jobs_df[~new_jobs_df['job_url'].isin(existing_urls)]
+            
+            if not new_jobs_df.empty:
+                # Append new jobs to existing jobs
+                merged_jobs = pd.concat([existing_jobs_df, new_jobs_df], ignore_index=True)
+                # Remove duplicates by job_url (keep first)
+                if 'job_url' in merged_jobs.columns:
+                    merged_jobs = merged_jobs.drop_duplicates(subset=['job_url'], keep='first')
+                st.session_state.jobs = merged_jobs
+                print(f"✅ Live Sync: Added {len(new_jobs_df)} new jobs from {DISCOVERED_JOBS_CSV}. Total: {len(merged_jobs)} jobs.")
+            else:
+                print(f"ℹ️ Live Sync: No new jobs to add from {DISCOVERED_JOBS_CSV}.")
+        else:
+            # No existing jobs, set new jobs
+            st.session_state.jobs = new_jobs_df
+            print(f"✅ Live Sync: Loaded {len(new_jobs_df)} jobs from {DISCOVERED_JOBS_CSV}.")
+        
+        return len(discovered_df)
+    except Exception as e:
+        print(f"⚠️ Live Sync Error: Failed to read {DISCOVERED_JOBS_CSV}: {e}")
+        return 0
+
+# Sync discovered jobs from CSV
+jobs_count = sync_discovered_jobs()
+
+# Display status if hunting_active is True
+if st.session_state.get('hunting_active', False):
+    st.info(f"🕵️ **Agent is actively scouting...** [{jobs_count}] jobs found in discovered_jobs.csv")
+    if jobs_count > 0 and 'jobs' in st.session_state and st.session_state.jobs is not None:
+        total_jobs = len(st.session_state.jobs)
+        st.caption(f"Total jobs in session: {total_jobs}")
+
+if 'jobs' in st.session_state and st.session_state.jobs is not None and not st.session_state.jobs.empty:
+    # Display Verification: Debug print before display logic
+    st.write(f'DEBUG: Found {len(st.session_state.jobs)} jobs before filtering')
+    print(f"DEBUG: Found {len(st.session_state.jobs)} jobs before filtering")
+    
+    # CRITICAL FIX: Disable ALL keyword filtering - show EVERY job found
+    jobs_to_display = st.session_state.jobs.copy()
+
+    # Never-Zero Display Rule: If total_found > 0 but analyzed == 0, show raw jobs with 'Waiting for AI' status
+    total_found = len(jobs_to_display)
+    analyzed_count = len(st.session_state.jobs_analyzed)
+    
+    if total_found > 0 and analyzed_count == 0:
+        # AI analysis hasn't started or completely failed - show raw jobs with 'Waiting for AI' status
+        st.subheader(f"📋 תוצאות חיפוש ({total_found} משרות - ממתין לניתוח AI)")
+        st.info("⏳ **ממתין לניתוח AI:** המשרות נמצאו אך טרם נותחו. המשרות יוצגו עם סטטוס 'Waiting for AI' עד שהניתוח יושלם.")
+        
+        # Display raw jobs immediately with 'Waiting for AI' status
+        for index, job in jobs_to_display.iterrows():
+            job_key = f"{job.get('company', '')}_{job.get('title', '')}_{index}"
+            # Create default 'Waiting for AI' analysis
+            st.session_state.job_analyses[job_key] = {
+                "score": 0,
+                "reasoning": "Waiting for AI analysis...",
+                "gaps": [],
+                "waiting_for_ai": True
+            }
+            st.session_state.jobs_analyzed.add(job_key)
+        
+        # Force trigger analysis
+        jobs_to_analyze = [(idx, job, f"{job.get('company', '')}_{job.get('title', '')}_{idx}") 
+                          for idx, job in jobs_to_display.iterrows()]
+    else:
+        st.subheader(f"📋 תוצאות חיפוש ({len(jobs_to_display)} משרות)")
+
+        if len(jobs_to_display) < len(st.session_state.jobs):
+            st.info(f"🔍 **Filtered:** {len(jobs_to_display)} jobs shown (filtered from {len(st.session_state.jobs)} total)")
+
+        # Use show_all_jobs from sidebar (already set in session state)
+        show_all_jobs = st.session_state.show_all_jobs
+
+        # Analyze jobs (only if not already analyzed)
+        jobs_to_analyze = []
+        for index, job in jobs_to_display.iterrows():
+            job_key = f"{job.get('company', '')}_{job.get('title', '')}_{index}"
+            if job_key not in st.session_state.jobs_analyzed:
+                jobs_to_analyze.append((index, job, job_key))
+
+    # Progress spinner for batch analysis
+    if jobs_to_analyze:
+        total_jobs = len(jobs_to_analyze)
+        progress_bar = st.progress(0)
+        status_text = st.empty()
+        error_details_box = st.empty()  # Box to show error details if any
+        errors_encountered = []
+        ai_analysis_failed = False  # Track if AI analysis completely fails
+
+        with st.spinner("🤖 Analyzing jobs for CV-match..."):
+            # Build/load Digital Persona and Master Search Profile once for all jobs
+            user_learnings = load_user_learnings()
+            if st.session_state.digital_persona is None:
+                try:
+                    st.session_state.digital_persona = engine.deep_profile_analysis(
+                        profile['master_cv_text'],
+                        skill_bucket=st.session_state.my_skill_bucket,
+                        rejection_learnings=user_learnings
+                    )
+                except Exception as e:
+                    print(f"WARN: Digital Persona creation failed: {e}")
+                    st.exception(e)  # Expose Error
+                    ai_analysis_failed = True
+                    # Create fallback persona
+                    st.session_state.digital_persona = {
+                        "role_level": "Senior",
+                        "industry_focus": "Technology",
+                        "tech_stack": [],
+                        "leadership_style": "Technical Leadership",
+                        "preferences": [],
+                        "avoid_patterns": [],
+                        "persona_summary": "Fallback persona - AI analysis unavailable"
+                    }
+                    st.warning("⚠️ AI analysis unavailable. Showing jobs with 'Needs Manual Review' label.")
+
+            master_profile = engine.build_master_search_profile(
+                profile['master_cv_text'],
+                skill_bucket=st.session_state.my_skill_bucket,
+                rejection_learnings=user_learnings
+            )
+
+            # Use status container for progress (no automatic rerun)
+            with st.status("🤖 Analyzing jobs...", expanded=False) as analysis_status:
+                for i, (index, job, job_key) in enumerate(jobs_to_analyze):
+                    # Fix Pandas Warning: Convert Series to dict if needed
+                    job_dict = job.to_dict() if hasattr(job, 'to_dict') else job
+                    job_title = job_dict.get('title', '') if isinstance(job_dict, dict) else job.get('title', '')
+                    job_company = job_dict.get('company', '') if isinstance(job_dict, dict) else job.get('company', '')
+                    
+                    # Bypass the 'Broken Job' Filter: Be more permissive - don't filter out titles like "Founding Engineer / CTO"
+                    # Only filter truly empty or placeholder titles, not titles that might contain valid content
+                    job_title_str = str(job_title).strip() if job_title else ''
+                    
+                    # Check if title is truly empty or just a placeholder
+                    is_truly_empty = (
+                        not job_title_str or 
+                        job_title_str in ['', 'Job Title', 'NaN', 'nan', 'None', 'null', 'N/A', 'n/a']
+                    )
+                    
+                    # But allow titles that contain executive keywords even if they look unusual
+                    # This prevents filtering out "Founding Engineer / CTO" or similar valid titles
+                    contains_executive_keywords = False
+                    if job_title_str:
+                        title_upper = job_title_str.upper()
+                        executive_keywords = ['CTO', 'VP', 'CHIEF', 'DIRECTOR', 'HEAD', 'FOUNDING', 'FOUNDER', 'ENGINEER', 'TECHNOLOGY']
+                        contains_executive_keywords = any(kw in title_upper for kw in executive_keywords)
+                    
+                    # Only filter if truly empty AND doesn't contain executive keywords
+                    if is_truly_empty and not contains_executive_keywords:
+                        print(f"🚫 Broken job filtered out: Empty or invalid title (Title: '{job_title}')")
+                        st.session_state.jobs_analyzed.add(job_key)
+                        continue
+                    elif is_truly_empty and contains_executive_keywords:
+                        # Title looks empty but contains executive keywords - keep it
+                        print(f"⚠️ Keeping job with unusual title (contains executive keywords): '{job_title}'")
+                    
+                    # Pre-Filter Non-Tech: Filter out non-tech jobs with Hebrew keywords
+                    non_tech_keywords = ['סופר', 'קופאי', 'עוזר אישי', 'מחסנאי', 'שומר', 'נהג', 'מלצר', 'מטבח']
+                    job_title_lower = str(job_title).lower()
+                    if any(keyword in job_title_lower for keyword in non_tech_keywords):
+                        print(f"🚫 Non-tech job filtered out: {job_title} (contains non-tech keyword)")
+                        st.session_state.jobs_analyzed.add(job_key)
+                        continue
+                    
+                    analysis_status.update(label=f"🤖 מנתח משרה {i+1}/{total_jobs}: {job_title} @ {job_company}")
+                    try:
+                        # Duplicate Block: Check if job title + company matches applications_history.csv
+                        # Remove it entirely from the list so it doesn't reach the scoring stage
+                        applications_file = 'applications_history.csv'
+                        if os.path.exists(applications_file):
+                            try:
+                                applications_df = pd.read_csv(applications_file)
+                                # Check if this job title + company combination exists in applications history
+                                is_duplicate = (
+                                    (applications_df['title'].str.lower() == job_title.lower()).any() and
+                                    (applications_df['company'].str.lower() == job_company.lower()).any()
+                                )
+                                if is_duplicate:
+                                    print(f"🚫 Duplicate job blocked: {job_title} at {job_company} (already in applications_history.csv)")
+                                    # Remove from jobs_to_display by marking as analyzed (will be skipped)
+                                    st.session_state.jobs_analyzed.add(job_key)
+                                    continue
+                            except Exception as e:
+                                print(f"⚠️ Error checking applications_history.csv: {e}")
+                        
+                        # Validate job before analysis
+                        is_valid_desc, desc_reason = validate_job_description(job_dict if isinstance(job_dict, dict) else job)
+                        if not is_valid_desc:
+                            st.session_state.job_analyses[job_key] = {
+                                "score": 0,
+                                "reasoning": f"Invalid Data: {desc_reason}",
+                                "gaps": ["Invalid Job Data"],
+                                "is_invalid": True
+                            }
+                            st.session_state.jobs_analyzed.add(job_key)
+                            continue
+                        
+                        job_description = job_dict.get('description', '') if isinstance(job_dict, dict) else job.get('description', '')
+                        
+                        # Pass strict_industry_match flag to analyze_match
+                        strict_industry_match = st.session_state.get('strict_industry_match', True)
+                        
+                        # Pass job_title for hard override logic
+                        analysis = engine.analyze_match(job_description, profile['master_cv_text'], 
+                                                       skill_bucket=st.session_state.my_skill_bucket,
+                                                       master_profile=master_profile,
+                                                       digital_persona=st.session_state.digital_persona,
+                                                       strict_industry_match=strict_industry_match,
+                                                       job_title=job_title)
+                        
+                        # Debug the 0%: Log AI reason for 0% score
+                        match_score = analysis.get('match_score', analysis.get('score', 0))
+                        if match_score == 0:
+                            print(f"DEBUG: AI Reason for 0% score: {analysis.get('explanation', analysis.get('reasoning', 'No explanation provided'))}")
+                            print(f"DEBUG: Job Title: {job_title}, Company: {job_company}")
+                            print(f"DEBUG: Analysis keys: {list(analysis.keys())}")
+                        
+                        st.session_state.job_analyses[job_key] = analysis
+                        st.session_state.jobs_analyzed.add(job_key)
+                    except Exception as e:
+                        import traceback
+                        tb_str = traceback.format_exc()
+                        error_message = f"❌ שגיאה בניתוח משרה [{job.get('title', 'Unknown')} @ {job.get('company', 'Unknown')}]: {e}"
+                        errors_encountered.append(error_message)
+                        print(f"ERROR: {error_message}\n{tb_str}")
+                        st.exception(e)  # Expose Error
+                        
+                        # UI Fallback: Check for ERROR_404 specifically
+                        error_str = str(e)
+                        is_error_404 = '404' in error_str or 'NOT_FOUND' in error_str or 'ClientError' in error_str
+                        
+                        # EMERGENCY JOB RECOVERY: If analyze_match fails, DO NOT discard the job
+                        # Add placeholder analysis with match_score and explanation keys for UI compatibility
+                        # Placeholder analysis with both old and new key formats for compatibility
+                        fallback_analysis = {
+                            "score": 0,  # Old format
+                            "match_score": 0,  # New format for UI
+                            "reasoning": "Raw Data - Analysis Unavailable",  # Old format
+                            "explanation": "Raw Data - Analysis Unavailable",  # New format for UI
+                            "gaps": [],
+                            "needs_manual_review": True
+                        }
+                        if is_error_404:
+                            fallback_analysis["error_code"] = "ERROR_404"
+                            fallback_analysis["error"] = "ERROR_404: API model not found or unavailable"
+                            fallback_analysis["explanation"] = "Raw Data - Analysis Unavailable (API Error - 404)"
+                        
+                        # CRITICAL: Always add job to analyses, never discard
+                        st.session_state.job_analyses[job_key] = fallback_analysis
+                        st.session_state.jobs_analyzed.add(job_key)
+                        ai_analysis_failed = True
+                    progress_bar.progress((i + 1) / total_jobs)
+                analysis_status.update(label=f"✅ Completed analysis of {total_jobs} jobs", state="complete")
+            status_text.empty()
+            progress_bar.empty()
+            if errors_encountered:
+                error_details_box.warning(f"⚠️ AI analysis failed for {len(errors_encountered)} jobs. These jobs are marked 'Needs Manual Review' with a default 50% match score.")
+            else:
+                st.success(f"✅ נותחו {total_jobs} משרות בהצלחה!")
+            
+            # Session Refresh: Force rerun at end of analysis loop to ensure jobs appear on screen
+            st.rerun()
+
+    # Prevent Duplicate Applications: Filter out jobs that have already been applied to
+    # Recycle Bin: Filter out jobs that are in the recycle bin
+    recycle_bin = load_recycle_bin()
+    recycle_bin_urls = {entry.get('job_url', '') for entry in recycle_bin}
+    
+    # FORCE DISPLAY: If jobs exist, ensure they are displayed even if AI analysis failed
+    # Create default analysis for jobs that weren't analyzed yet
+    # Also filter out jobs in recycle bin and already applied jobs
+    for index, job in jobs_to_display.iterrows():
+        job_url = job.get('job_url', '')
+        
+        # Skip if job is in recycle bin
+        if job_url in recycle_bin_urls:
+            continue
+        
+        # Skip if already applied (status='applied')
+        # Fix 'Already Applied' Score: Preserve original match score if analysis exists
+        job_key = f"{job.get('company', '')}_{job.get('title', '')}_{index}"
+        if check_if_applied(job_url):
+            # Check if we already have an analysis for this job
+            existing_analysis = st.session_state.job_analyses.get(job_key, None)
+            if existing_analysis:
+                # Preserve original match score
+                original_score = existing_analysis.get('match_score', existing_analysis.get('score', 0))
+                st.session_state.job_analyses[job_key] = {
+                    "score": original_score,  # Preserve original score
+                    "match_score": original_score,  # Preserve original score
+                    "reasoning": existing_analysis.get('reasoning', 'Already applied - marked as duplicate'),
+                    "explanation": f"⚠️ **Already Applied:** This job has already been submitted. Original match score: {original_score}%.",
+                    "gaps": existing_analysis.get('gaps', []),
+                    "why_matches": existing_analysis.get('why_matches', ''),
+                    "why_doesnt_match": existing_analysis.get('why_doesnt_match', ''),
+                    "already_applied": True,
+                    "original_score": original_score  # Store original for reference
+                }
+            else:
+                # No existing analysis - mark as already applied with 0 score
+                st.session_state.job_analyses[job_key] = {
+                    "score": 0,
+                    "match_score": 0,
+                    "reasoning": "Already applied - marked as duplicate",
+                    "explanation": "⚠️ **Already Applied:** This job has already been submitted.",
+                    "gaps": [],
+                    "already_applied": True
+                }
+            st.session_state.jobs_analyzed.add(job_key)
+            continue
+        
+        job_key = f"{job.get('company', '')}_{job.get('title', '')}_{index}"
+        if job_key not in st.session_state.job_analyses:
+            # EMERGENCY JOB RECOVERY: Force create default analysis if missing (AI analysis may have failed)
+            # UI Fallback: Mark as ERROR_404 if API is unavailable
+            # Use both old and new key formats for compatibility
+            st.session_state.job_analyses[job_key] = {
+                "score": 0,  # Old format
+                "match_score": 0,  # New format for UI
+                "reasoning": "Raw Data - Analysis Unavailable",  # Old format
+                "explanation": "Raw Data - Analysis Unavailable",  # New format for UI
+                "gaps": [],
+                "needs_manual_review": True,
+                "error_code": "ERROR_404",  # Mark as 404 for UI fallback
+                "error": "ERROR_404: API model not found or unavailable"
+            }
+            st.session_state.jobs_analyzed.add(job_key)
+    
+    # FORCE DISPLAY: Disable ALL filters - show EVERY job found
+    # CRITICAL: Replace filtering logic with direct assignment to show all 23+ jobs
+    filtered_by_persona = []
+    
+    # Analyze Emergency Data: Look at the jobs currently in session_state.jobs
+    # If any job title contains 'CTO', 'VP', or 'Chief', and it was filtered out, it means the analyze_match logic is still too restrictive
+    if not st.session_state.jobs.empty:
+        executive_keywords = ['CTO', 'VP', 'Chief', 'Vice President', 'Director', 'Head of', 'Founding']
+        executive_jobs = []
+        for idx, job in st.session_state.jobs.iterrows():
+            job_title = str(job.get('title', '')).upper()
+            if any(kw.upper() in job_title for kw in executive_keywords):
+                executive_jobs.append({
+                    'title': job.get('title', 'Unknown'),
+                    'company': job.get('company', 'Unknown'),
+                    'url': job.get('job_url', ''),
+                    'index': idx
+                })
+        
+        if executive_jobs:
+            print(f"🔍 EMERGENCY DATA ANALYSIS: Found {len(executive_jobs)} executive-level jobs in session_state.jobs:")
+            for ej in executive_jobs[:10]:  # Show first 10
+                job_key = f"{ej['company']}_{ej['title']}_{ej['index']}"
+                analysis = st.session_state.job_analyses.get(job_key, {})
+                score = analysis.get('match_score', analysis.get('score', 'N/A'))
+                print(f"  - {ej['title']} @ {ej['company']}: Score = {score}%")
+    
+    # Prevent Duplicate Applications: Filter out jobs that have already been applied to
+    # Recycle Bin: Filter out jobs that are in the recycle bin
+    recycle_bin = load_recycle_bin()
+    recycle_bin_urls = {entry.get('job_url', '') for entry in recycle_bin}
+    
+    # Real-time Filtering: Use st.session_state.threshold instead of hardcoded 40%
+    # Fix 'Found 33, Rendering 0': Lower match_threshold default to 10% to ensure even 'weak' matches show up
+    # Initialize threshold if not exists
+    if 'threshold' not in st.session_state:
+        st.session_state.threshold = 10  # Lowered from 40 to 10 to fix 'Found 33, Rendering 0' issue
+    
+    # Clean UI: Set display threshold back to 10% but ensure hard-override jobs (85%) pass through
+    threshold = st.session_state.threshold  # Use user-defined threshold (default 10%)
+    
+    # Hard Threshold: Only display jobs with match_score >= threshold
+    # Jobs below threshold are automatically moved to recycle bin
+    displayed_jobs = []
+    already_applied_jobs = []
+    hidden_jobs = []  # Jobs with score < threshold that will be moved to recycle bin
+    
+    # Display jobs - filter by match_score threshold (dynamic from slider)
+    # Filter out jobs in recycle bin and already applied jobs
+    for index, job in jobs_to_display.iterrows():
+        job_url = job.get('job_url', '')
+        
+        # Skip if job is in recycle bin (they should never appear)
+        if job_url in recycle_bin_urls:
+            continue
+        
+        job_key = f"{job.get('company', '')}_{job.get('title', '')}_{index}"
+        # Force get or create analysis - ensure it exists with defaults
+        analysis = st.session_state.job_analyses.get(job_key, {
+            "score": 0,  # Old format
+            "match_score": 0,  # New format for UI
+            "reasoning": "Raw Data - Analysis Unavailable",  # Old format
+            "explanation": "Raw Data - Analysis Unavailable",  # New format for UI
+            "gaps": [],
+            "needs_manual_review": True
+        })
+        
+        # Separate already applied jobs (they go to a separate section)
+        if analysis.get('already_applied', False) or check_if_applied(job_url):
+            already_applied_jobs.append((index, job, job_key, analysis))
+            continue
+        
+        # Fix App Rendering: Debug print to see what scores are being used
+        match_score = analysis.get('match_score', analysis.get('score', 0))
+        job_title = job.get('title', 'Unknown')
+        print(f"DEBUG: Score for '{job_title}' is {match_score} (threshold: {threshold})")
+        
+        # Fix UI Filtering: Ensure any job with is_hard_override=True or a score of 85% skips all filters
+        # Hard-Override jobs have hard_override=True flag and score of 85%
+        is_hard_override = analysis.get('hard_override', False)
+        is_executive_85 = (match_score >= 85) or is_hard_override  # More aggressive: any 85% OR hard_override flag
+        
+        # Hard Threshold: Check if match_score < threshold (dynamic from slider)
+        # BUT: Hard-override jobs (85% or hard_override=True) always pass through regardless of threshold
+        if match_score < threshold and not is_executive_85:
+            # Automatically move to recycle bin without user intervention (unless hard-override)
+            try:
+                from utils import move_to_recycle_bin
+                # Fix Pandas Warning: Convert Series to dict if needed
+                job_dict = job.to_dict() if hasattr(job, 'to_dict') else job
+                move_to_recycle_bin(job_dict, f'Auto-filtered: Match score {match_score}% is below {threshold}% threshold')
+                hidden_jobs.append((index, job, job_key, analysis, match_score))
+                print(f"🔒 Auto-hidden job: {job.get('title', 'Unknown')} (Score: {match_score}% < {threshold}%)")
+            except Exception as e:
+                print(f"⚠️ Error moving job to recycle bin: {e}")
+                # Continue to next job even if recycle bin move fails
+            continue  # Skip this job - don't display it
+        
+        # Add job to displayed_jobs only if match_score >= threshold
+        displayed_jobs.append((index, job, job_key, analysis))
+    
+    # Store displayed jobs in session state for persistence
+    if 'found_jobs' not in st.session_state:
+        st.session_state.found_jobs = []
+    
+    # Fix UI Filtering: Ensure hard-override jobs are ALWAYS in found_jobs
+    # The Hard-Override UI Fix: Confirm that jobs with match_score >= 85 (our CTO roles) are appended to the list
+    # Add any hard-override jobs that might have been missed
+    hard_override_jobs = []
+    if 'jobs' in st.session_state and st.session_state.jobs is not None:
+        # Data Consistency: Handle both lists and DataFrames
+        jobs_to_check = st.session_state.jobs
+        if isinstance(jobs_to_check, list):
+            if len(jobs_to_check) > 0:
+                jobs_to_check = pd.DataFrame(jobs_to_check)
+            else:
+                jobs_to_check = pd.DataFrame()
+        
+        if not jobs_to_check.empty:
+            for index, job in jobs_to_check.iterrows():
+                job_key = f"{job.get('company', '')}_{job.get('title', '')}_{index}"
+                analysis = st.session_state.job_analyses.get(job_key, {})
+                is_hard_override = analysis.get('hard_override', False)
+                match_score = analysis.get('match_score', analysis.get('score', 0))
+                # If it's a hard-override job or has 85% score, ensure it's in found_jobs
+                if is_hard_override or match_score >= 85:
+                    # Check if it's not already in displayed_jobs
+                    already_displayed = any(dj[1].get('title') == job.get('title') and dj[1].get('company') == job.get('company') for dj in displayed_jobs)
+                    if not already_displayed:
+                        hard_override_jobs.append((index, job, job_key, analysis))
+                        print(f"🔧 Fix UI Filtering: Adding hard-override job '{job.get('title')}' to found_jobs (Score: {match_score}%, hard_override: {is_hard_override})")
+    
+    # FORCE DISPLAY: Update found_jobs with ALL displayed jobs + hard-override jobs
+    st.session_state.found_jobs = displayed_jobs + hard_override_jobs
+    
+    # Display info about hidden jobs (if any)
+    if hidden_jobs:
+        with st.expander(f"🔒 Auto-Hidden Jobs ({len(hidden_jobs)}) - Below {threshold}% Threshold", expanded=False):
+            st.info(f"These {len(hidden_jobs)} jobs were automatically hidden because their match score is below {threshold}%. They have been moved to the recycle bin.")
+            for index, job, job_key, analysis, match_score in hidden_jobs[:10]:  # Show first 10
+                st.caption(f"❌ {job.get('title', 'Unknown')} at {job.get('company', 'Unknown')} - Score: {match_score}%")
+    
+    # Display already applied jobs in a separate collapsed section
+    if already_applied_jobs:
+        with st.expander(f"✅ Already Applied Jobs ({len(already_applied_jobs)})", expanded=False):
+            st.info("These jobs have already been submitted. They are hidden from the main list to prevent duplicate applications.")
+            for index, job, job_key, analysis in already_applied_jobs:
+                company = job.get('company', 'Unknown')
+                title = job.get('title', 'Unknown')
+                with st.expander(f"✅ {company} - {title}", expanded=False):
+                    st.warning("⚠️ **Status:** Already Applied")
+                    st.write(f"**Company:** {company}")
+                    st.write(f"**Title:** {title}")
+                    job_url = job.get('job_url', '#')
+                    if job_url and job_url != '#':
+                        st.write(f"**Job URL:** [{job_url}]({job_url})")
+    
+    # Verify Persona Loading: Check if digital_persona is populated
+    if st.session_state.get('digital_persona') is None:
+        print("WARN: st.session_state.digital_persona is None! The AI has no CV to compare to.")
+        st.warning("⚠️ **Warning:** Digital Persona is not loaded. Please upload a CV to enable job matching.")
+    else:
+        persona_summary = st.session_state.digital_persona.get('persona_summary', '')
+        print(f"DEBUG: Digital Persona loaded. Persona Summary: '{persona_summary[:100]}...' (length: {len(persona_summary)})")
+    
+    # Debug: Verify found_jobs is populated before rendering
+    print(f"DEBUG app.py: About to render {len(displayed_jobs)} jobs. found_jobs length: {len(st.session_state.found_jobs)}")
+    
+    # Emergency Visibility: If found_jobs is empty but session_state.jobs has data, show message
+    if len(st.session_state.found_jobs) == 0 and 'jobs' in st.session_state and st.session_state.jobs is not None:
+        # Data Consistency: Handle both lists and DataFrames
+        jobs_to_check = st.session_state.jobs
+        if isinstance(jobs_to_check, list):
+            has_jobs = len(jobs_to_check) > 0
+        else:
+            has_jobs = not jobs_to_check.empty
+        
+        if has_jobs:
+            st.warning("⚠️ **Matching jobs found but filtered by score.**")
+            st.info("💡 **Tip:** Adjust your filters in the Sidebar or enable 'Show All Found Jobs' to see all matching jobs.")
+            st.write(f"**Total jobs found:** {len(jobs_to_check) if isinstance(jobs_to_check, list) else len(jobs_to_check)}")
+            st.write(f"**Current threshold:** {threshold}%")
+            st.write(f"**Displayed jobs:** {len(displayed_jobs)}")
+    
+    # Emergency Render Fix: Ensure the Emergency Render actually shows the jobs it found in session_state.jobs
+    if len(st.session_state.found_jobs) == 0 and 'jobs' in st.session_state and st.session_state.jobs is not None:
+        # Data Consistency: Handle both lists and DataFrames
+        jobs_to_check = st.session_state.jobs
+        if isinstance(jobs_to_check, list):
+            has_jobs = len(jobs_to_check) > 0
+        else:
+            has_jobs = not jobs_to_check.empty
+        
+        if has_jobs:
+            st.error("🚨 **EMERGENCY RENDER:** Found 0 jobs in found_jobs but session_state.jobs has data. Showing ALL jobs from session_state.jobs:")
+            # Data Consistency: Handle both lists and DataFrames
+            jobs_count = len(jobs_to_check) if isinstance(jobs_to_check, list) else len(jobs_to_check)
+            st.write(f"**Total jobs in session_state.jobs:** {jobs_count}")
+            
+            # Emergency Render Fix: Actually display the jobs from session_state.jobs
+            with st.expander("🔍 **Emergency: ALL Jobs from session_state.jobs**", expanded=True):
+                # Convert to DataFrame if it's a list
+                if isinstance(jobs_to_check, list):
+                    jobs_to_check = pd.DataFrame(jobs_to_check) if len(jobs_to_check) > 0 else pd.DataFrame()
+                
+                if not jobs_to_check.empty:
+                    for idx, (index, job) in enumerate(jobs_to_check.iterrows()):
+                        job_title = job.get('title', 'Unknown')
+                job_company = job.get('company', 'Unknown')
+                job_url = job.get('job_url', '#')
+                job_key = f"{job_company}_{job_title}_{index}"
+                analysis = st.session_state.job_analyses.get(job_key, {
+                    "match_score": 0,
+                    "explanation": "No AI analysis available (filtered out early or error)"
+                })
+                match_score = analysis.get('match_score', analysis.get('score', 0))
+                reasoning = analysis.get('explanation', analysis.get('reasoning', 'No reasoning available'))
+                is_hard_override = analysis.get('hard_override', False)
+                
+                # Display the job with full details
+                st.markdown(f"**{idx+1}. {job_title}** at **{job_company}**")
+                col1, col2 = st.columns(2)
+                with col1:
+                    st.metric("Match Score", f"{match_score}%")
+                with col2:
+                    if is_hard_override:
+                        st.success("🔧 Hard-Override Applied")
+                    else:
+                        st.info("Standard Analysis")
+                
+                st.write(f"**AI Reasoning:**")
+                st.info(reasoning[:1000] + "..." if len(reasoning) > 1000 else reasoning)
+                
+                if job_url != '#':
+                    st.markdown(f"[View Job]({job_url})")
+                
+                st.caption(f"Job Key: {job_key} | Index: {index}")
+                st.divider()
+        
+        st.warning("⚠️ **Debug Info:** Check the console logs for 'DEBUG: Score for...' messages to see why jobs are being filtered.")
+    
+    # Render job list using ui_layout module
+    # CRITICAL: This call must happen - if jobs exist, they must be rendered
+    try:
+        if displayed_jobs:
+            render_job_list(engine, pdf_generator, profile, filtered_by_persona)
+        elif len(displayed_jobs) == 0 and ('jobs' not in st.session_state or st.session_state.jobs is None or st.session_state.jobs.empty):
+            st.warning("⚠️ No jobs to display after filtering. Check your search criteria and filters.")
+    except Exception as e:
+        st.error("❌ שגיאה ב-render_job_list")
+        st.exception(e)  # Expose Error
+
+else:
+    # If jobs is None or empty, after interaction, be explicit!
+    if 'jobs' in st.session_state and (st.session_state.jobs is None or (hasattr(st.session_state.jobs, 'empty') and st.session_state.jobs.empty)):
+        # Only show warning if not currently scraping
+        if not st.session_state.get('scraping_in_progress', False):
+            st.warning("לא נמצאו משרות להצגה כעת (יתכן שהחיפוש לא הניב תוצאות מתאימות או שישנה שגיאה בנתונים).")
+            print("INFO: st.session_state.jobs is None or empty -- nothing to display.")
+
+# Render Human-in-the-Loop section
+try:
+    render_human_in_the_loop(engine, pdf_generator)
+except Exception as e:
+    st.error("❌ שגיאה ב-render_human_in_the_loop")
+    st.exception(e)  # Expose Error

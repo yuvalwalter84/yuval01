@@ -1,0 +1,3277 @@
+[
+  {
+    "timestamp": "2026-01-13T22:12:04.280429",
+    "type": "info",
+    "message": "Background Job Scout started. Running every 30 minutes."
+  },
+  {
+    "timestamp": "2026-01-13T22:12:04.280650",
+    "type": "info",
+    "message": "High-match jobs (>= 70%) will be logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-13T22:12:04.280945",
+    "type": "info",
+    "message": "Cycle #1 - 2026-01-13T22:12:04.280937"
+  },
+  {
+    "timestamp": "2026-01-13T22:12:04.285915",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-13T22:12:04.285890"
+  },
+  {
+    "timestamp": "2026-01-13T22:12:04.287769",
+    "type": "info",
+    "message": "Loaded preferences: 8 potential roles, 1 added skills"
+  },
+  {
+    "timestamp": "2026-01-13T22:12:05.935739",
+    "type": "info",
+    "message": "Using potential roles as search queries: ['CTO', 'VP Product', 'Head of Technology', 'VP E-commerce', 'Chief Technology Officer']"
+  },
+  {
+    "timestamp": "2026-01-13T22:12:05.936894",
+    "type": "info",
+    "message": "Searching for CTO on LinkedIn..."
+  },
+  {
+    "timestamp": "2026-01-13T22:12:12.782060",
+    "type": "success",
+    "message": "Found 15 jobs from JobSpy"
+  },
+  {
+    "timestamp": "2026-01-13T22:12:12.782505",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-13T22:13:15.658739",
+    "type": "success",
+    "message": "Found 18 jobs from Israeli boards"
+  },
+  {
+    "timestamp": "2026-01-13T22:13:15.664655",
+    "type": "info",
+    "message": "Processing 2 valid jobs..."
+  },
+  {
+    "timestamp": "2026-01-13T22:13:17.778047",
+    "type": "success",
+    "message": "Scout cycle complete. Found 0 high-match jobs (>= 70%)"
+  },
+  {
+    "timestamp": "2026-01-13T22:13:17.778394",
+    "type": "info",
+    "message": "Waiting 30 minutes until next cycle..."
+  },
+  {
+    "timestamp": "2026-01-13T22:43:17.886786",
+    "type": "info",
+    "message": "Cycle #2 - 2026-01-13T22:43:17.886771"
+  },
+  {
+    "timestamp": "2026-01-13T22:43:17.887233",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-13T22:43:17.887213"
+  },
+  {
+    "timestamp": "2026-01-13T22:43:17.887585",
+    "type": "info",
+    "message": "Loaded preferences: 8 potential roles, 1 added skills"
+  },
+  {
+    "timestamp": "2026-01-13T22:43:18.440308",
+    "type": "info",
+    "message": "Using potential roles as search queries: ['CTO', 'VP Product', 'Head of Technology', 'VP E-commerce', 'Chief Technology Officer']"
+  },
+  {
+    "timestamp": "2026-01-13T22:43:18.440730",
+    "type": "info",
+    "message": "Searching for CTO on LinkedIn..."
+  },
+  {
+    "timestamp": "2026-01-13T22:43:24.870336",
+    "type": "success",
+    "message": "Found 15 jobs from JobSpy"
+  },
+  {
+    "timestamp": "2026-01-13T22:43:24.871882",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-13T22:44:31.088621",
+    "type": "success",
+    "message": "Found 18 jobs from Israeli boards"
+  },
+  {
+    "timestamp": "2026-01-13T22:44:31.097605",
+    "type": "info",
+    "message": "Processing 2 valid jobs..."
+  },
+  {
+    "timestamp": "2026-01-13T22:44:33.256270",
+    "type": "success",
+    "message": "Scout cycle complete. Found 0 high-match jobs (>= 70%)"
+  },
+  {
+    "timestamp": "2026-01-13T22:44:33.256777",
+    "type": "info",
+    "message": "Waiting 30 minutes until next cycle..."
+  },
+  {
+    "timestamp": "2026-01-13T22:50:54.352077",
+    "type": "info",
+    "message": "Background scout stopped by user"
+  },
+  {
+    "timestamp": "2026-01-14T18:34:05.879399",
+    "type": "info",
+    "message": "Background Job Scout started. Running every 30 minutes."
+  },
+  {
+    "timestamp": "2026-01-14T18:34:05.879737",
+    "type": "info",
+    "message": "High-match jobs (>= 70%) will be logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-14T18:34:05.888380",
+    "type": "info",
+    "message": "Cycle #1 - 2026-01-14T18:34:05.888361"
+  },
+  {
+    "timestamp": "2026-01-14T18:34:05.888753",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-14T18:34:05.888737"
+  },
+  {
+    "timestamp": "2026-01-14T18:34:05.889303",
+    "type": "info",
+    "message": "Loaded preferences: 10 potential roles, 1 added skills"
+  },
+  {
+    "timestamp": "2026-01-14T18:34:14.822325",
+    "type": "info",
+    "message": "Using potential roles as search queries: ['Chief Digital Officer', 'Chief Technology Officer (CTO)', 'VP of Technology & Innovation', 'VP Digital Technology', 'Head of E-commerce Technology']"
+  },
+  {
+    "timestamp": "2026-01-14T18:34:14.822764",
+    "type": "info",
+    "message": "Searching for Chief Digital Officer on LinkedIn..."
+  },
+  {
+    "timestamp": "2026-01-14T18:34:20.358492",
+    "type": "success",
+    "message": "Found 15 jobs from JobSpy"
+  },
+  {
+    "timestamp": "2026-01-14T18:34:20.367282",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-14T18:34:20.721638",
+    "type": "warning",
+    "message": "Israeli boards scraping failed: 'list' object has no attribute 'empty'"
+  },
+  {
+    "timestamp": "2026-01-14T18:34:20.731905",
+    "type": "info",
+    "message": "Processing 0 valid jobs..."
+  },
+  {
+    "timestamp": "2026-01-14T18:34:20.732282",
+    "type": "success",
+    "message": "Scout cycle complete. Found 0 high-match jobs (>= 70%)"
+  },
+  {
+    "timestamp": "2026-01-14T18:34:20.732655",
+    "type": "info",
+    "message": "Waiting 30 minutes until next cycle..."
+  },
+  {
+    "timestamp": "2026-01-14T18:48:39.667535",
+    "type": "info",
+    "message": "Background scout stopped by user"
+  },
+  {
+    "timestamp": "2026-01-14T18:55:20.775517",
+    "type": "info",
+    "message": "Background Job Scout started. Running every 30 minutes."
+  },
+  {
+    "timestamp": "2026-01-14T18:55:20.776021",
+    "type": "info",
+    "message": "High-match jobs (>= 70%) will be logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-14T18:55:20.784467",
+    "type": "info",
+    "message": "Cycle #1 - 2026-01-14T18:55:20.784452"
+  },
+  {
+    "timestamp": "2026-01-14T18:55:20.784812",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-14T18:55:20.784808"
+  },
+  {
+    "timestamp": "2026-01-14T18:55:20.785220",
+    "type": "info",
+    "message": "Loaded preferences: 9 potential roles, 1 added skills"
+  },
+  {
+    "timestamp": "2026-01-14T18:55:29.284852",
+    "type": "info",
+    "message": "Using potential roles as search queries: ['Chief Digital Officer', 'Chief Technology Officer (CTO)', 'Head of Digital Operations', 'Chief Technology & Innovation Officer', 'Director of E-commerce Technology']"
+  },
+  {
+    "timestamp": "2026-01-14T18:55:29.295356",
+    "type": "info",
+    "message": "Searching for Chief Digital Officer on LinkedIn..."
+  },
+  {
+    "timestamp": "2026-01-14T18:55:34.791212",
+    "type": "success",
+    "message": "Found 15 jobs from JobSpy"
+  },
+  {
+    "timestamp": "2026-01-14T18:55:34.792000",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-14T18:56:59.182721",
+    "type": "success",
+    "message": "Found 14 jobs from Israeli boards"
+  },
+  {
+    "timestamp": "2026-01-14T18:56:59.190741",
+    "type": "info",
+    "message": "Processing 1 valid jobs..."
+  },
+  {
+    "timestamp": "2026-01-14T18:57:01.859850",
+    "type": "success",
+    "message": "Logged high-match job: רפרנט/ית שירות ומכירה לצוות דיגיטל במיטב @ Company (Score: 85%)"
+  },
+  {
+    "timestamp": "2026-01-14T18:57:01.861880",
+    "type": "success",
+    "message": "Scout cycle complete. Found 1 high-match jobs (>= 70%)"
+  },
+  {
+    "timestamp": "2026-01-14T18:57:01.872751",
+    "type": "info",
+    "message": "Waiting 30 minutes until next cycle..."
+  },
+  {
+    "timestamp": "2026-01-14T19:27:01.965023",
+    "type": "info",
+    "message": "Cycle #2 - 2026-01-14T19:27:01.965006"
+  },
+  {
+    "timestamp": "2026-01-14T19:27:01.966135",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-14T19:27:01.966128"
+  },
+  {
+    "timestamp": "2026-01-14T19:27:01.974880",
+    "type": "info",
+    "message": "Loaded preferences: 9 potential roles, 1 added skills"
+  },
+  {
+    "timestamp": "2026-01-14T19:27:12.544977",
+    "type": "info",
+    "message": "Using potential roles as search queries: ['Chief Digital Officer', 'Chief Technology Officer (CTO)', 'Head of Digital Operations', 'Chief Technology & Innovation Officer', 'Director of E-commerce Technology']"
+  },
+  {
+    "timestamp": "2026-01-14T19:27:12.546199",
+    "type": "info",
+    "message": "Searching for Chief Digital Officer on LinkedIn..."
+  },
+  {
+    "timestamp": "2026-01-14T19:27:19.592471",
+    "type": "success",
+    "message": "Found 15 jobs from JobSpy"
+  },
+  {
+    "timestamp": "2026-01-14T19:27:19.593063",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-14T19:27:19.930949",
+    "type": "warning",
+    "message": "Israeli boards scraping failed: 'list' object has no attribute 'empty'"
+  },
+  {
+    "timestamp": "2026-01-14T19:27:19.936844",
+    "type": "info",
+    "message": "Processing 0 valid jobs..."
+  },
+  {
+    "timestamp": "2026-01-14T19:27:19.940927",
+    "type": "success",
+    "message": "Scout cycle complete. Found 0 high-match jobs (>= 70%)"
+  },
+  {
+    "timestamp": "2026-01-14T19:27:19.941676",
+    "type": "info",
+    "message": "Waiting 30 minutes until next cycle..."
+  },
+  {
+    "timestamp": "2026-01-14T19:57:19.958673",
+    "type": "info",
+    "message": "Cycle #3 - 2026-01-14T19:57:19.958634"
+  },
+  {
+    "timestamp": "2026-01-14T19:57:19.962133",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-14T19:57:19.962093"
+  },
+  {
+    "timestamp": "2026-01-14T19:57:19.972914",
+    "type": "info",
+    "message": "Loaded preferences: 9 potential roles, 1 added skills"
+  },
+  {
+    "timestamp": "2026-01-14T19:57:30.580593",
+    "type": "info",
+    "message": "Using potential roles as search queries: ['Chief Digital Officer', 'Chief Technology Officer (CTO)', 'Head of Digital Operations', 'Chief Technology & Innovation Officer', 'Director of E-commerce Technology']"
+  },
+  {
+    "timestamp": "2026-01-14T19:57:30.583658",
+    "type": "info",
+    "message": "Searching for Chief Digital Officer on LinkedIn..."
+  },
+  {
+    "timestamp": "2026-01-14T19:57:36.132481",
+    "type": "success",
+    "message": "Found 15 jobs from JobSpy"
+  },
+  {
+    "timestamp": "2026-01-14T19:57:36.133207",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-14T19:57:36.455729",
+    "type": "warning",
+    "message": "Israeli boards scraping failed: 'list' object has no attribute 'empty'"
+  },
+  {
+    "timestamp": "2026-01-14T19:57:36.458841",
+    "type": "info",
+    "message": "Processing 0 valid jobs..."
+  },
+  {
+    "timestamp": "2026-01-14T19:57:36.466932",
+    "type": "success",
+    "message": "Scout cycle complete. Found 0 high-match jobs (>= 70%)"
+  },
+  {
+    "timestamp": "2026-01-14T19:57:36.470466",
+    "type": "info",
+    "message": "Waiting 30 minutes until next cycle..."
+  },
+  {
+    "timestamp": "2026-01-14T20:02:58.311573",
+    "type": "info",
+    "message": "Background scout stopped by user"
+  },
+  {
+    "timestamp": "2026-01-14T20:03:47.868618",
+    "type": "info",
+    "message": "Background Job Scout started as persistent daemon. Running every 30 minutes."
+  },
+  {
+    "timestamp": "2026-01-14T20:03:47.869274",
+    "type": "info",
+    "message": "High-match jobs (>= 70%) will be logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-14T20:03:47.879087",
+    "type": "info",
+    "message": "Preferences.json is re-loaded in EVERY cycle to detect UI updates (Focus, Skills, Roles)."
+  },
+  {
+    "timestamp": "2026-01-14T20:03:47.881261",
+    "type": "info",
+    "message": "Cycle #1 - 2026-01-14T20:03:47.881242"
+  },
+  {
+    "timestamp": "2026-01-14T20:03:47.883441",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-14T20:03:47.883420"
+  },
+  {
+    "timestamp": "2026-01-14T20:03:47.885185",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 11 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-14T20:03:56.632732",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-14T20:03:56.636807",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['Head of Technology & Innovation', 'CTO E-commerce', 'VP Technology Solutions', 'Head of Digital Commerce', 'Director of Digital Transformation']"
+  },
+  {
+    "timestamp": "2026-01-14T20:03:56.648012",
+    "type": "info",
+    "message": "Loaded 1 discovered jobs from discovered_jobs.csv to avoid duplicates"
+  },
+  {
+    "timestamp": "2026-01-14T20:03:56.651447",
+    "type": "info",
+    "message": "Searching for Head of Technology & Innovation on LinkedIn..."
+  },
+  {
+    "timestamp": "2026-01-14T20:04:03.675848",
+    "type": "success",
+    "message": "Found 15 jobs from JobSpy"
+  },
+  {
+    "timestamp": "2026-01-14T20:04:03.676643",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-14T20:04:04.024489",
+    "type": "warning",
+    "message": "Israeli boards scraping failed: 'list' object has no attribute 'empty'"
+  },
+  {
+    "timestamp": "2026-01-14T20:04:04.026692",
+    "type": "info",
+    "message": "After filtering discovered jobs from discovered_jobs.csv, 15 new jobs to analyze"
+  },
+  {
+    "timestamp": "2026-01-14T20:04:04.028142",
+    "type": "info",
+    "message": "Processing 0 valid jobs..."
+  },
+  {
+    "timestamp": "2026-01-14T20:04:04.028763",
+    "type": "success",
+    "message": "Scout cycle complete. Found 0 high-match jobs (>= 70%) and logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-14T20:04:04.029411",
+    "type": "info",
+    "message": "Waiting 30 minutes until next cycle..."
+  },
+  {
+    "timestamp": "2026-01-14T20:11:13.313724",
+    "type": "info",
+    "message": "Background scout stopped by user"
+  },
+  {
+    "timestamp": "2026-01-14T20:13:20.393018",
+    "type": "info",
+    "message": "Background Job Scout started as persistent daemon. Running every 30 minutes."
+  },
+  {
+    "timestamp": "2026-01-14T20:13:20.393805",
+    "type": "info",
+    "message": "High-match jobs (>= 70%) will be logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-14T20:13:20.402590",
+    "type": "info",
+    "message": "Preferences.json is re-loaded in EVERY cycle to detect UI updates (Focus, Skills, Roles)."
+  },
+  {
+    "timestamp": "2026-01-14T20:13:20.403977",
+    "type": "info",
+    "message": "Cycle #1 - 2026-01-14T20:13:20.403964"
+  },
+  {
+    "timestamp": "2026-01-14T20:13:20.405235",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-14T20:13:20.405225"
+  },
+  {
+    "timestamp": "2026-01-14T20:13:20.406562",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 9 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-14T20:13:29.045345",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-14T20:13:29.046467",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['Chief Technology Officer (CTO)', 'Chief Digital Officer', 'VP Technology & Innovation', 'Director of Digital Transformation', 'Head of E-commerce Technology']"
+  },
+  {
+    "timestamp": "2026-01-14T20:13:29.055455",
+    "type": "info",
+    "message": "Loaded 1 discovered jobs from discovered_jobs.csv to avoid duplicates"
+  },
+  {
+    "timestamp": "2026-01-14T20:13:29.056796",
+    "type": "info",
+    "message": "Searching for Chief Technology Officer (CTO) on LinkedIn..."
+  },
+  {
+    "timestamp": "2026-01-14T20:13:35.180853",
+    "type": "success",
+    "message": "Found 15 jobs from JobSpy"
+  },
+  {
+    "timestamp": "2026-01-14T20:13:35.182346",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-14T20:13:35.493647",
+    "type": "warning",
+    "message": "Israeli boards scraping failed: 'list' object has no attribute 'empty'"
+  },
+  {
+    "timestamp": "2026-01-14T20:13:35.495982",
+    "type": "info",
+    "message": "After filtering discovered jobs from discovered_jobs.csv, 15 new jobs to analyze"
+  },
+  {
+    "timestamp": "2026-01-14T20:13:35.504304",
+    "type": "info",
+    "message": "Processing 0 valid jobs..."
+  },
+  {
+    "timestamp": "2026-01-14T20:13:35.505438",
+    "type": "success",
+    "message": "Scout cycle complete. Found 0 high-match jobs (>= 70%) and logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-14T20:13:35.506817",
+    "type": "info",
+    "message": "Waiting 30 minutes until next cycle..."
+  },
+  {
+    "timestamp": "2026-01-14T20:27:21.524516",
+    "type": "info",
+    "message": "Background scout stopped by user"
+  },
+  {
+    "timestamp": "2026-01-14T20:42:16.455434",
+    "type": "info",
+    "message": "Background Job Scout started as persistent daemon. Running every 30 minutes."
+  },
+  {
+    "timestamp": "2026-01-14T20:42:16.456460",
+    "type": "info",
+    "message": "High-match jobs (>= 70%) will be logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-14T20:42:16.466860",
+    "type": "info",
+    "message": "Preferences.json is re-loaded in EVERY cycle to detect UI updates (Focus, Skills, Roles)."
+  },
+  {
+    "timestamp": "2026-01-14T20:42:16.469528",
+    "type": "info",
+    "message": "Cycle #1 - 2026-01-14T20:42:16.469502"
+  },
+  {
+    "timestamp": "2026-01-14T20:42:16.471435",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-14T20:42:16.471420"
+  },
+  {
+    "timestamp": "2026-01-14T20:42:16.473300",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 9 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-14T20:42:25.739402",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-14T20:42:25.745202",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['Chief Digital Officer', 'VP Digital Technology', 'CTO E-commerce', 'Chief Technology Officer (CTO)', 'Head of E-commerce Operations']"
+  },
+  {
+    "timestamp": "2026-01-14T20:42:25.755553",
+    "type": "info",
+    "message": "Loaded 1 discovered jobs from discovered_jobs.csv to avoid duplicates"
+  },
+  {
+    "timestamp": "2026-01-14T20:42:25.758651",
+    "type": "info",
+    "message": "Searching for Chief Digital Officer on LinkedIn..."
+  },
+  {
+    "timestamp": "2026-01-14T20:42:32.647705",
+    "type": "success",
+    "message": "Found 15 jobs from JobSpy"
+  },
+  {
+    "timestamp": "2026-01-14T20:42:32.649796",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-14T20:42:32.972335",
+    "type": "warning",
+    "message": "Israeli boards scraping failed: 'list' object has no attribute 'empty'"
+  },
+  {
+    "timestamp": "2026-01-14T20:42:32.975279",
+    "type": "info",
+    "message": "After filtering discovered jobs from discovered_jobs.csv, 15 new jobs to analyze"
+  },
+  {
+    "timestamp": "2026-01-14T20:42:32.987445",
+    "type": "info",
+    "message": "Processing 0 valid jobs..."
+  },
+  {
+    "timestamp": "2026-01-14T20:42:32.991005",
+    "type": "success",
+    "message": "Scout cycle complete. Found 0 high-match jobs (>= 70%) and logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-14T20:42:32.995624",
+    "type": "info",
+    "message": "Waiting 30 minutes until next cycle..."
+  },
+  {
+    "timestamp": "2026-01-14T21:12:33.074752",
+    "type": "info",
+    "message": "Cycle #2 - 2026-01-14T21:12:33.074725"
+  },
+  {
+    "timestamp": "2026-01-14T21:12:33.075911",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-14T21:12:33.075904"
+  },
+  {
+    "timestamp": "2026-01-14T21:12:33.084975",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 9 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-14T21:12:42.509841",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-14T21:12:42.515473",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['Chief Digital Officer', 'VP Digital Technology', 'CTO E-commerce', 'Chief Technology Officer (CTO)', 'Head of E-commerce Operations']"
+  },
+  {
+    "timestamp": "2026-01-14T21:12:42.528093",
+    "type": "info",
+    "message": "Loaded 1 discovered jobs from discovered_jobs.csv to avoid duplicates"
+  },
+  {
+    "timestamp": "2026-01-14T21:12:42.533108",
+    "type": "info",
+    "message": "Searching for Chief Digital Officer on LinkedIn..."
+  },
+  {
+    "timestamp": "2026-01-14T21:12:50.261298",
+    "type": "success",
+    "message": "Found 15 jobs from JobSpy"
+  },
+  {
+    "timestamp": "2026-01-14T21:12:50.262944",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-14T21:12:50.532960",
+    "type": "warning",
+    "message": "Israeli boards scraping failed: 'list' object has no attribute 'empty'"
+  },
+  {
+    "timestamp": "2026-01-14T21:12:50.535542",
+    "type": "info",
+    "message": "After filtering discovered jobs from discovered_jobs.csv, 15 new jobs to analyze"
+  },
+  {
+    "timestamp": "2026-01-14T21:12:50.547103",
+    "type": "info",
+    "message": "Processing 0 valid jobs..."
+  },
+  {
+    "timestamp": "2026-01-14T21:12:50.549540",
+    "type": "success",
+    "message": "Scout cycle complete. Found 0 high-match jobs (>= 70%) and logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-14T21:12:50.551964",
+    "type": "info",
+    "message": "Waiting 30 minutes until next cycle..."
+  },
+  {
+    "timestamp": "2026-01-14T21:42:50.605530",
+    "type": "info",
+    "message": "Cycle #3 - 2026-01-14T21:42:50.605487"
+  },
+  {
+    "timestamp": "2026-01-14T21:42:50.611080",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-14T21:42:50.611072"
+  },
+  {
+    "timestamp": "2026-01-14T21:42:50.624550",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 9 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-14T21:43:00.082004",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-14T21:43:00.083578",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['Chief Digital Officer', 'VP Digital Technology', 'CTO E-commerce', 'Chief Technology Officer (CTO)', 'Head of E-commerce Operations']"
+  },
+  {
+    "timestamp": "2026-01-14T21:43:00.092851",
+    "type": "info",
+    "message": "Loaded 1 discovered jobs from discovered_jobs.csv to avoid duplicates"
+  },
+  {
+    "timestamp": "2026-01-14T21:43:00.094531",
+    "type": "info",
+    "message": "Searching for Chief Digital Officer on LinkedIn..."
+  },
+  {
+    "timestamp": "2026-01-14T21:43:05.111733",
+    "type": "success",
+    "message": "Found 15 jobs from JobSpy"
+  },
+  {
+    "timestamp": "2026-01-14T21:43:05.113734",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-14T21:43:05.376092",
+    "type": "warning",
+    "message": "Israeli boards scraping failed: 'list' object has no attribute 'empty'"
+  },
+  {
+    "timestamp": "2026-01-14T21:43:05.378582",
+    "type": "info",
+    "message": "After filtering discovered jobs from discovered_jobs.csv, 15 new jobs to analyze"
+  },
+  {
+    "timestamp": "2026-01-14T21:43:05.387065",
+    "type": "info",
+    "message": "Processing 0 valid jobs..."
+  },
+  {
+    "timestamp": "2026-01-14T21:43:05.388092",
+    "type": "success",
+    "message": "Scout cycle complete. Found 0 high-match jobs (>= 70%) and logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-14T21:43:05.389422",
+    "type": "info",
+    "message": "Waiting 30 minutes until next cycle..."
+  },
+  {
+    "timestamp": "2026-01-14T22:13:05.397765",
+    "type": "info",
+    "message": "Cycle #4 - 2026-01-14T22:13:05.397728"
+  },
+  {
+    "timestamp": "2026-01-14T22:13:05.403779",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-14T22:13:05.403758"
+  },
+  {
+    "timestamp": "2026-01-14T22:13:05.413414",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 9 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-14T22:13:17.244533",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-14T22:13:17.250087",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['Chief Digital Officer', 'VP Digital Technology', 'CTO E-commerce', 'Chief Technology Officer (CTO)', 'Head of E-commerce Operations']"
+  },
+  {
+    "timestamp": "2026-01-14T22:13:17.263109",
+    "type": "info",
+    "message": "Loaded 1 discovered jobs from discovered_jobs.csv to avoid duplicates"
+  },
+  {
+    "timestamp": "2026-01-14T22:13:17.270062",
+    "type": "info",
+    "message": "Searching for Chief Digital Officer on LinkedIn..."
+  },
+  {
+    "timestamp": "2026-01-14T22:13:25.507597",
+    "type": "success",
+    "message": "Found 15 jobs from JobSpy"
+  },
+  {
+    "timestamp": "2026-01-14T22:13:25.517573",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-14T22:13:25.781641",
+    "type": "warning",
+    "message": "Israeli boards scraping failed: 'list' object has no attribute 'empty'"
+  },
+  {
+    "timestamp": "2026-01-14T22:13:25.784898",
+    "type": "info",
+    "message": "After filtering discovered jobs from discovered_jobs.csv, 15 new jobs to analyze"
+  },
+  {
+    "timestamp": "2026-01-14T22:13:25.793377",
+    "type": "info",
+    "message": "Processing 0 valid jobs..."
+  },
+  {
+    "timestamp": "2026-01-14T22:13:25.795165",
+    "type": "success",
+    "message": "Scout cycle complete. Found 0 high-match jobs (>= 70%) and logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-14T22:13:25.796828",
+    "type": "info",
+    "message": "Waiting 30 minutes until next cycle..."
+  },
+  {
+    "timestamp": "2026-01-14T22:43:25.898265",
+    "type": "info",
+    "message": "Cycle #5 - 2026-01-14T22:43:25.898252"
+  },
+  {
+    "timestamp": "2026-01-14T22:43:25.899884",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-14T22:43:25.899878"
+  },
+  {
+    "timestamp": "2026-01-14T22:43:25.909565",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 9 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-14T22:43:34.705077",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-14T22:43:34.707544",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['Chief Digital Officer', 'VP Digital Technology', 'CTO E-commerce', 'Chief Technology Officer (CTO)', 'Head of E-commerce Operations']"
+  },
+  {
+    "timestamp": "2026-01-14T22:43:34.717126",
+    "type": "info",
+    "message": "Loaded 1 discovered jobs from discovered_jobs.csv to avoid duplicates"
+  },
+  {
+    "timestamp": "2026-01-14T22:43:34.718839",
+    "type": "info",
+    "message": "Searching for Chief Digital Officer on LinkedIn..."
+  },
+  {
+    "timestamp": "2026-01-14T22:43:42.602562",
+    "type": "success",
+    "message": "Found 15 jobs from JobSpy"
+  },
+  {
+    "timestamp": "2026-01-14T22:43:42.604076",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-14T22:43:42.959151",
+    "type": "warning",
+    "message": "Israeli boards scraping failed: 'list' object has no attribute 'empty'"
+  },
+  {
+    "timestamp": "2026-01-14T22:43:42.962987",
+    "type": "info",
+    "message": "After filtering discovered jobs from discovered_jobs.csv, 15 new jobs to analyze"
+  },
+  {
+    "timestamp": "2026-01-14T22:43:42.971232",
+    "type": "info",
+    "message": "Processing 0 valid jobs..."
+  },
+  {
+    "timestamp": "2026-01-14T22:43:42.973141",
+    "type": "success",
+    "message": "Scout cycle complete. Found 0 high-match jobs (>= 70%) and logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-14T22:43:42.975217",
+    "type": "info",
+    "message": "Waiting 30 minutes until next cycle..."
+  },
+  {
+    "timestamp": "2026-01-14T22:45:57.328593",
+    "type": "info",
+    "message": "Background scout stopped by user"
+  },
+  {
+    "timestamp": "2026-01-14T22:49:57.669262",
+    "type": "info",
+    "message": "Background Job Scout started as persistent daemon. Running every 30 minutes."
+  },
+  {
+    "timestamp": "2026-01-14T22:49:57.671487",
+    "type": "info",
+    "message": "High-match jobs (>= 70%) will be logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-14T22:49:57.680868",
+    "type": "info",
+    "message": "Preferences.json is re-loaded in EVERY cycle to detect UI updates (Focus, Skills, Roles)."
+  },
+  {
+    "timestamp": "2026-01-14T22:49:57.683923",
+    "type": "info",
+    "message": "Cycle #1 - 2026-01-14T22:49:57.683909"
+  },
+  {
+    "timestamp": "2026-01-14T22:49:57.686958",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-14T22:49:57.686945"
+  },
+  {
+    "timestamp": "2026-01-14T22:49:57.690039",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 9 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-14T22:50:07.606325",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-14T22:50:07.608472",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['Director of Digital Transformation', 'VP Technology Operations', 'Chief Digital Officer', 'Chief Technology Officer (CTO) E-commerce', 'Head of Digital Commerce Systems']"
+  },
+  {
+    "timestamp": "2026-01-14T22:50:07.618042",
+    "type": "info",
+    "message": "Detected preferences.json change (preferred_roles/auto_query). Restarting scout cycle to use new parameters."
+  },
+  {
+    "timestamp": "2026-01-14T22:50:07.619894",
+    "type": "info",
+    "message": "Restart requested. Restarting immediately with updated preferences..."
+  },
+  {
+    "timestamp": "2026-01-14T22:50:09.623228",
+    "type": "info",
+    "message": "Cycle #2 - 2026-01-14T22:50:09.623205"
+  },
+  {
+    "timestamp": "2026-01-14T22:50:09.630613",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-14T22:50:09.630595"
+  },
+  {
+    "timestamp": "2026-01-14T22:50:09.640628",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 9 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-14T22:50:18.273503",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-14T22:50:18.275021",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['Director of Digital Transformation', 'VP Technology Operations', 'Chief Digital Officer', 'Chief Technology Officer (CTO) E-commerce', 'Head of Digital Commerce Systems']"
+  },
+  {
+    "timestamp": "2026-01-14T22:50:18.287835",
+    "type": "info",
+    "message": "Loaded 1 discovered jobs from discovered_jobs.csv to avoid duplicates"
+  },
+  {
+    "timestamp": "2026-01-14T22:50:18.292052",
+    "type": "info",
+    "message": "Searching for CTO E-commerce Israel Technology on LinkedIn..."
+  },
+  {
+    "timestamp": "2026-01-14T22:50:19.157480",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-14T22:50:19.483178",
+    "type": "warning",
+    "message": "Israeli boards scraping failed: 'list' object has no attribute 'empty'"
+  },
+  {
+    "timestamp": "2026-01-14T22:50:19.484882",
+    "type": "warning",
+    "message": "No jobs found in this cycle"
+  },
+  {
+    "timestamp": "2026-01-14T22:50:19.494640",
+    "type": "info",
+    "message": "Waiting 30 minutes until next cycle..."
+  },
+  {
+    "timestamp": "2026-01-14T23:03:12.596732",
+    "type": "info",
+    "message": "Background scout stopped by user"
+  },
+  {
+    "timestamp": "2026-01-14T23:04:02.309981",
+    "type": "info",
+    "message": "Background Job Scout started as persistent daemon. Running every 30 minutes."
+  },
+  {
+    "timestamp": "2026-01-14T23:04:02.312614",
+    "type": "info",
+    "message": "High-match jobs (>= 70%) will be logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-14T23:04:02.322085",
+    "type": "info",
+    "message": "Preferences.json is re-loaded in EVERY cycle to detect UI updates (Focus, Skills, Roles)."
+  },
+  {
+    "timestamp": "2026-01-14T23:04:02.324300",
+    "type": "info",
+    "message": "Cycle #1 - 2026-01-14T23:04:02.324292"
+  },
+  {
+    "timestamp": "2026-01-14T23:04:02.326783",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-14T23:04:02.326774"
+  },
+  {
+    "timestamp": "2026-01-14T23:04:02.330375",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 11 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-14T23:04:12.098686",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-14T23:04:12.100710",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['Chief Digital Officer', 'VP Technology & Automation Systems', 'CTO E-commerce', 'Head of E-commerce Technology', 'Head of Digital Transformation']"
+  },
+  {
+    "timestamp": "2026-01-14T23:04:12.110187",
+    "type": "info",
+    "message": "Detected preferences.json change (preferred_roles/auto_query). Restarting scout cycle to use new parameters."
+  },
+  {
+    "timestamp": "2026-01-14T23:04:12.113052",
+    "type": "info",
+    "message": "Restart requested. Restarting immediately with updated preferences..."
+  },
+  {
+    "timestamp": "2026-01-14T23:04:14.117294",
+    "type": "info",
+    "message": "Cycle #2 - 2026-01-14T23:04:14.117281"
+  },
+  {
+    "timestamp": "2026-01-14T23:04:14.119103",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-14T23:04:14.119097"
+  },
+  {
+    "timestamp": "2026-01-14T23:04:14.135913",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 11 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-14T23:04:24.254814",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-14T23:04:24.256692",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['Chief Digital Officer', 'VP Technology & Automation Systems', 'CTO E-commerce', 'Head of E-commerce Technology', 'Head of Digital Transformation']"
+  },
+  {
+    "timestamp": "2026-01-14T23:04:24.266244",
+    "type": "info",
+    "message": "Loaded 1 discovered jobs from discovered_jobs.csv to avoid duplicates"
+  },
+  {
+    "timestamp": "2026-01-14T23:04:24.267909",
+    "type": "info",
+    "message": "Searching for CTO E-commerce Israel Technology on LinkedIn..."
+  },
+  {
+    "timestamp": "2026-01-14T23:04:24.868091",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-14T23:04:25.206933",
+    "type": "warning",
+    "message": "Israeli boards scraping failed: 'list' object has no attribute 'empty'"
+  },
+  {
+    "timestamp": "2026-01-14T23:04:25.208767",
+    "type": "warning",
+    "message": "No jobs found in this cycle"
+  },
+  {
+    "timestamp": "2026-01-14T23:04:25.218505",
+    "type": "info",
+    "message": "Waiting 30 minutes until next cycle..."
+  },
+  {
+    "timestamp": "2026-01-14T23:33:07.805553",
+    "type": "info",
+    "message": "Background scout stopped by user"
+  },
+  {
+    "timestamp": "2026-01-14T23:33:57.837622",
+    "type": "info",
+    "message": "Background Job Scout started as persistent daemon. Running every 30 minutes."
+  },
+  {
+    "timestamp": "2026-01-14T23:33:57.840566",
+    "type": "info",
+    "message": "High-match jobs (>= 70%) will be logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-14T23:33:57.849909",
+    "type": "info",
+    "message": "Preferences.json is re-loaded in EVERY cycle to detect UI updates (Focus, Skills, Roles)."
+  },
+  {
+    "timestamp": "2026-01-14T23:33:57.851571",
+    "type": "info",
+    "message": "Cycle #1 - 2026-01-14T23:33:57.851566"
+  },
+  {
+    "timestamp": "2026-01-14T23:33:57.853199",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-14T23:33:57.853188"
+  },
+  {
+    "timestamp": "2026-01-14T23:33:57.855047",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 10 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-14T23:34:07.278162",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-14T23:34:07.279889",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['VP Digital Technology', 'Chief Technology Officer (CTO)', 'CTO E-commerce', 'Head of Digital Commerce', 'VP Technology & Innovation']"
+  },
+  {
+    "timestamp": "2026-01-14T23:34:07.289838",
+    "type": "info",
+    "message": "Detected preferences.json change (preferred_roles/auto_query). Restarting scout cycle to use new parameters."
+  },
+  {
+    "timestamp": "2026-01-14T23:34:07.291787",
+    "type": "info",
+    "message": "Restart requested. Restarting immediately with updated preferences..."
+  },
+  {
+    "timestamp": "2026-01-14T23:34:09.295277",
+    "type": "info",
+    "message": "Cycle #2 - 2026-01-14T23:34:09.295247"
+  },
+  {
+    "timestamp": "2026-01-14T23:34:09.297765",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-14T23:34:09.297756"
+  },
+  {
+    "timestamp": "2026-01-14T23:34:09.307442",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 10 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-14T23:34:17.503919",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-14T23:34:17.506713",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['VP Digital Technology', 'Chief Technology Officer (CTO)', 'CTO E-commerce', 'VP Technology & Innovation', 'Head of Digital Commerce']"
+  },
+  {
+    "timestamp": "2026-01-14T23:34:17.516543",
+    "type": "info",
+    "message": "Detected preferences.json change (preferred_roles/auto_query). Restarting scout cycle to use new parameters."
+  },
+  {
+    "timestamp": "2026-01-14T23:34:17.518955",
+    "type": "info",
+    "message": "Restart requested. Restarting immediately with updated preferences..."
+  },
+  {
+    "timestamp": "2026-01-14T23:34:19.523258",
+    "type": "info",
+    "message": "Cycle #3 - 2026-01-14T23:34:19.523244"
+  },
+  {
+    "timestamp": "2026-01-14T23:34:19.524944",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-14T23:34:19.524939"
+  },
+  {
+    "timestamp": "2026-01-14T23:34:19.534477",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 10 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-14T23:34:28.381116",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-14T23:34:28.384888",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['VP Digital Technology', 'Chief Technology Officer (CTO)', 'CTO E-commerce', 'VP Technology & Innovation', 'Head of Digital Commerce']"
+  },
+  {
+    "timestamp": "2026-01-14T23:34:28.396350",
+    "type": "info",
+    "message": "Detected preferences.json change (preferred_roles/auto_query). Restarting scout cycle to use new parameters."
+  },
+  {
+    "timestamp": "2026-01-14T23:34:28.400011",
+    "type": "info",
+    "message": "Restart requested. Restarting immediately with updated preferences..."
+  },
+  {
+    "timestamp": "2026-01-14T23:34:30.405799",
+    "type": "info",
+    "message": "Cycle #4 - 2026-01-14T23:34:30.405785"
+  },
+  {
+    "timestamp": "2026-01-14T23:34:30.407941",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-14T23:34:30.407935"
+  },
+  {
+    "timestamp": "2026-01-14T23:34:30.417830",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 10 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-14T23:34:40.113694",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-14T23:34:40.115864",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['VP Digital Technology', 'Chief Technology Officer (CTO)', 'CTO E-commerce', 'VP Technology & Innovation', 'Head of Digital Commerce']"
+  },
+  {
+    "timestamp": "2026-01-14T23:34:40.126264",
+    "type": "info",
+    "message": "Loaded 1 discovered jobs from discovered_jobs.csv to avoid duplicates"
+  },
+  {
+    "timestamp": "2026-01-14T23:34:40.129779",
+    "type": "info",
+    "message": "Searching JobSpy for: ['CTO E-commerce Israel  Reasoning: The CV clearly shows: 1. Current CTO position in digital commerce 2. Strong e-commerce focus with Shopify/Amazon experience 3. Location is Israel (evident from Hebrew text and companies) The term E-commerce is prominent throughout the CV with multiple mentions of e-commerce platforms and digital commerce strategy.', 'CTO E-commerce Israel  Reasoning: The CV clearly shows: 1. Current CTO position in digital commerce 2. Strong e-commerce focus with Shopify/Amazon experience 3. Location is Israel (evident from Hebrew text and companies) The term E-commerce is prominent throughout the CV with multiple mentions of e-commerce platforms and digital commerce strategy. remote', 'CTO E-commerce Israel  Reasoning: The CV clearly shows: 1. Current CTO position in digital commerce 2. Strong e-commerce focus with Shopify/Amazon experience 3. Location is Israel (evident from Hebrew text and companies) The term E-commerce is prominent throughout the CV with multiple mentions of e-commerce platforms and digital commerce strategy. hybrid']"
+  },
+  {
+    "timestamp": "2026-01-14T23:34:42.179765",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-14T23:34:42.510878",
+    "type": "warning",
+    "message": "Israeli boards scraping failed: 'list' object has no attribute 'empty'"
+  },
+  {
+    "timestamp": "2026-01-14T23:34:42.512793",
+    "type": "warning",
+    "message": "No jobs found in this cycle"
+  },
+  {
+    "timestamp": "2026-01-14T23:34:42.522816",
+    "type": "info",
+    "message": "Waiting 30 minutes until next cycle..."
+  },
+  {
+    "timestamp": "2026-01-14T23:39:39.947908",
+    "type": "info",
+    "message": "Background scout stopped by user"
+  },
+  {
+    "timestamp": "2026-01-14T23:40:56.102625",
+    "type": "info",
+    "message": "Background Job Scout started as persistent daemon. Running every 30 minutes."
+  },
+  {
+    "timestamp": "2026-01-14T23:40:56.105050",
+    "type": "info",
+    "message": "High-match jobs (>= 70%) will be logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-14T23:40:56.115078",
+    "type": "info",
+    "message": "Preferences.json is re-loaded in EVERY cycle to detect UI updates (Focus, Skills, Roles)."
+  },
+  {
+    "timestamp": "2026-01-14T23:40:56.117214",
+    "type": "info",
+    "message": "Cycle #1 - 2026-01-14T23:40:56.117206"
+  },
+  {
+    "timestamp": "2026-01-14T23:40:56.119095",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-14T23:40:56.119081"
+  },
+  {
+    "timestamp": "2026-01-14T23:40:56.121260",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 9 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-14T23:41:04.309051",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-14T23:41:04.315125",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['VP Technology Strategy', 'Chief Technology Officer (CTO)', 'Head of Digital Transformation', 'Chief Digital Officer', 'VP Technology & Operations']"
+  },
+  {
+    "timestamp": "2026-01-14T23:41:04.332567",
+    "type": "info",
+    "message": "Detected preferences.json change (preferred_roles/auto_query). Restarting scout cycle to use new parameters."
+  },
+  {
+    "timestamp": "2026-01-14T23:41:04.343350",
+    "type": "info",
+    "message": "Restart requested. Restarting immediately with updated preferences..."
+  },
+  {
+    "timestamp": "2026-01-14T23:41:06.351201",
+    "type": "info",
+    "message": "Cycle #2 - 2026-01-14T23:41:06.351188"
+  },
+  {
+    "timestamp": "2026-01-14T23:41:06.353338",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-14T23:41:06.353330"
+  },
+  {
+    "timestamp": "2026-01-14T23:41:06.357648",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 9 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-14T23:41:16.139962",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-14T23:41:16.142779",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['VP Technology Strategy', 'Chief Technology Officer (CTO)', 'Head of Digital Transformation', 'Chief Digital Officer', 'VP Technology & Operations']"
+  },
+  {
+    "timestamp": "2026-01-14T23:41:16.145710",
+    "type": "info",
+    "message": "Detected preferences.json change (preferred_roles/auto_query). Restarting scout cycle to use new parameters."
+  },
+  {
+    "timestamp": "2026-01-14T23:41:16.148470",
+    "type": "info",
+    "message": "Restart requested. Restarting immediately with updated preferences..."
+  },
+  {
+    "timestamp": "2026-01-14T23:41:18.153165",
+    "type": "info",
+    "message": "Cycle #3 - 2026-01-14T23:41:18.153151"
+  },
+  {
+    "timestamp": "2026-01-14T23:41:18.155913",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-14T23:41:18.155903"
+  },
+  {
+    "timestamp": "2026-01-14T23:41:18.166367",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 9 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-14T23:41:27.437429",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-14T23:41:27.440100",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['VP Digital Technology', 'Chief Technology Officer (CTO)', 'Head of Digital Transformation', 'Chief Digital Officer', 'VP Technology & Operations']"
+  },
+  {
+    "timestamp": "2026-01-14T23:41:27.450789",
+    "type": "info",
+    "message": "Detected preferences.json change (preferred_roles/auto_query). Restarting scout cycle to use new parameters."
+  },
+  {
+    "timestamp": "2026-01-14T23:41:27.452891",
+    "type": "info",
+    "message": "Restart requested. Restarting immediately with updated preferences..."
+  },
+  {
+    "timestamp": "2026-01-14T23:41:29.457267",
+    "type": "info",
+    "message": "Cycle #4 - 2026-01-14T23:41:29.457254"
+  },
+  {
+    "timestamp": "2026-01-14T23:41:29.459330",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-14T23:41:29.459323"
+  },
+  {
+    "timestamp": "2026-01-14T23:41:29.469291",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 9 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-14T23:41:38.041994",
+    "type": "info",
+    "message": "Background scout stopped by user"
+  },
+  {
+    "timestamp": "2026-01-14T23:50:07.229994",
+    "type": "info",
+    "message": "Background Job Scout started as persistent daemon. Running every 30 minutes."
+  },
+  {
+    "timestamp": "2026-01-14T23:50:07.232679",
+    "type": "info",
+    "message": "High-match jobs (>= 70%) will be logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-14T23:50:07.243302",
+    "type": "info",
+    "message": "Preferences.json is re-loaded in EVERY cycle to detect UI updates (Focus, Skills, Roles)."
+  },
+  {
+    "timestamp": "2026-01-14T23:50:07.246163",
+    "type": "info",
+    "message": "Cycle #1 - 2026-01-14T23:50:07.246147"
+  },
+  {
+    "timestamp": "2026-01-14T23:50:07.249139",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-14T23:50:07.249131"
+  },
+  {
+    "timestamp": "2026-01-14T23:50:07.252127",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 8 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-14T23:50:18.891559",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-14T23:50:18.894482",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['CTO', 'VP Product', 'Head of Technology', 'VP E-commerce', 'Chief Technology Officer']"
+  },
+  {
+    "timestamp": "2026-01-14T23:50:18.897322",
+    "type": "info",
+    "message": "Loaded 1 discovered jobs from discovered_jobs.csv to avoid duplicates"
+  },
+  {
+    "timestamp": "2026-01-14T23:50:18.900009",
+    "type": "info",
+    "message": "Searching JobSpy for 15 terms (top roles simplified): ['Head of', 'Head of remote', 'Head of hybrid', 'CTO', 'CTO remote', 'CTO hybrid', 'VP Product', 'VP Product remote', 'VP Product hybrid', 'VP E-commerce', 'VP E-commerce remote', 'VP E-commerce hybrid', 'Chief Technology', 'Chief Technology remote', 'Chief Technology hybrid']"
+  },
+  {
+    "timestamp": "2026-01-14T23:50:21.698397",
+    "type": "success",
+    "message": "Found 19 jobs from JobSpy for term='Head of'"
+  },
+  {
+    "timestamp": "2026-01-14T23:50:23.697908",
+    "type": "success",
+    "message": "Found 3 jobs from JobSpy for term='Head of remote'"
+  },
+  {
+    "timestamp": "2026-01-14T23:50:25.535529",
+    "type": "success",
+    "message": "Found 3 jobs from JobSpy for term='Head of hybrid'"
+  },
+  {
+    "timestamp": "2026-01-14T23:50:26.909858",
+    "type": "success",
+    "message": "Found 5 jobs from JobSpy for term='CTO'"
+  },
+  {
+    "timestamp": "2026-01-14T23:50:29.361374",
+    "type": "success",
+    "message": "Found 8 jobs from JobSpy for term='VP Product'"
+  },
+  {
+    "timestamp": "2026-01-14T23:50:33.080992",
+    "type": "success",
+    "message": "Found 1 jobs from JobSpy for term='Chief Technology'"
+  },
+  {
+    "timestamp": "2026-01-14T23:50:34.297775",
+    "type": "success",
+    "message": "JobSpy merged results: 29 jobs (capped at 200)"
+  },
+  {
+    "timestamp": "2026-01-14T23:50:34.301163",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-14T23:50:34.622623",
+    "type": "warning",
+    "message": "Israeli boards scraping failed: 'list' object has no attribute 'empty'"
+  },
+  {
+    "timestamp": "2026-01-14T23:50:34.629192",
+    "type": "info",
+    "message": "After filtering discovered jobs from discovered_jobs.csv, 29 new jobs to analyze"
+  },
+  {
+    "timestamp": "2026-01-14T23:50:34.638145",
+    "type": "info",
+    "message": "Processing 19 valid jobs..."
+  },
+  {
+    "timestamp": "2026-01-15T00:09:04.118045",
+    "type": "info",
+    "message": "Background scout stopped by user"
+  },
+  {
+    "timestamp": "2026-01-15T00:10:29.013125",
+    "type": "info",
+    "message": "Background Job Scout started as persistent daemon. Running every 30 minutes."
+  },
+  {
+    "timestamp": "2026-01-15T00:10:29.021002",
+    "type": "info",
+    "message": "High-match jobs (>= 70%) will be logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-15T00:10:29.036503",
+    "type": "info",
+    "message": "Preferences.json is re-loaded in EVERY cycle to detect UI updates (Focus, Skills, Roles)."
+  },
+  {
+    "timestamp": "2026-01-15T00:10:29.043618",
+    "type": "info",
+    "message": "Cycle #1 - 2026-01-15T00:10:29.043600"
+  },
+  {
+    "timestamp": "2026-01-15T00:10:29.050800",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-15T00:10:29.050781"
+  },
+  {
+    "timestamp": "2026-01-15T00:10:29.056942",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 8 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-15T00:10:38.221784",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-15T00:10:38.225710",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['Chief Technology Officer', 'VP E-commerce', 'VP R&D', 'Head of Technology', 'Head of Engineering']"
+  },
+  {
+    "timestamp": "2026-01-15T00:10:38.237118",
+    "type": "info",
+    "message": "Loaded 1 discovered jobs from discovered_jobs.csv to avoid duplicates"
+  },
+  {
+    "timestamp": "2026-01-15T00:10:38.240236",
+    "type": "info",
+    "message": "Searching JobSpy for 15 terms (top roles simplified): ['AI Analysis', 'AI Analysis remote', 'AI Analysis hybrid', 'Chief Technology', 'Chief Technology remote', 'Chief Technology hybrid', 'VP E-commerce', 'VP E-commerce remote', 'VP E-commerce hybrid', 'VP R&D', 'VP R&D remote', 'VP R&D hybrid', 'Head of', 'Head of remote', 'Head of hybrid']"
+  },
+  {
+    "timestamp": "2026-01-15T00:10:42.957224",
+    "type": "success",
+    "message": "Found 33 jobs from JobSpy for term='AI Analysis'"
+  },
+  {
+    "timestamp": "2026-01-15T00:10:44.505879",
+    "type": "success",
+    "message": "Found 3 jobs from JobSpy for term='AI Analysis remote'"
+  },
+  {
+    "timestamp": "2026-01-15T00:10:45.898907",
+    "type": "success",
+    "message": "Found 6 jobs from JobSpy for term='AI Analysis hybrid'"
+  },
+  {
+    "timestamp": "2026-01-15T00:10:47.573722",
+    "type": "success",
+    "message": "Found 1 jobs from JobSpy for term='Chief Technology'"
+  },
+  {
+    "timestamp": "2026-01-15T00:10:52.468792",
+    "type": "success",
+    "message": "Found 1 jobs from JobSpy for term='VP R&D'"
+  },
+  {
+    "timestamp": "2026-01-15T00:10:56.256231",
+    "type": "success",
+    "message": "Found 19 jobs from JobSpy for term='Head of'"
+  },
+  {
+    "timestamp": "2026-01-15T00:10:57.420362",
+    "type": "success",
+    "message": "Found 3 jobs from JobSpy for term='Head of remote'"
+  },
+  {
+    "timestamp": "2026-01-15T00:10:58.716123",
+    "type": "success",
+    "message": "Found 3 jobs from JobSpy for term='Head of hybrid'"
+  },
+  {
+    "timestamp": "2026-01-15T00:10:58.722096",
+    "type": "success",
+    "message": "JobSpy merged results: 52 jobs (capped at 200)"
+  },
+  {
+    "timestamp": "2026-01-15T00:10:58.725685",
+    "type": "info",
+    "message": "Detected preferences.json change mid-cycle. Restarting scout cycle to use new parameters."
+  },
+  {
+    "timestamp": "2026-01-15T00:10:58.730701",
+    "type": "info",
+    "message": "Restart requested. Restarting immediately with updated preferences..."
+  },
+  {
+    "timestamp": "2026-01-15T00:11:00.737287",
+    "type": "info",
+    "message": "Cycle #2 - 2026-01-15T00:11:00.737272"
+  },
+  {
+    "timestamp": "2026-01-15T00:11:00.740830",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-15T00:11:00.740818"
+  },
+  {
+    "timestamp": "2026-01-15T00:11:00.752071",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 8 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-15T00:11:09.541028",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-15T00:11:09.544161",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['Chief Technology Officer', 'VP R&D', 'CTO', 'Head of Technology', 'Head of Engineering']"
+  },
+  {
+    "timestamp": "2026-01-15T00:11:09.554368",
+    "type": "info",
+    "message": "Detected preferences.json change (preferred_roles/auto_query). Restarting scout cycle to use new parameters."
+  },
+  {
+    "timestamp": "2026-01-15T00:11:09.557805",
+    "type": "info",
+    "message": "Restart requested. Restarting immediately with updated preferences..."
+  },
+  {
+    "timestamp": "2026-01-15T00:11:11.562777",
+    "type": "info",
+    "message": "Cycle #3 - 2026-01-15T00:11:11.562763"
+  },
+  {
+    "timestamp": "2026-01-15T00:11:11.566287",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-15T00:11:11.566277"
+  },
+  {
+    "timestamp": "2026-01-15T00:11:11.576704",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 8 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-15T00:11:20.063214",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-15T00:11:20.067213",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['Chief Technology Officer', 'VP E-commerce', 'VP R&D', 'Head of Technology', 'Head of Engineering']"
+  },
+  {
+    "timestamp": "2026-01-15T00:11:20.077618",
+    "type": "info",
+    "message": "Loaded 1 discovered jobs from discovered_jobs.csv to avoid duplicates"
+  },
+  {
+    "timestamp": "2026-01-15T00:11:20.080127",
+    "type": "info",
+    "message": "Searching JobSpy for 15 terms (top roles simplified): ['AI Analysis', 'AI Analysis remote', 'AI Analysis hybrid', 'Chief Technology', 'Chief Technology remote', 'Chief Technology hybrid', 'VP E-commerce', 'VP E-commerce remote', 'VP E-commerce hybrid', 'VP R&D', 'VP R&D remote', 'VP R&D hybrid', 'Head of', 'Head of remote', 'Head of hybrid']"
+  },
+  {
+    "timestamp": "2026-01-15T00:11:23.401597",
+    "type": "success",
+    "message": "Found 33 jobs from JobSpy for term='AI Analysis'"
+  },
+  {
+    "timestamp": "2026-01-15T00:11:24.851979",
+    "type": "success",
+    "message": "Found 3 jobs from JobSpy for term='AI Analysis remote'"
+  },
+  {
+    "timestamp": "2026-01-15T00:11:26.354483",
+    "type": "success",
+    "message": "Found 6 jobs from JobSpy for term='AI Analysis hybrid'"
+  },
+  {
+    "timestamp": "2026-01-15T00:11:27.921863",
+    "type": "success",
+    "message": "Found 1 jobs from JobSpy for term='Chief Technology'"
+  },
+  {
+    "timestamp": "2026-01-15T00:11:32.328979",
+    "type": "success",
+    "message": "Found 1 jobs from JobSpy for term='VP R&D'"
+  },
+  {
+    "timestamp": "2026-01-15T00:11:37.495995",
+    "type": "success",
+    "message": "Found 19 jobs from JobSpy for term='Head of'"
+  },
+  {
+    "timestamp": "2026-01-15T00:11:38.874548",
+    "type": "success",
+    "message": "Found 3 jobs from JobSpy for term='Head of remote'"
+  },
+  {
+    "timestamp": "2026-01-15T00:11:40.060199",
+    "type": "success",
+    "message": "Found 3 jobs from JobSpy for term='Head of hybrid'"
+  },
+  {
+    "timestamp": "2026-01-15T00:11:40.063912",
+    "type": "success",
+    "message": "JobSpy merged results: 52 jobs (capped at 200)"
+  },
+  {
+    "timestamp": "2026-01-15T00:11:40.074457",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-15T00:11:40.389215",
+    "type": "warning",
+    "message": "Israeli boards scraping failed: 'list' object has no attribute 'empty'"
+  },
+  {
+    "timestamp": "2026-01-15T00:11:40.397093",
+    "type": "info",
+    "message": "After filtering discovered jobs from discovered_jobs.csv, 52 new jobs to analyze"
+  },
+  {
+    "timestamp": "2026-01-15T00:11:40.406488",
+    "type": "info",
+    "message": "Processing 0 valid jobs..."
+  },
+  {
+    "timestamp": "2026-01-15T00:11:40.408864",
+    "type": "success",
+    "message": "Scout cycle complete. Found 0 high-match jobs (>= 70%) and logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-15T00:11:40.411419",
+    "type": "info",
+    "message": "Waiting 30 minutes until next cycle..."
+  },
+  {
+    "timestamp": "2026-01-15T00:17:10.704627",
+    "type": "info",
+    "message": "Background scout stopped by user"
+  },
+  {
+    "timestamp": "2026-01-15T00:20:58.800192",
+    "type": "info",
+    "message": "Background Job Scout started as persistent daemon. Running every 30 minutes."
+  },
+  {
+    "timestamp": "2026-01-15T00:20:58.803784",
+    "type": "info",
+    "message": "High-match jobs (>= 70%) will be logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-15T00:20:58.814886",
+    "type": "info",
+    "message": "Preferences.json is re-loaded in EVERY cycle to detect UI updates (Focus, Skills, Roles)."
+  },
+  {
+    "timestamp": "2026-01-15T00:20:58.818361",
+    "type": "info",
+    "message": "Cycle #1 - 2026-01-15T00:20:58.818343"
+  },
+  {
+    "timestamp": "2026-01-15T00:20:58.821478",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-15T00:20:58.821466"
+  },
+  {
+    "timestamp": "2026-01-15T00:20:58.824580",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 8 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-15T00:21:21.392056",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-15T00:21:21.400318",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['CTO', 'VP Product', 'Head of Technology', 'VP E-commerce', 'Chief Technology Officer']"
+  },
+  {
+    "timestamp": "2026-01-15T00:21:21.410952",
+    "type": "info",
+    "message": "Loaded 1 discovered jobs from discovered_jobs.csv to avoid duplicates"
+  },
+  {
+    "timestamp": "2026-01-15T00:21:21.413582",
+    "type": "info",
+    "message": "Searching JobSpy for 18 terms (top roles simplified): ['AI Analysis', 'AI Analysis remote', 'AI Analysis hybrid', 'CTO', 'CTO remote', 'CTO hybrid', 'VP Product', 'VP Product remote', 'VP Product hybrid', 'Head of', 'Head of remote', 'Head of hybrid', 'VP E-commerce', 'VP E-commerce remote', 'VP E-commerce hybrid', 'Chief Technology', 'Chief Technology remote', 'Chief Technology hybrid']"
+  },
+  {
+    "timestamp": "2026-01-15T00:21:25.419119",
+    "type": "success",
+    "message": "Found 33 jobs from JobSpy for term='AI Analysis'"
+  },
+  {
+    "timestamp": "2026-01-15T00:21:26.554361",
+    "type": "success",
+    "message": "Found 3 jobs from JobSpy for term='AI Analysis remote'"
+  },
+  {
+    "timestamp": "2026-01-15T00:21:27.886057",
+    "type": "success",
+    "message": "Found 6 jobs from JobSpy for term='AI Analysis hybrid'"
+  },
+  {
+    "timestamp": "2026-01-15T00:21:29.412053",
+    "type": "success",
+    "message": "Found 5 jobs from JobSpy for term='CTO'"
+  },
+  {
+    "timestamp": "2026-01-15T00:21:32.589358",
+    "type": "success",
+    "message": "Found 8 jobs from JobSpy for term='VP Product'"
+  },
+  {
+    "timestamp": "2026-01-15T00:21:35.702444",
+    "type": "success",
+    "message": "Found 19 jobs from JobSpy for term='Head of'"
+  },
+  {
+    "timestamp": "2026-01-15T00:21:36.873824",
+    "type": "success",
+    "message": "Found 3 jobs from JobSpy for term='Head of remote'"
+  },
+  {
+    "timestamp": "2026-01-15T00:21:38.087980",
+    "type": "success",
+    "message": "Found 3 jobs from JobSpy for term='Head of hybrid'"
+  },
+  {
+    "timestamp": "2026-01-15T00:21:41.797557",
+    "type": "success",
+    "message": "JobSpy merged results: 59 jobs (capped at 200)"
+  },
+  {
+    "timestamp": "2026-01-15T00:21:41.801199",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-15T00:21:42.129732",
+    "type": "warning",
+    "message": "Israeli boards scraping failed: 'list' object has no attribute 'empty'"
+  },
+  {
+    "timestamp": "2026-01-15T00:21:42.136201",
+    "type": "info",
+    "message": "After filtering discovered jobs from discovered_jobs.csv, 59 new jobs to analyze"
+  },
+  {
+    "timestamp": "2026-01-15T00:21:42.147162",
+    "type": "info",
+    "message": "Processing 26 valid jobs..."
+  },
+  {
+    "timestamp": "2026-01-15T08:30:17.677934",
+    "type": "info",
+    "message": "Background scout stopped by user"
+  },
+  {
+    "timestamp": "2026-01-15T08:33:07.209574",
+    "type": "info",
+    "message": "Background Job Scout started as persistent daemon. Running every 30 minutes."
+  },
+  {
+    "timestamp": "2026-01-15T08:33:07.213893",
+    "type": "info",
+    "message": "High-match jobs (>= 70%) will be logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-15T08:33:07.225211",
+    "type": "info",
+    "message": "Preferences.json is re-loaded in EVERY cycle to detect UI updates (Focus, Skills, Roles)."
+  },
+  {
+    "timestamp": "2026-01-15T08:33:07.228519",
+    "type": "info",
+    "message": "Cycle #1 - 2026-01-15T08:33:07.228509"
+  },
+  {
+    "timestamp": "2026-01-15T08:33:07.231604",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-15T08:33:07.231585"
+  },
+  {
+    "timestamp": "2026-01-15T08:33:07.234280",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 8 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-15T08:33:31.308336",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-15T08:33:31.313708",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['CTO', 'VP Product', 'Head of Technology', 'VP E-commerce', 'Chief Technology Officer']"
+  },
+  {
+    "timestamp": "2026-01-15T08:33:31.318117",
+    "type": "info",
+    "message": "Loaded 1 discovered jobs from discovered_jobs.csv to avoid duplicates"
+  },
+  {
+    "timestamp": "2026-01-15T08:33:31.322524",
+    "type": "info",
+    "message": "Searching JobSpy for 18 terms (top roles simplified): ['AI Analysis', 'AI Analysis remote', 'AI Analysis hybrid', 'CTO', 'CTO remote', 'CTO hybrid', 'VP Product', 'VP Product remote', 'VP Product hybrid', 'Head of', 'Head of remote', 'Head of hybrid', 'VP E-commerce', 'VP E-commerce remote', 'VP E-commerce hybrid', 'Chief Technology', 'Chief Technology remote', 'Chief Technology hybrid']"
+  },
+  {
+    "timestamp": "2026-01-15T08:33:35.310086",
+    "type": "success",
+    "message": "Found 40 jobs from JobSpy for term='AI Analysis'"
+  },
+  {
+    "timestamp": "2026-01-15T08:33:36.507868",
+    "type": "success",
+    "message": "Found 4 jobs from JobSpy for term='AI Analysis remote'"
+  },
+  {
+    "timestamp": "2026-01-15T08:33:37.948655",
+    "type": "success",
+    "message": "Found 10 jobs from JobSpy for term='AI Analysis hybrid'"
+  },
+  {
+    "timestamp": "2026-01-15T08:33:39.084298",
+    "type": "success",
+    "message": "Found 5 jobs from JobSpy for term='CTO'"
+  },
+  {
+    "timestamp": "2026-01-15T08:33:41.637889",
+    "type": "success",
+    "message": "Found 8 jobs from JobSpy for term='VP Product'"
+  },
+  {
+    "timestamp": "2026-01-15T08:33:44.745594",
+    "type": "success",
+    "message": "Found 21 jobs from JobSpy for term='Head of'"
+  },
+  {
+    "timestamp": "2026-01-15T08:33:45.889155",
+    "type": "success",
+    "message": "Found 3 jobs from JobSpy for term='Head of remote'"
+  },
+  {
+    "timestamp": "2026-01-15T08:33:47.077582",
+    "type": "success",
+    "message": "Found 4 jobs from JobSpy for term='Head of hybrid'"
+  },
+  {
+    "timestamp": "2026-01-15T08:33:49.708477",
+    "type": "success",
+    "message": "Found 1 jobs from JobSpy for term='Chief Technology'"
+  },
+  {
+    "timestamp": "2026-01-15T08:33:50.757317",
+    "type": "success",
+    "message": "JobSpy merged results: 68 jobs (capped at 200)"
+  },
+  {
+    "timestamp": "2026-01-15T08:33:50.768655",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-15T08:33:51.213298",
+    "type": "warning",
+    "message": "Israeli boards scraping failed: 'list' object has no attribute 'empty'"
+  },
+  {
+    "timestamp": "2026-01-15T08:33:51.229047",
+    "type": "info",
+    "message": "After filtering discovered jobs from discovered_jobs.csv, 68 new jobs to analyze"
+  },
+  {
+    "timestamp": "2026-01-15T08:33:51.243416",
+    "type": "info",
+    "message": "Processing 28 valid jobs..."
+  },
+  {
+    "timestamp": "2026-01-15T08:53:45.131031",
+    "type": "info",
+    "message": "Background scout stopped by user"
+  },
+  {
+    "timestamp": "2026-01-15T09:06:16.788448",
+    "type": "info",
+    "message": "Background Job Scout started as persistent daemon. Running every 30 minutes."
+  },
+  {
+    "timestamp": "2026-01-15T09:06:16.791879",
+    "type": "info",
+    "message": "High-match jobs (>= 70%) will be logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-15T09:06:16.803362",
+    "type": "info",
+    "message": "Preferences.json is re-loaded in EVERY cycle to detect UI updates (Focus, Skills, Roles)."
+  },
+  {
+    "timestamp": "2026-01-15T09:06:16.807612",
+    "type": "info",
+    "message": "Cycle #1 - 2026-01-15T09:06:16.807600"
+  },
+  {
+    "timestamp": "2026-01-15T09:06:16.812148",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-15T09:06:16.812134"
+  },
+  {
+    "timestamp": "2026-01-15T09:06:16.816398",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 8 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-15T09:07:22.548475",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-15T09:07:22.558097",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['CTO', 'VP Product', 'Head of Technology', 'VP E-commerce', 'Chief Technology Officer']"
+  },
+  {
+    "timestamp": "2026-01-15T09:07:22.568945",
+    "type": "info",
+    "message": "Loaded 1 discovered jobs from discovered_jobs.csv to avoid duplicates"
+  },
+  {
+    "timestamp": "2026-01-15T09:07:22.571700",
+    "type": "info",
+    "message": "Searching JobSpy for 18 terms (top roles simplified): ['AI Analysis', 'AI Analysis remote', 'AI Analysis hybrid', 'CTO', 'CTO remote', 'CTO hybrid', 'VP Product', 'VP Product remote', 'VP Product hybrid', 'Head of', 'Head of remote', 'Head of hybrid', 'VP E-commerce', 'VP E-commerce remote', 'VP E-commerce hybrid', 'Chief Technology', 'Chief Technology remote', 'Chief Technology hybrid']"
+  },
+  {
+    "timestamp": "2026-01-15T09:07:26.341593",
+    "type": "success",
+    "message": "Found 40 jobs from JobSpy for term='AI Analysis'"
+  },
+  {
+    "timestamp": "2026-01-15T09:07:27.425998",
+    "type": "success",
+    "message": "Found 4 jobs from JobSpy for term='AI Analysis remote'"
+  },
+  {
+    "timestamp": "2026-01-15T09:07:28.816324",
+    "type": "success",
+    "message": "Found 10 jobs from JobSpy for term='AI Analysis hybrid'"
+  },
+  {
+    "timestamp": "2026-01-15T09:07:30.014403",
+    "type": "success",
+    "message": "Found 5 jobs from JobSpy for term='CTO'"
+  },
+  {
+    "timestamp": "2026-01-15T09:07:32.434657",
+    "type": "success",
+    "message": "Found 8 jobs from JobSpy for term='VP Product'"
+  },
+  {
+    "timestamp": "2026-01-15T09:07:35.393312",
+    "type": "success",
+    "message": "Found 21 jobs from JobSpy for term='Head of'"
+  },
+  {
+    "timestamp": "2026-01-15T09:07:36.507561",
+    "type": "success",
+    "message": "Found 3 jobs from JobSpy for term='Head of remote'"
+  },
+  {
+    "timestamp": "2026-01-15T09:07:37.590126",
+    "type": "success",
+    "message": "Found 4 jobs from JobSpy for term='Head of hybrid'"
+  },
+  {
+    "timestamp": "2026-01-15T09:07:40.504125",
+    "type": "success",
+    "message": "Found 1 jobs from JobSpy for term='Chief Technology'"
+  },
+  {
+    "timestamp": "2026-01-15T09:07:41.533281",
+    "type": "success",
+    "message": "JobSpy merged results: 68 jobs (capped at 200)"
+  },
+  {
+    "timestamp": "2026-01-15T09:07:41.538422",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-15T09:07:41.859746",
+    "type": "warning",
+    "message": "Israeli boards scraping failed: 'list' object has no attribute 'empty'"
+  },
+  {
+    "timestamp": "2026-01-15T09:07:41.866439",
+    "type": "info",
+    "message": "After filtering discovered jobs from discovered_jobs.csv, 68 new jobs to analyze"
+  },
+  {
+    "timestamp": "2026-01-15T09:07:41.874259",
+    "type": "info",
+    "message": "Processing 25 valid jobs..."
+  },
+  {
+    "timestamp": "2026-01-15T09:57:40.784689",
+    "type": "info",
+    "message": "Background scout stopped by user"
+  },
+  {
+    "timestamp": "2026-01-15T10:41:40.380814",
+    "type": "info",
+    "message": "Background Job Scout started as persistent daemon. Running every 30 minutes."
+  },
+  {
+    "timestamp": "2026-01-15T10:41:40.389365",
+    "type": "info",
+    "message": "High-match jobs (>= 70%) will be logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-15T10:41:40.402018",
+    "type": "info",
+    "message": "Preferences.json is re-loaded in EVERY cycle to detect UI updates (Focus, Skills, Roles)."
+  },
+  {
+    "timestamp": "2026-01-15T10:41:40.408237",
+    "type": "info",
+    "message": "Cycle #1 - 2026-01-15T10:41:40.408224"
+  },
+  {
+    "timestamp": "2026-01-15T10:41:40.414248",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-15T10:41:40.414235"
+  },
+  {
+    "timestamp": "2026-01-15T10:41:40.423082",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 8 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-15T10:41:51.726853",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-15T10:41:51.734256",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['CTO', 'VP Product', 'Head of Technology', 'VP E-commerce', 'Chief Technology Officer']"
+  },
+  {
+    "timestamp": "2026-01-15T10:41:51.742649",
+    "type": "info",
+    "message": "Loaded 1 discovered jobs from discovered_jobs.csv to avoid duplicates"
+  },
+  {
+    "timestamp": "2026-01-15T10:41:51.749500",
+    "type": "info",
+    "message": "Searching JobSpy for 18 terms (top roles simplified): ['{query: CTO', '{query: CTO remote', '{query: CTO hybrid', 'CTO', 'CTO remote', 'CTO hybrid', 'VP Product', 'VP Product remote', 'VP Product hybrid', 'Head of', 'Head of remote', 'Head of hybrid', 'VP E-commerce', 'VP E-commerce remote', 'VP E-commerce hybrid', 'Chief Technology', 'Chief Technology remote', 'Chief Technology hybrid']"
+  },
+  {
+    "timestamp": "2026-01-15T10:41:55.659202",
+    "type": "success",
+    "message": "Found 5 jobs from JobSpy for term='CTO'"
+  },
+  {
+    "timestamp": "2026-01-15T10:41:58.376710",
+    "type": "success",
+    "message": "Found 8 jobs from JobSpy for term='VP Product'"
+  },
+  {
+    "timestamp": "2026-01-15T10:42:02.967818",
+    "type": "success",
+    "message": "Found 21 jobs from JobSpy for term='Head of'"
+  },
+  {
+    "timestamp": "2026-01-15T10:42:04.055318",
+    "type": "success",
+    "message": "Found 3 jobs from JobSpy for term='Head of remote'"
+  },
+  {
+    "timestamp": "2026-01-15T10:42:05.666919",
+    "type": "success",
+    "message": "Found 4 jobs from JobSpy for term='Head of hybrid'"
+  },
+  {
+    "timestamp": "2026-01-15T10:42:08.339859",
+    "type": "success",
+    "message": "Found 1 jobs from JobSpy for term='Chief Technology'"
+  },
+  {
+    "timestamp": "2026-01-15T10:42:09.355062",
+    "type": "success",
+    "message": "JobSpy merged results: 31 jobs (capped at 200)"
+  },
+  {
+    "timestamp": "2026-01-15T10:42:09.361322",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-15T10:42:09.760878",
+    "type": "warning",
+    "message": "Israeli boards scraping failed: 'list' object has no attribute 'empty'"
+  },
+  {
+    "timestamp": "2026-01-15T10:42:09.772305",
+    "type": "info",
+    "message": "After filtering discovered jobs from discovered_jobs.csv, 31 new jobs to analyze"
+  },
+  {
+    "timestamp": "2026-01-15T10:42:09.780991",
+    "type": "info",
+    "message": "Processing 26 valid jobs..."
+  },
+  {
+    "timestamp": "2026-01-15T10:44:31.929689",
+    "type": "success",
+    "message": "Logged high-match job to discovered_jobs.csv: AI Architect @ Navina (Score: 75%)"
+  },
+  {
+    "timestamp": "2026-01-15T10:47:51.015782",
+    "type": "success",
+    "message": "Scout cycle complete. Found 1 high-match jobs (>= 70%) and logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-15T10:47:51.020480",
+    "type": "info",
+    "message": "Waiting 30 minutes until next cycle..."
+  },
+  {
+    "timestamp": "2026-01-15T11:17:51.125209",
+    "type": "info",
+    "message": "Cycle #2 - 2026-01-15T11:17:51.125196"
+  },
+  {
+    "timestamp": "2026-01-15T11:17:51.129590",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-15T11:17:51.129560"
+  },
+  {
+    "timestamp": "2026-01-15T11:17:51.145996",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 8 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-15T11:18:02.692639",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-15T11:18:02.696379",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['CTO', 'VP Product', 'Head of Technology', 'VP E-commerce', 'Chief Technology Officer']"
+  },
+  {
+    "timestamp": "2026-01-15T11:18:02.704982",
+    "type": "info",
+    "message": "Loaded 2 discovered jobs from discovered_jobs.csv to avoid duplicates"
+  },
+  {
+    "timestamp": "2026-01-15T11:18:02.710924",
+    "type": "info",
+    "message": "Searching JobSpy for 18 terms (top roles simplified): ['{ query:', '{ query: remote', '{ query: hybrid', 'CTO', 'CTO remote', 'CTO hybrid', 'VP Product', 'VP Product remote', 'VP Product hybrid', 'Head of', 'Head of remote', 'Head of hybrid', 'VP E-commerce', 'VP E-commerce remote', 'VP E-commerce hybrid', 'Chief Technology', 'Chief Technology remote', 'Chief Technology hybrid']"
+  },
+  {
+    "timestamp": "2026-01-15T11:18:06.829192",
+    "type": "success",
+    "message": "Found 5 jobs from JobSpy for term='CTO'"
+  },
+  {
+    "timestamp": "2026-01-15T11:18:09.799349",
+    "type": "success",
+    "message": "Found 10 jobs from JobSpy for term='VP Product'"
+  },
+  {
+    "timestamp": "2026-01-15T11:18:13.830202",
+    "type": "success",
+    "message": "Found 21 jobs from JobSpy for term='Head of'"
+  },
+  {
+    "timestamp": "2026-01-15T11:18:15.052453",
+    "type": "success",
+    "message": "Found 3 jobs from JobSpy for term='Head of remote'"
+  },
+  {
+    "timestamp": "2026-01-15T11:18:16.386133",
+    "type": "success",
+    "message": "Found 4 jobs from JobSpy for term='Head of hybrid'"
+  },
+  {
+    "timestamp": "2026-01-15T11:18:18.994551",
+    "type": "success",
+    "message": "Found 1 jobs from JobSpy for term='Chief Technology'"
+  },
+  {
+    "timestamp": "2026-01-15T11:18:19.996078",
+    "type": "success",
+    "message": "JobSpy merged results: 33 jobs (capped at 200)"
+  },
+  {
+    "timestamp": "2026-01-15T11:18:20.002087",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-15T11:18:20.473971",
+    "type": "warning",
+    "message": "Israeli boards scraping failed: 'list' object has no attribute 'empty'"
+  },
+  {
+    "timestamp": "2026-01-15T11:18:20.485230",
+    "type": "info",
+    "message": "After filtering discovered jobs from discovered_jobs.csv, 32 new jobs to analyze"
+  },
+  {
+    "timestamp": "2026-01-15T11:18:20.497356",
+    "type": "info",
+    "message": "Processing 26 valid jobs..."
+  },
+  {
+    "timestamp": "2026-01-15T11:23:09.481195",
+    "type": "success",
+    "message": "Scout cycle complete. Found 0 high-match jobs (>= 70%) and logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-15T11:23:09.484961",
+    "type": "info",
+    "message": "Waiting 30 minutes until next cycle..."
+  },
+  {
+    "timestamp": "2026-01-15T11:53:09.597231",
+    "type": "info",
+    "message": "Cycle #3 - 2026-01-15T11:53:09.597217"
+  },
+  {
+    "timestamp": "2026-01-15T11:53:09.603910",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-15T11:53:09.603897"
+  },
+  {
+    "timestamp": "2026-01-15T11:53:09.616873",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 8 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-15T11:53:21.707192",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-15T11:53:21.712430",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['CTO', 'VP Product', 'Head of Technology', 'VP E-commerce', 'Chief Technology Officer']"
+  },
+  {
+    "timestamp": "2026-01-15T11:53:21.725112",
+    "type": "info",
+    "message": "Loaded 2 discovered jobs from discovered_jobs.csv to avoid duplicates"
+  },
+  {
+    "timestamp": "2026-01-15T11:53:21.734728",
+    "type": "info",
+    "message": "Searching JobSpy for 18 terms (top roles simplified): ['{ query:', '{ query: remote', '{ query: hybrid', 'CTO', 'CTO remote', 'CTO hybrid', 'VP Product', 'VP Product remote', 'VP Product hybrid', 'Head of', 'Head of remote', 'Head of hybrid', 'VP E-commerce', 'VP E-commerce remote', 'VP E-commerce hybrid', 'Chief Technology', 'Chief Technology remote', 'Chief Technology hybrid']"
+  },
+  {
+    "timestamp": "2026-01-15T11:53:24.935855",
+    "type": "success",
+    "message": "Found 5 jobs from JobSpy for term='CTO'"
+  },
+  {
+    "timestamp": "2026-01-15T11:53:28.142676",
+    "type": "success",
+    "message": "Found 10 jobs from JobSpy for term='VP Product'"
+  },
+  {
+    "timestamp": "2026-01-15T11:53:31.987523",
+    "type": "success",
+    "message": "Found 21 jobs from JobSpy for term='Head of'"
+  },
+  {
+    "timestamp": "2026-01-15T11:53:33.192592",
+    "type": "success",
+    "message": "Found 3 jobs from JobSpy for term='Head of remote'"
+  },
+  {
+    "timestamp": "2026-01-15T11:53:34.448419",
+    "type": "success",
+    "message": "Found 4 jobs from JobSpy for term='Head of hybrid'"
+  },
+  {
+    "timestamp": "2026-01-15T11:53:37.316213",
+    "type": "success",
+    "message": "Found 1 jobs from JobSpy for term='Chief Technology'"
+  },
+  {
+    "timestamp": "2026-01-15T11:53:38.386576",
+    "type": "success",
+    "message": "JobSpy merged results: 33 jobs (capped at 200)"
+  },
+  {
+    "timestamp": "2026-01-15T11:53:38.393269",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-15T11:53:38.858147",
+    "type": "warning",
+    "message": "Israeli boards scraping failed: 'list' object has no attribute 'empty'"
+  },
+  {
+    "timestamp": "2026-01-15T11:53:38.873877",
+    "type": "info",
+    "message": "After filtering discovered jobs from discovered_jobs.csv, 32 new jobs to analyze"
+  },
+  {
+    "timestamp": "2026-01-15T11:53:38.888268",
+    "type": "info",
+    "message": "Processing 24 valid jobs..."
+  },
+  {
+    "timestamp": "2026-01-15T11:58:01.042258",
+    "type": "success",
+    "message": "Scout cycle complete. Found 0 high-match jobs (>= 70%) and logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-15T11:58:01.047552",
+    "type": "info",
+    "message": "Waiting 30 minutes until next cycle..."
+  },
+  {
+    "timestamp": "2026-01-15T12:28:01.162256",
+    "type": "info",
+    "message": "Cycle #4 - 2026-01-15T12:28:01.162239"
+  },
+  {
+    "timestamp": "2026-01-15T12:28:01.167777",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-15T12:28:01.167765"
+  },
+  {
+    "timestamp": "2026-01-15T12:28:01.179645",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 8 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-15T12:28:11.086783",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-15T12:28:11.095220",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['CTO', 'VP Product', 'Head of Technology', 'VP E-commerce', 'Chief Technology Officer']"
+  },
+  {
+    "timestamp": "2026-01-15T12:28:11.103336",
+    "type": "info",
+    "message": "Loaded 2 discovered jobs from discovered_jobs.csv to avoid duplicates"
+  },
+  {
+    "timestamp": "2026-01-15T12:28:11.110381",
+    "type": "info",
+    "message": "Searching JobSpy for 18 terms (top roles simplified): ['{ query:', '{ query: remote', '{ query: hybrid', 'CTO', 'CTO remote', 'CTO hybrid', 'VP Product', 'VP Product remote', 'VP Product hybrid', 'Head of', 'Head of remote', 'Head of hybrid', 'VP E-commerce', 'VP E-commerce remote', 'VP E-commerce hybrid', 'Chief Technology', 'Chief Technology remote', 'Chief Technology hybrid']"
+  },
+  {
+    "timestamp": "2026-01-15T12:28:14.451533",
+    "type": "success",
+    "message": "Found 5 jobs from JobSpy for term='CTO'"
+  },
+  {
+    "timestamp": "2026-01-15T12:28:17.866611",
+    "type": "success",
+    "message": "Found 10 jobs from JobSpy for term='VP Product'"
+  },
+  {
+    "timestamp": "2026-01-15T12:28:21.146362",
+    "type": "success",
+    "message": "Found 21 jobs from JobSpy for term='Head of'"
+  },
+  {
+    "timestamp": "2026-01-15T12:28:22.627520",
+    "type": "success",
+    "message": "Found 3 jobs from JobSpy for term='Head of remote'"
+  },
+  {
+    "timestamp": "2026-01-15T12:28:23.825296",
+    "type": "success",
+    "message": "Found 4 jobs from JobSpy for term='Head of hybrid'"
+  },
+  {
+    "timestamp": "2026-01-15T12:28:26.630826",
+    "type": "success",
+    "message": "Found 1 jobs from JobSpy for term='Chief Technology'"
+  },
+  {
+    "timestamp": "2026-01-15T12:28:27.900392",
+    "type": "success",
+    "message": "JobSpy merged results: 33 jobs (capped at 200)"
+  },
+  {
+    "timestamp": "2026-01-15T12:28:27.905654",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-15T12:28:28.186676",
+    "type": "warning",
+    "message": "Israeli boards scraping failed: 'list' object has no attribute 'empty'"
+  },
+  {
+    "timestamp": "2026-01-15T12:28:28.194249",
+    "type": "info",
+    "message": "After filtering discovered jobs from discovered_jobs.csv, 32 new jobs to analyze"
+  },
+  {
+    "timestamp": "2026-01-15T12:28:28.204260",
+    "type": "info",
+    "message": "Processing 25 valid jobs..."
+  },
+  {
+    "timestamp": "2026-01-15T12:33:08.273280",
+    "type": "success",
+    "message": "Scout cycle complete. Found 0 high-match jobs (>= 70%) and logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-15T12:33:08.278606",
+    "type": "info",
+    "message": "Waiting 30 minutes until next cycle..."
+  },
+  {
+    "timestamp": "2026-01-15T13:03:08.353458",
+    "type": "info",
+    "message": "Cycle #5 - 2026-01-15T13:03:08.353444"
+  },
+  {
+    "timestamp": "2026-01-15T13:03:08.365046",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-15T13:03:08.365035"
+  },
+  {
+    "timestamp": "2026-01-15T13:03:08.368829",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 8 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-15T13:03:18.102789",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-15T13:03:18.107786",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['CTO', 'VP Product', 'Head of Technology', 'VP E-commerce', 'Chief Technology Officer']"
+  },
+  {
+    "timestamp": "2026-01-15T13:03:18.116619",
+    "type": "info",
+    "message": "Loaded 2 discovered jobs from discovered_jobs.csv to avoid duplicates"
+  },
+  {
+    "timestamp": "2026-01-15T13:03:18.121958",
+    "type": "info",
+    "message": "Searching JobSpy for 18 terms (top roles simplified): ['{ query:', '{ query: remote', '{ query: hybrid', 'CTO', 'CTO remote', 'CTO hybrid', 'VP Product', 'VP Product remote', 'VP Product hybrid', 'Head of', 'Head of remote', 'Head of hybrid', 'VP E-commerce', 'VP E-commerce remote', 'VP E-commerce hybrid', 'Chief Technology', 'Chief Technology remote', 'Chief Technology hybrid']"
+  },
+  {
+    "timestamp": "2026-01-15T13:03:29.380563",
+    "type": "success",
+    "message": "Found 5 jobs from JobSpy for term='CTO'"
+  },
+  {
+    "timestamp": "2026-01-15T13:03:41.249898",
+    "type": "success",
+    "message": "Found 10 jobs from JobSpy for term='VP Product'"
+  },
+  {
+    "timestamp": "2026-01-15T13:03:54.583527",
+    "type": "success",
+    "message": "Found 21 jobs from JobSpy for term='Head of'"
+  },
+  {
+    "timestamp": "2026-01-15T13:03:57.039100",
+    "type": "success",
+    "message": "Found 3 jobs from JobSpy for term='Head of remote'"
+  },
+  {
+    "timestamp": "2026-01-15T13:04:02.462934",
+    "type": "success",
+    "message": "Found 4 jobs from JobSpy for term='Head of hybrid'"
+  },
+  {
+    "timestamp": "2026-01-15T13:04:07.416760",
+    "type": "success",
+    "message": "Found 1 jobs from JobSpy for term='Chief Technology'"
+  },
+  {
+    "timestamp": "2026-01-15T13:04:08.885918",
+    "type": "success",
+    "message": "JobSpy merged results: 33 jobs (capped at 200)"
+  },
+  {
+    "timestamp": "2026-01-15T13:04:08.898619",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-15T13:04:09.257956",
+    "type": "warning",
+    "message": "Israeli boards scraping failed: 'list' object has no attribute 'empty'"
+  },
+  {
+    "timestamp": "2026-01-15T13:04:09.268976",
+    "type": "info",
+    "message": "After filtering discovered jobs from discovered_jobs.csv, 32 new jobs to analyze"
+  },
+  {
+    "timestamp": "2026-01-15T13:04:09.279744",
+    "type": "info",
+    "message": "Processing 26 valid jobs..."
+  },
+  {
+    "timestamp": "2026-01-15T13:08:55.816673",
+    "type": "success",
+    "message": "Scout cycle complete. Found 0 high-match jobs (>= 70%) and logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-15T13:08:55.821519",
+    "type": "info",
+    "message": "Waiting 30 minutes until next cycle..."
+  },
+  {
+    "timestamp": "2026-01-15T13:38:55.859630",
+    "type": "info",
+    "message": "Cycle #6 - 2026-01-15T13:38:55.859616"
+  },
+  {
+    "timestamp": "2026-01-15T13:38:55.864908",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-15T13:38:55.864897"
+  },
+  {
+    "timestamp": "2026-01-15T13:38:55.877623",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 8 potential roles, 1 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-15T13:39:05.387110",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-15T13:39:05.393093",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['CTO', 'VP Product', 'Head of Technology', 'VP E-commerce', 'Chief Technology Officer']"
+  },
+  {
+    "timestamp": "2026-01-15T13:39:05.398885",
+    "type": "info",
+    "message": "Loaded 2 discovered jobs from discovered_jobs.csv to avoid duplicates"
+  },
+  {
+    "timestamp": "2026-01-15T13:39:05.403779",
+    "type": "info",
+    "message": "Searching JobSpy for 18 terms (top roles simplified): ['{ query:', '{ query: remote', '{ query: hybrid', 'CTO', 'CTO remote', 'CTO hybrid', 'VP Product', 'VP Product remote', 'VP Product hybrid', 'Head of', 'Head of remote', 'Head of hybrid', 'VP E-commerce', 'VP E-commerce remote', 'VP E-commerce hybrid', 'Chief Technology', 'Chief Technology remote', 'Chief Technology hybrid']"
+  },
+  {
+    "timestamp": "2026-01-15T13:39:09.169201",
+    "type": "success",
+    "message": "Found 5 jobs from JobSpy for term='CTO'"
+  },
+  {
+    "timestamp": "2026-01-15T13:39:11.980031",
+    "type": "success",
+    "message": "Found 10 jobs from JobSpy for term='VP Product'"
+  },
+  {
+    "timestamp": "2026-01-15T13:39:15.449829",
+    "type": "success",
+    "message": "Found 21 jobs from JobSpy for term='Head of'"
+  },
+  {
+    "timestamp": "2026-01-15T13:39:16.576353",
+    "type": "success",
+    "message": "Found 3 jobs from JobSpy for term='Head of remote'"
+  },
+  {
+    "timestamp": "2026-01-15T13:39:17.699988",
+    "type": "success",
+    "message": "Found 4 jobs from JobSpy for term='Head of hybrid'"
+  },
+  {
+    "timestamp": "2026-01-15T13:39:20.386930",
+    "type": "success",
+    "message": "Found 2 jobs from JobSpy for term='Chief Technology'"
+  },
+  {
+    "timestamp": "2026-01-15T13:39:21.873823",
+    "type": "success",
+    "message": "Found 1 jobs from JobSpy for term='Chief Technology hybrid'"
+  },
+  {
+    "timestamp": "2026-01-15T13:39:21.879613",
+    "type": "success",
+    "message": "JobSpy merged results: 34 jobs (capped at 200)"
+  },
+  {
+    "timestamp": "2026-01-15T13:39:21.889999",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-15T13:39:22.154476",
+    "type": "warning",
+    "message": "Israeli boards scraping failed: 'list' object has no attribute 'empty'"
+  },
+  {
+    "timestamp": "2026-01-15T13:39:22.162426",
+    "type": "info",
+    "message": "After filtering discovered jobs from discovered_jobs.csv, 33 new jobs to analyze"
+  },
+  {
+    "timestamp": "2026-01-15T13:39:22.177617",
+    "type": "info",
+    "message": "Processing 26 valid jobs..."
+  },
+  {
+    "timestamp": "2026-01-15T15:59:51.060412",
+    "type": "info",
+    "message": "Background scout stopped by user"
+  },
+  {
+    "timestamp": "2026-01-15T17:49:32.159554",
+    "type": "info",
+    "message": "Background Job Scout started as persistent daemon. Running every 30 minutes."
+  },
+  {
+    "timestamp": "2026-01-15T17:49:32.164616",
+    "type": "info",
+    "message": "High-match jobs (>= 70%) will be logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-15T17:49:32.177254",
+    "type": "info",
+    "message": "Preferences.json is re-loaded in EVERY cycle to detect UI updates (Focus, Skills, Roles)."
+  },
+  {
+    "timestamp": "2026-01-15T17:49:32.182449",
+    "type": "info",
+    "message": "Cycle #1 - 2026-01-15T17:49:32.182436"
+  },
+  {
+    "timestamp": "2026-01-15T17:49:32.187841",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-15T17:49:32.187825"
+  },
+  {
+    "timestamp": "2026-01-15T17:49:32.192900",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 8 potential roles, 0 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-15T17:49:42.758301",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-15T17:49:42.763973",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['CTO', 'VP Product', 'Head of Technology', 'VP E-commerce', 'Chief Technology Officer']"
+  },
+  {
+    "timestamp": "2026-01-15T17:49:42.769838",
+    "type": "info",
+    "message": "Loaded 0 discovered jobs from discovered_jobs.csv to avoid duplicates"
+  },
+  {
+    "timestamp": "2026-01-15T17:49:42.774018",
+    "type": "info",
+    "message": "Searching JobSpy for 15 terms (top roles simplified): ['CTO', 'CTO remote', 'CTO hybrid', 'VP Product', 'VP Product remote', 'VP Product hybrid', 'Head of', 'Head of remote', 'Head of hybrid', 'VP E-commerce', 'VP E-commerce remote', 'VP E-commerce hybrid', 'Chief Technology', 'Chief Technology remote', 'Chief Technology hybrid']"
+  },
+  {
+    "timestamp": "2026-01-15T17:49:44.935350",
+    "type": "success",
+    "message": "Found 4 jobs from JobSpy for term='CTO'"
+  },
+  {
+    "timestamp": "2026-01-15T17:49:48.329146",
+    "type": "success",
+    "message": "Found 8 jobs from JobSpy for term='VP Product'"
+  },
+  {
+    "timestamp": "2026-01-15T17:49:52.405349",
+    "type": "success",
+    "message": "Found 20 jobs from JobSpy for term='Head of'"
+  },
+  {
+    "timestamp": "2026-01-15T17:49:53.649523",
+    "type": "success",
+    "message": "Found 2 jobs from JobSpy for term='Head of remote'"
+  },
+  {
+    "timestamp": "2026-01-15T17:49:54.891901",
+    "type": "success",
+    "message": "Found 5 jobs from JobSpy for term='Head of hybrid'"
+  },
+  {
+    "timestamp": "2026-01-15T17:49:58.019290",
+    "type": "success",
+    "message": "Found 2 jobs from JobSpy for term='Chief Technology'"
+  },
+  {
+    "timestamp": "2026-01-15T17:49:59.593013",
+    "type": "success",
+    "message": "Found 1 jobs from JobSpy for term='Chief Technology hybrid'"
+  },
+  {
+    "timestamp": "2026-01-15T17:49:59.603502",
+    "type": "success",
+    "message": "JobSpy merged results: 31 jobs (capped at 200)"
+  },
+  {
+    "timestamp": "2026-01-15T17:49:59.612026",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-15T17:49:59.966576",
+    "type": "warning",
+    "message": "Israeli boards scraping failed: 'list' object has no attribute 'empty'"
+  },
+  {
+    "timestamp": "2026-01-15T17:49:59.971985",
+    "type": "warning",
+    "message": "discovered_jobs.csv is empty after crawl. Running Super Broad search to verify connectivity..."
+  },
+  {
+    "timestamp": "2026-01-15T17:50:04.874585",
+    "type": "success",
+    "message": "Super Broad search added 71 jobs for term='Software Israel'"
+  },
+  {
+    "timestamp": "2026-01-15T17:50:06.348591",
+    "type": "success",
+    "message": "Super Broad search added 11 jobs for term='High Tech Israel'"
+  },
+  {
+    "timestamp": "2026-01-15T17:50:06.354379",
+    "type": "info",
+    "message": "After filtering discovered jobs from discovered_jobs.csv, 102 new jobs to analyze"
+  },
+  {
+    "timestamp": "2026-01-15T17:50:06.368424",
+    "type": "info",
+    "message": "Processing 25 valid jobs..."
+  },
+  {
+    "timestamp": "2026-01-15T17:50:06.442625",
+    "type": "info",
+    "message": "Hard Constraints filtered out 8 jobs before AI analysis."
+  },
+  {
+    "timestamp": "2026-01-15T17:50:39.954368",
+    "type": "success",
+    "message": "Logged high-match job to discovered_jobs.csv: Software Team Leader @ Radware (Score: 70%)"
+  },
+  {
+    "timestamp": "2026-01-15T17:53:35.619246",
+    "type": "success",
+    "message": "Scout cycle complete. Found 1 high-match jobs (>= 70%) and logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-15T17:53:35.632252",
+    "type": "info",
+    "message": "Waiting 30 minutes until next cycle..."
+  },
+  {
+    "timestamp": "2026-01-15T17:57:19.361068",
+    "type": "info",
+    "message": "Background scout stopped by user"
+  },
+  {
+    "timestamp": "2026-01-15T18:00:18.557334",
+    "type": "info",
+    "message": "Background Job Scout started as persistent daemon. Running every 30 minutes."
+  },
+  {
+    "timestamp": "2026-01-15T18:00:18.562467",
+    "type": "info",
+    "message": "High-match jobs (>= 70%) will be logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-15T18:00:18.574199",
+    "type": "info",
+    "message": "Preferences.json is re-loaded in EVERY cycle to detect UI updates (Focus, Skills, Roles)."
+  },
+  {
+    "timestamp": "2026-01-15T18:00:18.580486",
+    "type": "info",
+    "message": "Cycle #1 - 2026-01-15T18:00:18.580468"
+  },
+  {
+    "timestamp": "2026-01-15T18:00:18.586673",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-15T18:00:18.586654"
+  },
+  {
+    "timestamp": "2026-01-15T18:00:18.591653",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 8 potential roles, 0 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-15T18:00:30.695759",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-15T18:00:30.701461",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['CTO', 'VP Product', 'Head of Technology', 'VP E-commerce', 'Chief Technology Officer']"
+  },
+  {
+    "timestamp": "2026-01-15T18:00:30.707831",
+    "type": "info",
+    "message": "Loaded 1 discovered jobs from discovered_jobs.csv to avoid duplicates"
+  },
+  {
+    "timestamp": "2026-01-15T18:00:30.712060",
+    "type": "info",
+    "message": "Searching JobSpy for 15 terms (top roles simplified): ['CTO', 'CTO remote', 'CTO hybrid', 'VP Product', 'VP Product remote', 'VP Product hybrid', 'Head of', 'Head of remote', 'Head of hybrid', 'VP E-commerce', 'VP E-commerce remote', 'VP E-commerce hybrid', 'Chief Technology', 'Chief Technology remote', 'Chief Technology hybrid']"
+  },
+  {
+    "timestamp": "2026-01-15T18:00:33.584672",
+    "type": "success",
+    "message": "Found 6 jobs from JobSpy for term='CTO'"
+  },
+  {
+    "timestamp": "2026-01-15T18:00:35.757820",
+    "type": "success",
+    "message": "Found 2 jobs from JobSpy for term='CTO hybrid'"
+  },
+  {
+    "timestamp": "2026-01-15T18:00:38.191755",
+    "type": "success",
+    "message": "Found 9 jobs from JobSpy for term='VP Product'"
+  },
+  {
+    "timestamp": "2026-01-15T18:00:40.530164",
+    "type": "success",
+    "message": "Found 1 jobs from JobSpy for term='VP Product hybrid'"
+  },
+  {
+    "timestamp": "2026-01-15T18:00:43.050298",
+    "type": "success",
+    "message": "Found 20 jobs from JobSpy for term='Head of'"
+  },
+  {
+    "timestamp": "2026-01-15T18:00:44.249875",
+    "type": "success",
+    "message": "Found 2 jobs from JobSpy for term='Head of remote'"
+  },
+  {
+    "timestamp": "2026-01-15T18:00:45.824994",
+    "type": "success",
+    "message": "Found 5 jobs from JobSpy for term='Head of hybrid'"
+  },
+  {
+    "timestamp": "2026-01-15T18:00:49.490578",
+    "type": "success",
+    "message": "Found 2 jobs from JobSpy for term='Chief Technology'"
+  },
+  {
+    "timestamp": "2026-01-15T18:00:51.325701",
+    "type": "success",
+    "message": "Found 1 jobs from JobSpy for term='Chief Technology hybrid'"
+  },
+  {
+    "timestamp": "2026-01-15T18:00:51.333295",
+    "type": "success",
+    "message": "JobSpy merged results: 33 jobs (capped at 200)"
+  },
+  {
+    "timestamp": "2026-01-15T18:00:51.343380",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-15T18:00:51.644582",
+    "type": "warning",
+    "message": "Israeli boards scraping failed: 'list' object has no attribute 'empty'"
+  },
+  {
+    "timestamp": "2026-01-15T18:00:51.652153",
+    "type": "info",
+    "message": "After filtering discovered jobs from discovered_jobs.csv, 32 new jobs to analyze"
+  },
+  {
+    "timestamp": "2026-01-15T18:00:51.662470",
+    "type": "info",
+    "message": "Processing 25 valid jobs..."
+  },
+  {
+    "timestamp": "2026-01-15T18:00:51.754225",
+    "type": "info",
+    "message": "Hard Constraints filtered out 9 jobs before AI analysis."
+  },
+  {
+    "timestamp": "2026-01-15T18:04:05.854242",
+    "type": "success",
+    "message": "Scout cycle complete. Found 0 high-match jobs (>= 70%) and logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-15T18:04:05.867366",
+    "type": "info",
+    "message": "Waiting 30 minutes until next cycle..."
+  },
+  {
+    "timestamp": "2026-01-15T18:04:19.372813",
+    "type": "info",
+    "message": "Background scout stopped by user"
+  },
+  {
+    "timestamp": "2026-01-15T19:54:01.702816",
+    "type": "info",
+    "message": "Background Job Scout started as persistent daemon. Running every 30 minutes."
+  },
+  {
+    "timestamp": "2026-01-15T19:54:01.709181",
+    "type": "info",
+    "message": "High-match jobs (>= 70%) will be logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-15T19:54:01.724922",
+    "type": "info",
+    "message": "Preferences.json is re-loaded in EVERY cycle to detect UI updates (Focus, Skills, Roles)."
+  },
+  {
+    "timestamp": "2026-01-15T19:54:01.732415",
+    "type": "info",
+    "message": "Cycle #1 - 2026-01-15T19:54:01.732405"
+  },
+  {
+    "timestamp": "2026-01-15T19:54:01.738362",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-15T19:54:01.738354"
+  },
+  {
+    "timestamp": "2026-01-15T19:54:01.746062",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 5 potential roles, 0 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-15T19:54:04.069700",
+    "type": "info",
+    "message": "Built Digital Persona with Industry Focus='Technology Leadership / General Tech'"
+  },
+  {
+    "timestamp": "2026-01-15T19:54:04.075720",
+    "type": "info",
+    "message": "Using potential roles from preferences.json as search queries: ['Chief Marketing Officer', 'VP Digital Transformation', 'Head of Marketing Automation', 'Director of Customer Loyalty Programs', 'Chief Growth Officer']"
+  },
+  {
+    "timestamp": "2026-01-15T19:54:04.081999",
+    "type": "info",
+    "message": "Loaded 1 discovered jobs from discovered_jobs.csv to avoid duplicates"
+  },
+  {
+    "timestamp": "2026-01-15T19:54:04.087457",
+    "type": "info",
+    "message": "Searching JobSpy for 15 terms (top roles simplified): ['Chief Marketing', 'Chief Marketing remote', 'Chief Marketing hybrid', 'VP Digital', 'VP Digital remote', 'VP Digital hybrid', 'Head of', 'Head of remote', 'Head of hybrid', 'Director of', 'Director of remote', 'Director of hybrid', 'Chief Growth', 'Chief Growth remote', 'Chief Growth hybrid']"
+  },
+  {
+    "timestamp": "2026-01-15T19:54:07.743472",
+    "type": "success",
+    "message": "Found 5 jobs from JobSpy for term='VP Digital'"
+  },
+  {
+    "timestamp": "2026-01-15T19:54:11.273179",
+    "type": "success",
+    "message": "Found 18 jobs from JobSpy for term='Head of'"
+  },
+  {
+    "timestamp": "2026-01-15T19:54:13.078324",
+    "type": "success",
+    "message": "Found 2 jobs from JobSpy for term='Head of remote'"
+  },
+  {
+    "timestamp": "2026-01-15T19:54:14.916505",
+    "type": "success",
+    "message": "Found 5 jobs from JobSpy for term='Head of hybrid'"
+  },
+  {
+    "timestamp": "2026-01-15T19:54:17.932493",
+    "type": "success",
+    "message": "Found 31 jobs from JobSpy for term='Director of'"
+  },
+  {
+    "timestamp": "2026-01-15T19:54:19.037685",
+    "type": "success",
+    "message": "Found 2 jobs from JobSpy for term='Director of remote'"
+  },
+  {
+    "timestamp": "2026-01-15T19:54:20.470549",
+    "type": "success",
+    "message": "Found 7 jobs from JobSpy for term='Director of hybrid'"
+  },
+  {
+    "timestamp": "2026-01-15T19:54:21.494096",
+    "type": "success",
+    "message": "Found 1 jobs from JobSpy for term='Chief Growth'"
+  },
+  {
+    "timestamp": "2026-01-15T19:54:23.151483",
+    "type": "success",
+    "message": "Found 1 jobs from JobSpy for term='Chief Growth hybrid'"
+  },
+  {
+    "timestamp": "2026-01-15T19:54:23.157862",
+    "type": "success",
+    "message": "JobSpy merged results: 48 jobs (capped at 200)"
+  },
+  {
+    "timestamp": "2026-01-15T19:54:23.168216",
+    "type": "info",
+    "message": "Scraping Israeli job boards with 3 search terms..."
+  },
+  {
+    "timestamp": "2026-01-15T19:54:23.540364",
+    "type": "warning",
+    "message": "Israeli boards scraping failed: 'list' object has no attribute 'empty'"
+  },
+  {
+    "timestamp": "2026-01-15T19:54:23.550040",
+    "type": "info",
+    "message": "After filtering discovered jobs from discovered_jobs.csv, 47 new jobs to analyze"
+  },
+  {
+    "timestamp": "2026-01-15T19:54:23.565670",
+    "type": "info",
+    "message": "Processing 22 valid jobs..."
+  },
+  {
+    "timestamp": "2026-01-15T19:54:23.719853",
+    "type": "info",
+    "message": "Hard Constraints filtered out 7 jobs before AI analysis."
+  },
+  {
+    "timestamp": "2026-01-15T19:54:40.957324",
+    "type": "success",
+    "message": "Logged high-match job to discovered_jobs.csv: Staff Product Manager - Prompt Security @ SentinelOne (Score: 70%)"
+  },
+  {
+    "timestamp": "2026-01-15T19:55:02.942654",
+    "type": "success",
+    "message": "Logged high-match job to discovered_jobs.csv: Engineering Program Manager (EPM) @ Mobileye (Score: 75%)"
+  },
+  {
+    "timestamp": "2026-01-15T19:56:36.730123",
+    "type": "success",
+    "message": "Logged high-match job to discovered_jobs.csv: Strategy & Operations Manager @ Optibus (Score: 75%)"
+  },
+  {
+    "timestamp": "2026-01-15T19:57:36.887602",
+    "type": "success",
+    "message": "Logged high-match job to discovered_jobs.csv: Senior Revenue Analyst @ Lemonade Insurance Company (Score: 82%)"
+  },
+  {
+    "timestamp": "2026-01-15T19:57:56.920195",
+    "type": "success",
+    "message": "Scout cycle complete. Found 4 high-match jobs (>= 70%) and logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-15T19:57:56.930765",
+    "type": "info",
+    "message": "Waiting 30 minutes until next cycle..."
+  },
+  {
+    "timestamp": "2026-01-15T20:07:23.920724",
+    "type": "info",
+    "message": "Background scout stopped by user"
+  }
+]

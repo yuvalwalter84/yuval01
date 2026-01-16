@@ -1,0 +1,82 @@
+{
+    "personal_dna": {
+        "hard_constraints": {
+            "location_flexibility": {
+                "allowed_cities": [
+                    "Tel Aviv",
+                    "Kfar Saba",
+                    "Petah Tikva"
+                ],
+                "israel_only": true,
+                "allow_relocation": false
+            },
+            "work_model": {
+                "remote_only": false,
+                "hybrid_allowed": true,
+                "min_home_days": 2
+            },
+            "travel_limits": {
+                "max_commute_minutes": 45,
+                "overseas_travel": "none"
+            },
+            "family_obligations": {
+                "early_exit_days": [
+                    "Tuesday",
+                    "Thursday"
+                ],
+                "early_exit_time": "15:30"
+            }
+        },
+        "soft_traits": {
+            "hobbies": [
+                "Digital Persona Development",
+                "Automated Scouting Systems"
+            ],
+            "communication_style": "Professional yet authentic",
+            "tone_voice": "Bold, result-oriented, empathetic"
+        }
+    },
+    "career_horizon": {
+        "target_roles": [
+            "CTO",
+            "Head of AI",
+            "Product Architect"
+        ],
+        "additive_weight": 0.2
+    },
+    "user_identity": {
+        "added_skills": [],
+        "preferred_roles": [],
+        "preferred_industries": []
+    },
+    "cv_metadata": {
+        "combined_hash": null,
+        "file_count": 0,
+        "filenames": [],
+        "last_modified": null
+    },
+    "scoring_weights": {
+        "ecommerce": 1.0,
+        "leadership": 1.0,
+        "technology": 1.0,
+        "management": 1.0,
+        "python": 1.0,
+        "javascript": 1.0,
+        "aws": 1.0,
+        "docker": 1.0,
+        "kubernetes": 1.0,
+        "shopify": 1.0,
+        "magento": 1.0,
+        "react": 1.0,
+        "nodejs": 1.0,
+        "cto": 1.0,
+        "vp": 1.0,
+        "architect": 1.0
+    },
+    "history": {
+        "rejected_jobs": [],
+        "approved_jobs": [],
+        "total_searches": 0,
+        "last_updated": null
+    }
+}

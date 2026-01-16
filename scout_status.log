@@ -1,0 +1,614 @@
+2026-01-14T23:50:07.251915 === Starting scout cycle ===
+2026-01-14T23:50:07.254188 Loaded preferences: roles=8 added_skills=1 industry_focus='' auto_query_present=True
+2026-01-14T23:50:18.897078 Top role queries (raw): ['CTO', 'VP Product', 'Head of Technology', 'VP E-commerce', 'Chief Technology Officer']
+2026-01-14T23:50:18.899920 Discovered URLs already logged: 1
+2026-01-14T23:50:18.903080 JobSpy sites: ['indeed', 'glassdoor']
+2026-01-14T23:50:18.903136 Trying query: Head of
+2026-01-14T23:50:18.903185 Trying query: Head of remote
+2026-01-14T23:50:18.903227 Trying query: Head of hybrid
+2026-01-14T23:50:18.903261 Trying query: CTO
+2026-01-14T23:50:18.903301 Trying query: CTO remote
+2026-01-14T23:50:18.903344 Trying query: CTO hybrid
+2026-01-14T23:50:18.903385 Trying query: VP Product
+2026-01-14T23:50:18.903427 Trying query: VP Product remote
+2026-01-14T23:50:18.903469 Trying query: VP Product hybrid
+2026-01-14T23:50:18.903508 Trying query: VP E-commerce
+2026-01-14T23:50:18.903550 Trying query: VP E-commerce remote
+2026-01-14T23:50:18.903591 Trying query: VP E-commerce hybrid
+2026-01-14T23:50:18.903631 Trying query: Chief Technology
+2026-01-14T23:50:18.903674 Trying query: Chief Technology remote
+2026-01-14T23:50:18.903717 Trying query: Chief Technology hybrid
+2026-01-14T23:50:21.698298 DEBUG: Raw scraper found 19 jobs for term='Head of' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-14T23:50:23.697811 DEBUG: Raw scraper found 3 jobs for term='Head of remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-14T23:50:25.535430 DEBUG: Raw scraper found 3 jobs for term='Head of hybrid' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-14T23:50:26.909769 DEBUG: Raw scraper found 5 jobs for term='CTO' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-14T23:50:27.471527 DEBUG: Raw scraper found 0 jobs for term='CTO remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-14T23:50:28.098302 DEBUG: Raw scraper found 0 jobs for term='CTO hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-14T23:50:29.361287 DEBUG: Raw scraper found 8 jobs for term='VP Product' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-14T23:50:29.900537 DEBUG: Raw scraper found 0 jobs for term='VP Product remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-14T23:50:30.440817 DEBUG: Raw scraper found 0 jobs for term='VP Product hybrid' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-14T23:50:30.982408 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-14T23:50:31.484886 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce remote' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-14T23:50:32.040582 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce hybrid' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-14T23:50:33.080912 DEBUG: Raw scraper found 1 jobs for term='Chief Technology' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-14T23:50:33.688143 DEBUG: Raw scraper found 0 jobs for term='Chief Technology remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-14T23:50:34.296084 DEBUG: Raw scraper found 0 jobs for term='Chief Technology hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-14T23:50:34.300927 JobSpy merged jobs appended: 29
+2026-01-14T23:50:34.625516 Israeli boards scraping failed: 'list' object has no attribute 'empty'
+2026-01-15T00:10:29.056706 === Starting scout cycle ===
+2026-01-15T00:10:29.061968 Loaded preferences: roles=8 added_skills=1 industry_focus='' auto_query_present=True
+2026-01-15T00:10:38.236818 Top role queries (raw): ['Chief Technology Officer', 'VP E-commerce', 'VP R&D', 'Head of Technology', 'Head of Engineering']
+2026-01-15T00:10:38.240134 Discovered URLs already logged: 1
+2026-01-15T00:10:38.243105 JobSpy sites: ['indeed', 'glassdoor']
+2026-01-15T00:10:38.243153 Trying query: AI Analysis
+2026-01-15T00:10:38.243199 Trying query: AI Analysis remote
+2026-01-15T00:10:38.243235 Trying query: AI Analysis hybrid
+2026-01-15T00:10:38.243270 Trying query: Chief Technology
+2026-01-15T00:10:38.243302 Trying query: Chief Technology remote
+2026-01-15T00:10:38.243335 Trying query: Chief Technology hybrid
+2026-01-15T00:10:38.243375 Trying query: VP E-commerce
+2026-01-15T00:10:38.243408 Trying query: VP E-commerce remote
+2026-01-15T00:10:38.243438 Trying query: VP E-commerce hybrid
+2026-01-15T00:10:38.243469 Trying query: VP R&D
+2026-01-15T00:10:38.243500 Trying query: VP R&D remote
+2026-01-15T00:10:38.243531 Trying query: VP R&D hybrid
+2026-01-15T00:10:38.243561 Trying query: Head of
+2026-01-15T00:10:38.243593 Trying query: Head of remote
+2026-01-15T00:10:38.243622 Trying query: Head of hybrid
+2026-01-15T00:10:42.957094 DEBUG: Raw scraper found 33 jobs for term='AI Analysis' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T00:10:44.505792 DEBUG: Raw scraper found 3 jobs for term='AI Analysis remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T00:10:45.898829 DEBUG: Raw scraper found 6 jobs for term='AI Analysis hybrid' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T00:10:47.573630 DEBUG: Raw scraper found 1 jobs for term='Chief Technology' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T00:10:48.112661 DEBUG: Raw scraper found 0 jobs for term='Chief Technology remote' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T00:10:48.653491 DEBUG: Raw scraper found 0 jobs for term='Chief Technology hybrid' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T00:10:49.320045 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T00:10:49.939658 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T00:10:51.290316 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce hybrid' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T00:10:52.468711 DEBUG: Raw scraper found 1 jobs for term='VP R&D' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T00:10:53.043899 DEBUG: Raw scraper found 0 jobs for term='VP R&D remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T00:10:53.630705 DEBUG: Raw scraper found 0 jobs for term='VP R&D hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T00:10:56.256143 DEBUG: Raw scraper found 19 jobs for term='Head of' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T00:10:57.420266 DEBUG: Raw scraper found 3 jobs for term='Head of remote' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T00:10:58.716005 DEBUG: Raw scraper found 3 jobs for term='Head of hybrid' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T00:10:58.725492 JobSpy merged jobs appended: 52
+2026-01-15T00:11:00.751850 === Starting scout cycle ===
+2026-01-15T00:11:00.755938 Loaded preferences: roles=8 added_skills=1 industry_focus='' auto_query_present=True
+2026-01-15T00:11:09.554197 Top role queries (raw): ['Chief Technology Officer', 'VP R&D', 'CTO', 'Head of Technology', 'Head of Engineering']
+2026-01-15T00:11:11.576494 === Starting scout cycle ===
+2026-01-15T00:11:11.579709 Loaded preferences: roles=8 added_skills=1 industry_focus='' auto_query_present=True
+2026-01-15T00:11:20.077402 Top role queries (raw): ['Chief Technology Officer', 'VP E-commerce', 'VP R&D', 'Head of Technology', 'Head of Engineering']
+2026-01-15T00:11:20.080060 Discovered URLs already logged: 1
+2026-01-15T00:11:20.082992 JobSpy sites: ['indeed', 'glassdoor']
+2026-01-15T00:11:20.083043 Trying query: AI Analysis
+2026-01-15T00:11:20.083071 Trying query: AI Analysis remote
+2026-01-15T00:11:20.083097 Trying query: AI Analysis hybrid
+2026-01-15T00:11:20.083121 Trying query: Chief Technology
+2026-01-15T00:11:20.083145 Trying query: Chief Technology remote
+2026-01-15T00:11:20.083168 Trying query: Chief Technology hybrid
+2026-01-15T00:11:20.083205 Trying query: VP E-commerce
+2026-01-15T00:11:20.083229 Trying query: VP E-commerce remote
+2026-01-15T00:11:20.083252 Trying query: VP E-commerce hybrid
+2026-01-15T00:11:20.083275 Trying query: VP R&D
+2026-01-15T00:11:20.083298 Trying query: VP R&D remote
+2026-01-15T00:11:20.083321 Trying query: VP R&D hybrid
+2026-01-15T00:11:20.083344 Trying query: Head of
+2026-01-15T00:11:20.083367 Trying query: Head of remote
+2026-01-15T00:11:20.083389 Trying query: Head of hybrid
+2026-01-15T00:11:23.401500 DEBUG: Raw scraper found 33 jobs for term='AI Analysis' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T00:11:24.851900 DEBUG: Raw scraper found 3 jobs for term='AI Analysis remote' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T00:11:26.354390 DEBUG: Raw scraper found 6 jobs for term='AI Analysis hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T00:11:27.921785 DEBUG: Raw scraper found 1 jobs for term='Chief Technology' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T00:11:28.485737 DEBUG: Raw scraper found 0 jobs for term='Chief Technology remote' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T00:11:29.013681 DEBUG: Raw scraper found 0 jobs for term='Chief Technology hybrid' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T00:11:29.864675 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T00:11:30.462115 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce remote' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T00:11:30.988109 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce hybrid' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T00:11:32.328879 DEBUG: Raw scraper found 1 jobs for term='VP R&D' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T00:11:34.621858 DEBUG: Raw scraper found 0 jobs for term='VP R&D remote' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T00:11:35.178681 DEBUG: Raw scraper found 0 jobs for term='VP R&D hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T00:11:37.495912 DEBUG: Raw scraper found 19 jobs for term='Head of' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T00:11:38.874444 DEBUG: Raw scraper found 3 jobs for term='Head of remote' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T00:11:40.060077 DEBUG: Raw scraper found 3 jobs for term='Head of hybrid' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T00:11:40.074148 JobSpy merged jobs appended: 52
+2026-01-15T00:11:40.393749 Israeli boards scraping failed: 'list' object has no attribute 'empty'
+2026-01-15T00:20:58.824407 === Starting scout cycle ===
+2026-01-15T00:20:58.828613 Loaded preferences: roles=8 added_skills=1 industry_focus='' auto_query_present=True
+2026-01-15T00:21:21.410732 Top role queries (raw): ['CTO', 'VP Product', 'Head of Technology', 'VP E-commerce', 'Chief Technology Officer']
+2026-01-15T00:21:21.413514 Discovered URLs already logged: 1
+2026-01-15T00:21:21.416018 JobSpy sites: ['indeed', 'glassdoor']
+2026-01-15T00:21:21.416063 Trying query: AI Analysis
+2026-01-15T00:21:21.416088 Trying query: AI Analysis remote
+2026-01-15T00:21:21.416109 Trying query: AI Analysis hybrid
+2026-01-15T00:21:21.416129 Trying query: CTO
+2026-01-15T00:21:21.416151 Trying query: CTO remote
+2026-01-15T00:21:21.416180 Trying query: CTO hybrid
+2026-01-15T00:21:21.416207 Trying query: VP Product
+2026-01-15T00:21:21.416228 Trying query: VP Product remote
+2026-01-15T00:21:21.416250 Trying query: VP Product hybrid
+2026-01-15T00:21:21.416270 Trying query: Head of
+2026-01-15T00:21:21.416290 Trying query: Head of remote
+2026-01-15T00:21:21.416310 Trying query: Head of hybrid
+2026-01-15T00:21:21.416330 Trying query: VP E-commerce
+2026-01-15T00:21:21.416352 Trying query: VP E-commerce remote
+2026-01-15T00:21:21.416372 Trying query: VP E-commerce hybrid
+2026-01-15T00:21:21.416394 Trying query: Chief Technology
+2026-01-15T00:21:21.416414 Trying query: Chief Technology remote
+2026-01-15T00:21:21.416435 Trying query: Chief Technology hybrid
+2026-01-15T00:21:25.419029 DEBUG: Raw scraper found 33 jobs for term='AI Analysis' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T00:21:26.554246 DEBUG: Raw scraper found 3 jobs for term='AI Analysis remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T00:21:27.885982 DEBUG: Raw scraper found 6 jobs for term='AI Analysis hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T00:21:29.411965 DEBUG: Raw scraper found 5 jobs for term='CTO' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T00:21:30.026441 DEBUG: Raw scraper found 0 jobs for term='CTO remote' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T00:21:30.566240 DEBUG: Raw scraper found 0 jobs for term='CTO hybrid' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T00:21:32.589222 DEBUG: Raw scraper found 8 jobs for term='VP Product' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T00:21:33.190895 DEBUG: Raw scraper found 0 jobs for term='VP Product remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T00:21:33.674449 DEBUG: Raw scraper found 0 jobs for term='VP Product hybrid' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T00:21:35.702352 DEBUG: Raw scraper found 19 jobs for term='Head of' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T00:21:36.873742 DEBUG: Raw scraper found 3 jobs for term='Head of remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T00:21:38.087892 DEBUG: Raw scraper found 3 jobs for term='Head of hybrid' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T00:21:38.854863 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T00:21:39.378826 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T00:21:39.946859 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce hybrid' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T00:21:40.469476 DEBUG: Raw scraper found 0 jobs for term='Chief Technology' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T00:21:41.243313 DEBUG: Raw scraper found 0 jobs for term='Chief Technology remote' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T00:21:41.795791 DEBUG: Raw scraper found 0 jobs for term='Chief Technology hybrid' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T00:21:41.801021 JobSpy merged jobs appended: 59
+2026-01-15T00:21:42.133111 Israeli boards scraping failed: 'list' object has no attribute 'empty'
+2026-01-15T08:33:07.234135 === Starting scout cycle ===
+2026-01-15T08:33:07.236833 Loaded preferences: roles=8 added_skills=1 industry_focus='' auto_query_present=True
+2026-01-15T08:33:31.317854 Top role queries (raw): ['CTO', 'VP Product', 'Head of Technology', 'VP E-commerce', 'Chief Technology Officer']
+2026-01-15T08:33:31.322438 Discovered URLs already logged: 1
+2026-01-15T08:33:31.325521 JobSpy sites: ['indeed', 'glassdoor']
+2026-01-15T08:33:31.325575 Trying query: AI Analysis
+2026-01-15T08:33:31.325602 Trying query: AI Analysis remote
+2026-01-15T08:33:31.325626 Trying query: AI Analysis hybrid
+2026-01-15T08:33:31.325649 Trying query: CTO
+2026-01-15T08:33:31.325671 Trying query: CTO remote
+2026-01-15T08:33:31.325693 Trying query: CTO hybrid
+2026-01-15T08:33:31.325716 Trying query: VP Product
+2026-01-15T08:33:31.325738 Trying query: VP Product remote
+2026-01-15T08:33:31.325760 Trying query: VP Product hybrid
+2026-01-15T08:33:31.325782 Trying query: Head of
+2026-01-15T08:33:31.325804 Trying query: Head of remote
+2026-01-15T08:33:31.325825 Trying query: Head of hybrid
+2026-01-15T08:33:31.325848 Trying query: VP E-commerce
+2026-01-15T08:33:31.325870 Trying query: VP E-commerce remote
+2026-01-15T08:33:31.325892 Trying query: VP E-commerce hybrid
+2026-01-15T08:33:31.325913 Trying query: Chief Technology
+2026-01-15T08:33:31.325935 Trying query: Chief Technology remote
+2026-01-15T08:33:31.325957 Trying query: Chief Technology hybrid
+2026-01-15T08:33:35.309231 DEBUG: Raw scraper found 40 jobs for term='AI Analysis' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T08:33:36.507780 DEBUG: Raw scraper found 4 jobs for term='AI Analysis remote' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T08:33:37.948570 DEBUG: Raw scraper found 10 jobs for term='AI Analysis hybrid' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T08:33:39.084198 DEBUG: Raw scraper found 5 jobs for term='CTO' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T08:33:39.689550 DEBUG: Raw scraper found 0 jobs for term='CTO remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T08:33:40.240987 DEBUG: Raw scraper found 0 jobs for term='CTO hybrid' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T08:33:41.637763 DEBUG: Raw scraper found 8 jobs for term='VP Product' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T08:33:42.146091 DEBUG: Raw scraper found 0 jobs for term='VP Product remote' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T08:33:42.742959 DEBUG: Raw scraper found 0 jobs for term='VP Product hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T08:33:44.744232 DEBUG: Raw scraper found 21 jobs for term='Head of' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T08:33:45.889071 DEBUG: Raw scraper found 3 jobs for term='Head of remote' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T08:33:47.077498 DEBUG: Raw scraper found 4 jobs for term='Head of hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T08:33:47.561361 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T08:33:48.101950 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce remote' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T08:33:48.685263 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce hybrid' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T08:33:49.708401 DEBUG: Raw scraper found 1 jobs for term='Chief Technology' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T08:33:50.256428 DEBUG: Raw scraper found 0 jobs for term='Chief Technology remote' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T08:33:50.753705 DEBUG: Raw scraper found 0 jobs for term='Chief Technology hybrid' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T08:33:50.768258 JobSpy merged jobs appended: 68
+2026-01-15T08:33:51.223038 Israeli boards scraping failed: 'list' object has no attribute 'empty'
+2026-01-15T09:06:16.816105 === Starting scout cycle ===
+2026-01-15T09:06:16.821106 Loaded preferences: roles=8 added_skills=1 industry_focus='' auto_query_present=True
+2026-01-15T09:07:22.568706 Top role queries (raw): ['CTO', 'VP Product', 'Head of Technology', 'VP E-commerce', 'Chief Technology Officer']
+2026-01-15T09:07:22.571634 Discovered URLs already logged: 1
+2026-01-15T09:07:22.574464 JobSpy sites: ['indeed', 'glassdoor']
+2026-01-15T09:07:22.574507 Trying query: AI Analysis
+2026-01-15T09:07:22.574532 Trying query: AI Analysis remote
+2026-01-15T09:07:22.574554 Trying query: AI Analysis hybrid
+2026-01-15T09:07:22.574575 Trying query: CTO
+2026-01-15T09:07:22.574594 Trying query: CTO remote
+2026-01-15T09:07:22.574614 Trying query: CTO hybrid
+2026-01-15T09:07:22.574633 Trying query: VP Product
+2026-01-15T09:07:22.574654 Trying query: VP Product remote
+2026-01-15T09:07:22.574673 Trying query: VP Product hybrid
+2026-01-15T09:07:22.574692 Trying query: Head of
+2026-01-15T09:07:22.574711 Trying query: Head of remote
+2026-01-15T09:07:22.574731 Trying query: Head of hybrid
+2026-01-15T09:07:22.574751 Trying query: VP E-commerce
+2026-01-15T09:07:22.574771 Trying query: VP E-commerce remote
+2026-01-15T09:07:22.574791 Trying query: VP E-commerce hybrid
+2026-01-15T09:07:22.574810 Trying query: Chief Technology
+2026-01-15T09:07:22.574829 Trying query: Chief Technology remote
+2026-01-15T09:07:22.574849 Trying query: Chief Technology hybrid
+2026-01-15T09:07:26.341502 DEBUG: Raw scraper found 40 jobs for term='AI Analysis' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T09:07:27.425899 DEBUG: Raw scraper found 4 jobs for term='AI Analysis remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T09:07:28.816208 DEBUG: Raw scraper found 10 jobs for term='AI Analysis hybrid' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T09:07:30.014317 DEBUG: Raw scraper found 5 jobs for term='CTO' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T09:07:30.556513 DEBUG: Raw scraper found 0 jobs for term='CTO remote' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T09:07:31.050309 DEBUG: Raw scraper found 0 jobs for term='CTO hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T09:07:32.434539 DEBUG: Raw scraper found 8 jobs for term='VP Product' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T09:07:32.962918 DEBUG: Raw scraper found 0 jobs for term='VP Product remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T09:07:33.529570 DEBUG: Raw scraper found 0 jobs for term='VP Product hybrid' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T09:07:35.393151 DEBUG: Raw scraper found 21 jobs for term='Head of' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T09:07:36.507478 DEBUG: Raw scraper found 3 jobs for term='Head of remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T09:07:37.589997 DEBUG: Raw scraper found 4 jobs for term='Head of hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T09:07:38.112030 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T09:07:38.850401 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce remote' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T09:07:39.472525 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T09:07:40.504043 DEBUG: Raw scraper found 1 jobs for term='Chief Technology' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T09:07:41.020974 DEBUG: Raw scraper found 0 jobs for term='Chief Technology remote' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T09:07:41.531122 DEBUG: Raw scraper found 0 jobs for term='Chief Technology hybrid' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T09:07:41.538151 JobSpy merged jobs appended: 68
+2026-01-15T09:07:41.863308 Israeli boards scraping failed: 'list' object has no attribute 'empty'
+2026-01-15T10:41:40.422704 === Starting scout cycle ===
+2026-01-15T10:41:40.429110 Loaded preferences: roles=8 added_skills=1 industry_focus='' auto_query_present=True
+2026-01-15T10:41:51.742224 Top role queries (raw): ['CTO', 'VP Product', 'Head of Technology', 'VP E-commerce', 'Chief Technology Officer']
+2026-01-15T10:41:51.749380 Discovered URLs already logged: 1
+2026-01-15T10:41:51.757131 JobSpy sites: ['indeed', 'glassdoor']
+2026-01-15T10:41:51.757256 Trying query: {query: CTO
+2026-01-15T10:41:51.757318 Trying query: {query: CTO remote
+2026-01-15T10:41:51.757370 Trying query: {query: CTO hybrid
+2026-01-15T10:41:51.757417 Trying query: CTO
+2026-01-15T10:41:51.757467 Trying query: CTO remote
+2026-01-15T10:41:51.757515 Trying query: CTO hybrid
+2026-01-15T10:41:51.757566 Trying query: VP Product
+2026-01-15T10:41:51.757618 Trying query: VP Product remote
+2026-01-15T10:41:51.757665 Trying query: VP Product hybrid
+2026-01-15T10:41:51.757713 Trying query: Head of
+2026-01-15T10:41:51.757760 Trying query: Head of remote
+2026-01-15T10:41:51.757808 Trying query: Head of hybrid
+2026-01-15T10:41:51.757856 Trying query: VP E-commerce
+2026-01-15T10:41:51.757905 Trying query: VP E-commerce remote
+2026-01-15T10:41:51.757951 Trying query: VP E-commerce hybrid
+2026-01-15T10:41:51.758001 Trying query: Chief Technology
+2026-01-15T10:41:51.758051 Trying query: Chief Technology remote
+2026-01-15T10:41:51.758097 Trying query: Chief Technology hybrid
+2026-01-15T10:41:52.794025 DEBUG: Raw scraper found 0 jobs for term='{query: CTO' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T10:41:53.649240 DEBUG: Raw scraper found 0 jobs for term='{query: CTO remote' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T10:41:54.177131 DEBUG: Raw scraper found 0 jobs for term='{query: CTO hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T10:41:55.659078 DEBUG: Raw scraper found 5 jobs for term='CTO' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T10:41:56.201447 DEBUG: Raw scraper found 0 jobs for term='CTO remote' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T10:41:56.709808 DEBUG: Raw scraper found 0 jobs for term='CTO hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T10:41:58.376573 DEBUG: Raw scraper found 8 jobs for term='VP Product' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T10:41:58.901041 DEBUG: Raw scraper found 0 jobs for term='VP Product remote' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T10:41:59.403714 DEBUG: Raw scraper found 0 jobs for term='VP Product hybrid' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T10:42:02.967702 DEBUG: Raw scraper found 21 jobs for term='Head of' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T10:42:04.055226 DEBUG: Raw scraper found 3 jobs for term='Head of remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T10:42:05.666835 DEBUG: Raw scraper found 4 jobs for term='Head of hybrid' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T10:42:06.194384 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T10:42:06.700964 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce remote' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T10:42:07.266724 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T10:42:08.339745 DEBUG: Raw scraper found 1 jobs for term='Chief Technology' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T10:42:08.846977 DEBUG: Raw scraper found 0 jobs for term='Chief Technology remote' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T10:42:09.353075 DEBUG: Raw scraper found 0 jobs for term='Chief Technology hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T10:42:09.361076 JobSpy merged jobs appended: 31
+2026-01-15T10:42:09.767695 Israeli boards scraping failed: 'list' object has no attribute 'empty'
+2026-01-15T11:17:51.145715 === Starting scout cycle ===
+2026-01-15T11:17:51.153776 Loaded preferences: roles=8 added_skills=1 industry_focus='' auto_query_present=True
+2026-01-15T11:18:02.704574 Top role queries (raw): ['CTO', 'VP Product', 'Head of Technology', 'VP E-commerce', 'Chief Technology Officer']
+2026-01-15T11:18:02.710810 Discovered URLs already logged: 2
+2026-01-15T11:18:02.717283 JobSpy sites: ['indeed', 'glassdoor']
+2026-01-15T11:18:02.717351 Trying query: { query:
+2026-01-15T11:18:02.717391 Trying query: { query: remote
+2026-01-15T11:18:02.717426 Trying query: { query: hybrid
+2026-01-15T11:18:02.717473 Trying query: CTO
+2026-01-15T11:18:02.717524 Trying query: CTO remote
+2026-01-15T11:18:02.717571 Trying query: CTO hybrid
+2026-01-15T11:18:02.717609 Trying query: VP Product
+2026-01-15T11:18:02.717647 Trying query: VP Product remote
+2026-01-15T11:18:02.717684 Trying query: VP Product hybrid
+2026-01-15T11:18:02.717723 Trying query: Head of
+2026-01-15T11:18:02.717762 Trying query: Head of remote
+2026-01-15T11:18:02.717802 Trying query: Head of hybrid
+2026-01-15T11:18:02.717844 Trying query: VP E-commerce
+2026-01-15T11:18:02.717885 Trying query: VP E-commerce remote
+2026-01-15T11:18:02.717926 Trying query: VP E-commerce hybrid
+2026-01-15T11:18:02.717968 Trying query: Chief Technology
+2026-01-15T11:18:02.718009 Trying query: Chief Technology remote
+2026-01-15T11:18:02.718051 Trying query: Chief Technology hybrid
+2026-01-15T11:18:03.244994 DEBUG: Raw scraper found 0 jobs for term='{ query:' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T11:18:03.850156 DEBUG: Raw scraper found 0 jobs for term='{ query: remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T11:18:04.462457 DEBUG: Raw scraper found 0 jobs for term='{ query: hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T11:18:06.829053 DEBUG: Raw scraper found 5 jobs for term='CTO' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T11:18:07.348623 DEBUG: Raw scraper found 0 jobs for term='CTO remote' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T11:18:07.911101 DEBUG: Raw scraper found 0 jobs for term='CTO hybrid' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T11:18:09.799225 DEBUG: Raw scraper found 10 jobs for term='VP Product' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T11:18:10.344257 DEBUG: Raw scraper found 0 jobs for term='VP Product remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T11:18:10.895123 DEBUG: Raw scraper found 0 jobs for term='VP Product hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T11:18:13.830097 DEBUG: Raw scraper found 21 jobs for term='Head of' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T11:18:15.052296 DEBUG: Raw scraper found 3 jobs for term='Head of remote' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T11:18:16.385986 DEBUG: Raw scraper found 4 jobs for term='Head of hybrid' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T11:18:16.878136 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T11:18:17.419811 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce remote' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T11:18:17.933081 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce hybrid' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T11:18:18.994462 DEBUG: Raw scraper found 1 jobs for term='Chief Technology' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T11:18:19.510260 DEBUG: Raw scraper found 0 jobs for term='Chief Technology remote' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T11:18:19.994345 DEBUG: Raw scraper found 0 jobs for term='Chief Technology hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T11:18:20.001846 JobSpy merged jobs appended: 33
+2026-01-15T11:18:20.481148 Israeli boards scraping failed: 'list' object has no attribute 'empty'
+2026-01-15T11:53:09.616669 === Starting scout cycle ===
+2026-01-15T11:53:09.621116 Loaded preferences: roles=8 added_skills=1 industry_focus='' auto_query_present=True
+2026-01-15T11:53:21.724579 Top role queries (raw): ['CTO', 'VP Product', 'Head of Technology', 'VP E-commerce', 'Chief Technology Officer']
+2026-01-15T11:53:21.734486 Discovered URLs already logged: 2
+2026-01-15T11:53:21.740088 JobSpy sites: ['indeed', 'glassdoor']
+2026-01-15T11:53:21.740163 Trying query: { query:
+2026-01-15T11:53:21.740223 Trying query: { query: remote
+2026-01-15T11:53:21.740269 Trying query: { query: hybrid
+2026-01-15T11:53:21.740311 Trying query: CTO
+2026-01-15T11:53:21.740352 Trying query: CTO remote
+2026-01-15T11:53:21.740395 Trying query: CTO hybrid
+2026-01-15T11:53:21.740436 Trying query: VP Product
+2026-01-15T11:53:21.740476 Trying query: VP Product remote
+2026-01-15T11:53:21.740517 Trying query: VP Product hybrid
+2026-01-15T11:53:21.740572 Trying query: Head of
+2026-01-15T11:53:21.740620 Trying query: Head of remote
+2026-01-15T11:53:21.740657 Trying query: Head of hybrid
+2026-01-15T11:53:21.740693 Trying query: VP E-commerce
+2026-01-15T11:53:21.740729 Trying query: VP E-commerce remote
+2026-01-15T11:53:21.740766 Trying query: VP E-commerce hybrid
+2026-01-15T11:53:21.740801 Trying query: Chief Technology
+2026-01-15T11:53:21.740837 Trying query: Chief Technology remote
+2026-01-15T11:53:21.740873 Trying query: Chief Technology hybrid
+2026-01-15T11:53:22.222439 DEBUG: Raw scraper found 0 jobs for term='{ query:' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T11:53:22.856130 DEBUG: Raw scraper found 0 jobs for term='{ query: remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T11:53:23.378380 DEBUG: Raw scraper found 0 jobs for term='{ query: hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T11:53:24.935736 DEBUG: Raw scraper found 5 jobs for term='CTO' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T11:53:25.541458 DEBUG: Raw scraper found 0 jobs for term='CTO remote' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T11:53:26.073490 DEBUG: Raw scraper found 0 jobs for term='CTO hybrid' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T11:53:28.142589 DEBUG: Raw scraper found 10 jobs for term='VP Product' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T11:53:28.658661 DEBUG: Raw scraper found 0 jobs for term='VP Product remote' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T11:53:29.255072 DEBUG: Raw scraper found 0 jobs for term='VP Product hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T11:53:31.987246 DEBUG: Raw scraper found 21 jobs for term='Head of' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T11:53:33.192445 DEBUG: Raw scraper found 3 jobs for term='Head of remote' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T11:53:34.448245 DEBUG: Raw scraper found 4 jobs for term='Head of hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T11:53:34.997130 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T11:53:35.661341 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce remote' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T11:53:36.182916 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce hybrid' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T11:53:37.316112 DEBUG: Raw scraper found 1 jobs for term='Chief Technology' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T11:53:37.869319 DEBUG: Raw scraper found 0 jobs for term='Chief Technology remote' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T11:53:38.385092 DEBUG: Raw scraper found 0 jobs for term='Chief Technology hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T11:53:38.393009 JobSpy merged jobs appended: 33
+2026-01-15T11:53:38.868568 Israeli boards scraping failed: 'list' object has no attribute 'empty'
+2026-01-15T12:28:01.179416 === Starting scout cycle ===
+2026-01-15T12:28:01.184380 Loaded preferences: roles=8 added_skills=1 industry_focus='' auto_query_present=True
+2026-01-15T12:28:11.102992 Top role queries (raw): ['CTO', 'VP Product', 'Head of Technology', 'VP E-commerce', 'Chief Technology Officer']
+2026-01-15T12:28:11.110282 Discovered URLs already logged: 2
+2026-01-15T12:28:11.118108 JobSpy sites: ['indeed', 'glassdoor']
+2026-01-15T12:28:11.118178 Trying query: { query:
+2026-01-15T12:28:11.118288 Trying query: { query: remote
+2026-01-15T12:28:11.118381 Trying query: { query: hybrid
+2026-01-15T12:28:11.118435 Trying query: CTO
+2026-01-15T12:28:11.118470 Trying query: CTO remote
+2026-01-15T12:28:11.118520 Trying query: CTO hybrid
+2026-01-15T12:28:11.118558 Trying query: VP Product
+2026-01-15T12:28:11.118621 Trying query: VP Product remote
+2026-01-15T12:28:11.118658 Trying query: VP Product hybrid
+2026-01-15T12:28:11.118694 Trying query: Head of
+2026-01-15T12:28:11.118731 Trying query: Head of remote
+2026-01-15T12:28:11.118767 Trying query: Head of hybrid
+2026-01-15T12:28:11.118817 Trying query: VP E-commerce
+2026-01-15T12:28:11.118866 Trying query: VP E-commerce remote
+2026-01-15T12:28:11.118904 Trying query: VP E-commerce hybrid
+2026-01-15T12:28:11.118942 Trying query: Chief Technology
+2026-01-15T12:28:11.118979 Trying query: Chief Technology remote
+2026-01-15T12:28:11.119016 Trying query: Chief Technology hybrid
+2026-01-15T12:28:11.679943 DEBUG: Raw scraper found 0 jobs for term='{ query:' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T12:28:12.223934 DEBUG: Raw scraper found 0 jobs for term='{ query: remote' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T12:28:12.770947 DEBUG: Raw scraper found 0 jobs for term='{ query: hybrid' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T12:28:14.451419 DEBUG: Raw scraper found 5 jobs for term='CTO' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T12:28:15.003139 DEBUG: Raw scraper found 0 jobs for term='CTO remote' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T12:28:15.544507 DEBUG: Raw scraper found 0 jobs for term='CTO hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T12:28:17.866511 DEBUG: Raw scraper found 10 jobs for term='VP Product' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T12:28:18.388434 DEBUG: Raw scraper found 0 jobs for term='VP Product remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T12:28:18.920589 DEBUG: Raw scraper found 0 jobs for term='VP Product hybrid' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T12:28:21.146265 DEBUG: Raw scraper found 21 jobs for term='Head of' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T12:28:22.627337 DEBUG: Raw scraper found 3 jobs for term='Head of remote' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T12:28:23.825202 DEBUG: Raw scraper found 4 jobs for term='Head of hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T12:28:24.370237 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T12:28:24.897898 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce remote' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T12:28:25.419928 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce hybrid' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T12:28:26.630748 DEBUG: Raw scraper found 1 jobs for term='Chief Technology' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T12:28:27.217994 DEBUG: Raw scraper found 0 jobs for term='Chief Technology remote' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T12:28:27.899282 DEBUG: Raw scraper found 0 jobs for term='Chief Technology hybrid' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T12:28:27.905422 JobSpy merged jobs appended: 33
+2026-01-15T12:28:28.191364 Israeli boards scraping failed: 'list' object has no attribute 'empty'
+2026-01-15T13:03:08.368671 === Starting scout cycle ===
+2026-01-15T13:03:08.372129 Loaded preferences: roles=8 added_skills=1 industry_focus='' auto_query_present=True
+2026-01-15T13:03:18.116108 Top role queries (raw): ['CTO', 'VP Product', 'Head of Technology', 'VP E-commerce', 'Chief Technology Officer']
+2026-01-15T13:03:18.121865 Discovered URLs already logged: 2
+2026-01-15T13:03:18.127260 JobSpy sites: ['indeed', 'glassdoor']
+2026-01-15T13:03:18.127302 Trying query: { query:
+2026-01-15T13:03:18.127336 Trying query: { query: remote
+2026-01-15T13:03:18.127367 Trying query: { query: hybrid
+2026-01-15T13:03:18.127398 Trying query: CTO
+2026-01-15T13:03:18.127427 Trying query: CTO remote
+2026-01-15T13:03:18.127457 Trying query: CTO hybrid
+2026-01-15T13:03:18.127487 Trying query: VP Product
+2026-01-15T13:03:18.127515 Trying query: VP Product remote
+2026-01-15T13:03:18.127545 Trying query: VP Product hybrid
+2026-01-15T13:03:18.127574 Trying query: Head of
+2026-01-15T13:03:18.127603 Trying query: Head of remote
+2026-01-15T13:03:18.127632 Trying query: Head of hybrid
+2026-01-15T13:03:18.127663 Trying query: VP E-commerce
+2026-01-15T13:03:18.127692 Trying query: VP E-commerce remote
+2026-01-15T13:03:18.127721 Trying query: VP E-commerce hybrid
+2026-01-15T13:03:18.127750 Trying query: Chief Technology
+2026-01-15T13:03:18.127779 Trying query: Chief Technology remote
+2026-01-15T13:03:18.127810 Trying query: Chief Technology hybrid
+2026-01-15T13:03:21.567984 DEBUG: Raw scraper found 0 jobs for term='{ query:' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T13:03:22.446334 DEBUG: Raw scraper found 0 jobs for term='{ query: remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T13:03:24.784124 DEBUG: Raw scraper found 0 jobs for term='{ query: hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T13:03:29.380477 DEBUG: Raw scraper found 5 jobs for term='CTO' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T13:03:30.897917 DEBUG: Raw scraper found 0 jobs for term='CTO remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T13:03:32.672352 DEBUG: Raw scraper found 0 jobs for term='CTO hybrid' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T13:03:41.249812 DEBUG: Raw scraper found 10 jobs for term='VP Product' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T13:03:42.360485 DEBUG: Raw scraper found 0 jobs for term='VP Product remote' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T13:03:44.650443 DEBUG: Raw scraper found 0 jobs for term='VP Product hybrid' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T13:03:54.583407 DEBUG: Raw scraper found 21 jobs for term='Head of' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T13:03:57.039007 DEBUG: Raw scraper found 3 jobs for term='Head of remote' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T13:04:02.462853 DEBUG: Raw scraper found 4 jobs for term='Head of hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T13:04:03.588559 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T13:04:04.115969 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T13:04:04.743255 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce hybrid' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T13:04:07.416663 DEBUG: Raw scraper found 1 jobs for term='Chief Technology' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T13:04:08.322579 DEBUG: Raw scraper found 0 jobs for term='Chief Technology remote' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T13:04:08.884677 DEBUG: Raw scraper found 0 jobs for term='Chief Technology hybrid' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T13:04:08.898391 JobSpy merged jobs appended: 33
+2026-01-15T13:04:09.265537 Israeli boards scraping failed: 'list' object has no attribute 'empty'
+2026-01-15T13:38:55.877355 === Starting scout cycle ===
+2026-01-15T13:38:55.883398 Loaded preferences: roles=8 added_skills=1 industry_focus='' auto_query_present=True
+2026-01-15T13:39:05.398587 Top role queries (raw): ['CTO', 'VP Product', 'Head of Technology', 'VP E-commerce', 'Chief Technology Officer']
+2026-01-15T13:39:05.403689 Discovered URLs already logged: 2
+2026-01-15T13:39:05.408491 JobSpy sites: ['indeed', 'glassdoor']
+2026-01-15T13:39:05.408545 Trying query: { query:
+2026-01-15T13:39:05.408584 Trying query: { query: remote
+2026-01-15T13:39:05.408627 Trying query: { query: hybrid
+2026-01-15T13:39:05.408663 Trying query: CTO
+2026-01-15T13:39:05.408695 Trying query: CTO remote
+2026-01-15T13:39:05.408729 Trying query: CTO hybrid
+2026-01-15T13:39:05.408766 Trying query: VP Product
+2026-01-15T13:39:05.408800 Trying query: VP Product remote
+2026-01-15T13:39:05.408828 Trying query: VP Product hybrid
+2026-01-15T13:39:05.408856 Trying query: Head of
+2026-01-15T13:39:05.408884 Trying query: Head of remote
+2026-01-15T13:39:05.408912 Trying query: Head of hybrid
+2026-01-15T13:39:05.408939 Trying query: VP E-commerce
+2026-01-15T13:39:05.408968 Trying query: VP E-commerce remote
+2026-01-15T13:39:05.409002 Trying query: VP E-commerce hybrid
+2026-01-15T13:39:05.409037 Trying query: Chief Technology
+2026-01-15T13:39:05.409070 Trying query: Chief Technology remote
+2026-01-15T13:39:05.409101 Trying query: Chief Technology hybrid
+2026-01-15T13:39:06.322379 DEBUG: Raw scraper found 0 jobs for term='{ query:' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T13:39:06.853492 DEBUG: Raw scraper found 0 jobs for term='{ query: remote' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T13:39:07.387346 DEBUG: Raw scraper found 0 jobs for term='{ query: hybrid' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T13:39:09.169090 DEBUG: Raw scraper found 5 jobs for term='CTO' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T13:39:09.773839 DEBUG: Raw scraper found 0 jobs for term='CTO remote' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T13:39:10.291039 DEBUG: Raw scraper found 0 jobs for term='CTO hybrid' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T13:39:11.979913 DEBUG: Raw scraper found 10 jobs for term='VP Product' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T13:39:12.500297 DEBUG: Raw scraper found 0 jobs for term='VP Product remote' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T13:39:13.051815 DEBUG: Raw scraper found 0 jobs for term='VP Product hybrid' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T13:39:15.449720 DEBUG: Raw scraper found 21 jobs for term='Head of' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T13:39:16.576160 DEBUG: Raw scraper found 3 jobs for term='Head of remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T13:39:17.699899 DEBUG: Raw scraper found 4 jobs for term='Head of hybrid' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T13:39:18.237020 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T13:39:18.850712 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce remote' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T13:39:19.354144 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce hybrid' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T13:39:20.386810 DEBUG: Raw scraper found 2 jobs for term='Chief Technology' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T13:39:20.904863 DEBUG: Raw scraper found 0 jobs for term='Chief Technology remote' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T13:39:21.873737 DEBUG: Raw scraper found 1 jobs for term='Chief Technology hybrid' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T13:39:21.889733 JobSpy merged jobs appended: 34
+2026-01-15T13:39:22.159152 Israeli boards scraping failed: 'list' object has no attribute 'empty'
+2026-01-15T17:49:32.192670 === Starting scout cycle ===
+2026-01-15T17:49:32.200130 Loaded preferences: roles=8 added_skills=0 industry_focus='' auto_query_present=False
+2026-01-15T17:49:42.769643 Top role queries (raw): ['CTO', 'VP Product', 'Head of Technology', 'VP E-commerce', 'Chief Technology Officer']
+2026-01-15T17:49:42.773938 Discovered URLs already logged: 0
+2026-01-15T17:49:42.780100 JobSpy sites: ['indeed', 'glassdoor']
+2026-01-15T17:49:42.780161 Trying query: CTO
+2026-01-15T17:49:42.780214 Trying query: CTO remote
+2026-01-15T17:49:42.780259 Trying query: CTO hybrid
+2026-01-15T17:49:42.780299 Trying query: VP Product
+2026-01-15T17:49:42.780342 Trying query: VP Product remote
+2026-01-15T17:49:42.780381 Trying query: VP Product hybrid
+2026-01-15T17:49:42.780417 Trying query: Head of
+2026-01-15T17:49:42.780469 Trying query: Head of remote
+2026-01-15T17:49:42.780508 Trying query: Head of hybrid
+2026-01-15T17:49:42.780547 Trying query: VP E-commerce
+2026-01-15T17:49:42.780586 Trying query: VP E-commerce remote
+2026-01-15T17:49:42.780626 Trying query: VP E-commerce hybrid
+2026-01-15T17:49:42.780665 Trying query: Chief Technology
+2026-01-15T17:49:42.780702 Trying query: Chief Technology remote
+2026-01-15T17:49:42.780740 Trying query: Chief Technology hybrid
+2026-01-15T17:49:44.935209 DEBUG: Raw scraper found 4 jobs for term='CTO' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T17:49:45.704367 DEBUG: Raw scraper found 0 jobs for term='CTO remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T17:49:46.296355 DEBUG: Raw scraper found 0 jobs for term='CTO hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T17:49:48.328986 DEBUG: Raw scraper found 8 jobs for term='VP Product' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T17:49:48.943537 DEBUG: Raw scraper found 0 jobs for term='VP Product remote' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T17:49:49.627562 DEBUG: Raw scraper found 0 jobs for term='VP Product hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T17:49:52.405259 DEBUG: Raw scraper found 20 jobs for term='Head of' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T17:49:53.649383 DEBUG: Raw scraper found 2 jobs for term='Head of remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T17:49:54.891737 DEBUG: Raw scraper found 5 jobs for term='Head of hybrid' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T17:49:55.762335 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T17:49:56.326432 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce remote' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T17:49:56.881343 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce hybrid' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T17:49:58.019165 DEBUG: Raw scraper found 2 jobs for term='Chief Technology' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T17:49:58.559088 DEBUG: Raw scraper found 0 jobs for term='Chief Technology remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T17:49:59.592869 DEBUG: Raw scraper found 1 jobs for term='Chief Technology hybrid' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T17:49:59.611816 JobSpy merged jobs appended: 31
+2026-01-15T17:49:59.971917 Israeli boards scraping failed: 'list' object has no attribute 'empty'
+2026-01-15T17:49:59.984742 Super Broad fallback triggered. Terms: ['Software Israel', 'High Tech Israel']
+2026-01-15T17:50:04.874489 DEBUG: Raw scraper found 71 jobs for SUPER_BROAD term='Software Israel' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T17:50:06.348507 DEBUG: Raw scraper found 11 jobs for SUPER_BROAD term='High Tech Israel' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T18:00:18.591422 === Starting scout cycle ===
+2026-01-15T18:00:18.598810 Loaded preferences: roles=8 added_skills=0 industry_focus='' auto_query_present=False
+2026-01-15T18:00:30.707566 Top role queries (raw): ['CTO', 'VP Product', 'Head of Technology', 'VP E-commerce', 'Chief Technology Officer']
+2026-01-15T18:00:30.711974 Discovered URLs already logged: 1
+2026-01-15T18:00:30.718003 JobSpy sites: ['indeed', 'glassdoor']
+2026-01-15T18:00:30.718068 Trying query: CTO
+2026-01-15T18:00:30.718100 Trying query: CTO remote
+2026-01-15T18:00:30.718128 Trying query: CTO hybrid
+2026-01-15T18:00:30.718156 Trying query: VP Product
+2026-01-15T18:00:30.718191 Trying query: VP Product remote
+2026-01-15T18:00:30.718214 Trying query: VP Product hybrid
+2026-01-15T18:00:30.718235 Trying query: Head of
+2026-01-15T18:00:30.718254 Trying query: Head of remote
+2026-01-15T18:00:30.718273 Trying query: Head of hybrid
+2026-01-15T18:00:30.718292 Trying query: VP E-commerce
+2026-01-15T18:00:30.718313 Trying query: VP E-commerce remote
+2026-01-15T18:00:30.718333 Trying query: VP E-commerce hybrid
+2026-01-15T18:00:30.718352 Trying query: Chief Technology
+2026-01-15T18:00:30.718371 Trying query: Chief Technology remote
+2026-01-15T18:00:30.718390 Trying query: Chief Technology hybrid
+2026-01-15T18:00:33.584587 DEBUG: Raw scraper found 6 jobs for term='CTO' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T18:00:34.296444 DEBUG: Raw scraper found 0 jobs for term='CTO remote' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T18:00:35.757719 DEBUG: Raw scraper found 2 jobs for term='CTO hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T18:00:38.191662 DEBUG: Raw scraper found 9 jobs for term='VP Product' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T18:00:39.167356 DEBUG: Raw scraper found 0 jobs for term='VP Product remote' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T18:00:40.530067 DEBUG: Raw scraper found 1 jobs for term='VP Product hybrid' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T18:00:43.050206 DEBUG: Raw scraper found 20 jobs for term='Head of' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T18:00:44.249785 DEBUG: Raw scraper found 2 jobs for term='Head of remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T18:00:45.824896 DEBUG: Raw scraper found 5 jobs for term='Head of hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T18:00:46.415605 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T18:00:47.065961 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T18:00:47.900005 DEBUG: Raw scraper found 0 jobs for term='VP E-commerce hybrid' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T18:00:49.490485 DEBUG: Raw scraper found 2 jobs for term='Chief Technology' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T18:00:50.124795 DEBUG: Raw scraper found 0 jobs for term='Chief Technology remote' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T18:00:51.325623 DEBUG: Raw scraper found 1 jobs for term='Chief Technology hybrid' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T18:00:51.343110 JobSpy merged jobs appended: 33
+2026-01-15T18:00:51.649354 Israeli boards scraping failed: 'list' object has no attribute 'empty'
+2026-01-15T19:54:01.745759 === Starting scout cycle ===
+2026-01-15T19:54:01.752510 Loaded preferences: roles=5 added_skills=0 industry_focus='' auto_query_present=False
+2026-01-15T19:54:04.081752 Top role queries (raw): ['Chief Marketing Officer', 'VP Digital Transformation', 'Head of Marketing Automation', 'Director of Customer Loyalty Programs', 'Chief Growth Officer']
+2026-01-15T19:54:04.087376 Discovered URLs already logged: 1
+2026-01-15T19:54:04.092920 JobSpy sites: ['indeed', 'glassdoor']
+2026-01-15T19:54:04.092972 Trying query: Chief Marketing
+2026-01-15T19:54:04.093002 Trying query: Chief Marketing remote
+2026-01-15T19:54:04.093029 Trying query: Chief Marketing hybrid
+2026-01-15T19:54:04.093070 Trying query: VP Digital
+2026-01-15T19:54:04.093100 Trying query: VP Digital remote
+2026-01-15T19:54:04.093133 Trying query: VP Digital hybrid
+2026-01-15T19:54:04.093174 Trying query: Head of
+2026-01-15T19:54:04.093214 Trying query: Head of remote
+2026-01-15T19:54:04.093255 Trying query: Head of hybrid
+2026-01-15T19:54:04.093291 Trying query: Director of
+2026-01-15T19:54:04.093325 Trying query: Director of remote
+2026-01-15T19:54:04.093359 Trying query: Director of hybrid
+2026-01-15T19:54:04.093389 Trying query: Chief Growth
+2026-01-15T19:54:04.093418 Trying query: Chief Growth remote
+2026-01-15T19:54:04.093446 Trying query: Chief Growth hybrid
+2026-01-15T19:54:04.842596 DEBUG: Raw scraper found 0 jobs for term='Chief Marketing' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T19:54:05.400933 DEBUG: Raw scraper found 0 jobs for term='Chief Marketing remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T19:54:05.930545 DEBUG: Raw scraper found 0 jobs for term='Chief Marketing hybrid' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T19:54:07.743361 DEBUG: Raw scraper found 5 jobs for term='VP Digital' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T19:54:08.283614 DEBUG: Raw scraper found 0 jobs for term='VP Digital remote' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T19:54:08.878339 DEBUG: Raw scraper found 0 jobs for term='VP Digital hybrid' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T19:54:11.273068 DEBUG: Raw scraper found 18 jobs for term='Head of' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T19:54:13.078231 DEBUG: Raw scraper found 2 jobs for term='Head of remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T19:54:14.916421 DEBUG: Raw scraper found 5 jobs for term='Head of hybrid' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T19:54:17.932403 DEBUG: Raw scraper found 31 jobs for term='Director of' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T19:54:19.037605 DEBUG: Raw scraper found 2 jobs for term='Director of remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T19:54:20.470470 DEBUG: Raw scraper found 7 jobs for term='Director of hybrid' (ua='Mozilla/5.0 (X11; Linux x86_64...')
+2026-01-15T19:54:21.493996 DEBUG: Raw scraper found 1 jobs for term='Chief Growth' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T19:54:22.043039 DEBUG: Raw scraper found 0 jobs for term='Chief Growth remote' (ua='Mozilla/5.0 (Windows NT 10.0; ...')
+2026-01-15T19:54:23.151403 DEBUG: Raw scraper found 1 jobs for term='Chief Growth hybrid' (ua='Mozilla/5.0 (Macintosh; Intel ...')
+2026-01-15T19:54:23.168022 JobSpy merged jobs appended: 48
+2026-01-15T19:54:23.546930 Israeli boards scraping failed: 'list' object has no attribute 'empty'

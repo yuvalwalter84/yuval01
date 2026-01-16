@@ -1,0 +1,32 @@
+# Vision Stack 2026: Project Manifesto & Guardrails
+
+## 🎯 Project Goals
+Build an Autonomous CTO Agent that manages the job application lifecycle with 100% honesty, zero regressions, and full transparency.
+
+## 🛠️ Core Capabilities (Never Remove)
+1. **Gatekeeper (Scoring & Matching):** Every job MUST be analyzed against the Master CV using AI. Display a match score (0-100%), honest reasoning, and specific Gap Analysis.
+2. **Honest Reframing (Tailoring):** Generate CV highlights by reframing existing experience. **STRICT RULE: DO NOT invent skills or experience.**
+3. **ATS Auto-fill:** Automate form filling for Greenhouse, Lever, and LinkedIn using `profile_data.json`.
+4. **Human-in-the-Loop:** Mandatory 'Draft' stage in the UI for manual review and editing before any 'Final Launch'.
+5. **Anti-Black-Hole (Tracking & Notification):**
+   - Log every application in `applications_history.csv`.
+   - Send a confirmation SMTP email to the user after every successful submission.
+6. **Persistence:** Centralize all user data and knockout answers in `profile_data.json`.
+
+## 🛡️ Development Rules (Regression Protection)
+- **Full Scripts Only:** Always provide the complete code for a file. Never provide snippets or "parts" to prevent accidental deletion of core logic.
+- **Don't Be Lazy:** If a request is made to add a feature, the AI must ensure that all existing features (SMTP, Matching, etc.) are integrated into the new version.
+- **Integrity Check:** Before outputting code, verify that `analyze_match`, `send_confirmation_email`, and `auto_fill_ats` are still present.
+- **Dependency Awareness:** Maintain integration between `streamlit`, `playwright`, `google-generativeai`, and `jobspy`.
+
+## 📝 Verification Checklist for AI
+Before suggesting any code change, you MUST verify:
+1. Does this maintain the `analyze_match` scoring and Gap Analysis logic?
+2. Is the SMTP email notification (`send_confirmation_email`) still active in `browser_bot.py`?
+3. Is `profile_data.json` still the single source of truth?
+4. Does the UI still require a manual 'Final Launch' click after the 'Draft' stage?
+5. Is the script provided in its FULL length?
+
+**Failure to follow these rules will result in a core system regression.**
+- **No Code Shrinkage:** A script should never get shorter when adding features. If the line count drops significantly, it's a red flag for regression. 
+- **Full Scripts Only:** Always provide the COMPLETE code for a file. Never snippets.

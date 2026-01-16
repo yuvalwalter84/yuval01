@@ -1,0 +1,34 @@
+{
+  "primary_domain": "Marketing",
+  "role_level": "Senior",
+  "industry_focus": "Digital Marketing",
+  "tech_stack": [
+    "AI",
+    "Data Analytics",
+    "Marketing Automation",
+    "CRM",
+    "CRO",
+    "NFC",
+    "Digital Channels"
+  ],
+  "leadership_style": "Experienced leader who can build and manage cross-functional teams, drive digital transformation, and deliver measurable results",
+  "preferences": [
+    "Growth-focused",
+    "Data-driven",
+    "Customer-centric",
+    "Cross-channel campaigns"
+  ],
+  "avoid_patterns": [
+    "Siloed marketing",
+    "Inefficient budgeting",
+    "Lack of digital innovation"
+  ],
+  "persona_summary": "A senior marketing executive with deep expertise in data-driven, customer-centric digital marketing. Proven track record of leading digital transformation, implementing marketing automation, and driving substantial growth through omnichannel campaigns and loyalty programs.",
+  "latent_capabilities": [
+    "Strategic planning",
+    "Budgeting and financial management",
+    "Technology implementation and integration",
+    "Cross-functional collaboration",
+    "Startup/entrepreneurial experience"
+  ]
+}

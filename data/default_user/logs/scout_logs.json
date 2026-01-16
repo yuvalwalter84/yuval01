@@ -1,0 +1,142 @@
+[
+  {
+    "timestamp": "2026-01-15T22:15:12.519137",
+    "type": "info",
+    "message": "Background Job Scout started as persistent daemon. Running every 30 minutes."
+  },
+  {
+    "timestamp": "2026-01-15T22:15:12.519329",
+    "type": "info",
+    "message": "High-match jobs (>= 70%) will be logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-15T22:15:12.519565",
+    "type": "info",
+    "message": "Preferences.json is re-loaded in EVERY cycle to detect UI updates (Focus, Skills, Roles)."
+  },
+  {
+    "timestamp": "2026-01-15T22:15:12.527872",
+    "type": "info",
+    "message": "Cycle #1 - 2026-01-15T22:15:12.527711"
+  },
+  {
+    "timestamp": "2026-01-15T22:15:12.528112",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-15T22:15:12.528018"
+  },
+  {
+    "timestamp": "2026-01-15T22:15:12.528952",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 0 potential roles, 0 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-15T22:15:12.529726",
+    "type": "warning",
+    "message": "No CV text in profile. Skipping scout cycle."
+  },
+  {
+    "timestamp": "2026-01-15T22:15:12.530113",
+    "type": "info",
+    "message": "Waiting 30 minutes until next cycle..."
+  },
+  {
+    "timestamp": "2026-01-15T22:45:12.630470",
+    "type": "info",
+    "message": "Cycle #2 - 2026-01-15T22:45:12.630260"
+  },
+  {
+    "timestamp": "2026-01-15T22:45:12.630804",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-15T22:45:12.630710"
+  },
+  {
+    "timestamp": "2026-01-15T22:45:12.639588",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 0 potential roles, 0 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-15T22:45:12.640084",
+    "type": "warning",
+    "message": "No CV text in profile. Skipping scout cycle."
+  },
+  {
+    "timestamp": "2026-01-15T22:45:12.640418",
+    "type": "info",
+    "message": "Waiting 30 minutes until next cycle..."
+  },
+  {
+    "timestamp": "2026-01-15T23:15:12.740524",
+    "type": "info",
+    "message": "Cycle #3 - 2026-01-15T23:15:12.740203"
+  },
+  {
+    "timestamp": "2026-01-15T23:15:12.741435",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-15T23:15:12.741039"
+  },
+  {
+    "timestamp": "2026-01-15T23:15:12.750504",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 0 potential roles, 0 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-15T23:15:12.751650",
+    "type": "warning",
+    "message": "No CV text in profile. Skipping scout cycle."
+  },
+  {
+    "timestamp": "2026-01-15T23:15:12.752409",
+    "type": "info",
+    "message": "Waiting 30 minutes until next cycle..."
+  },
+  {
+    "timestamp": "2026-01-15T23:21:37.699231",
+    "type": "info",
+    "message": "Background scout stopped by user"
+  },
+  {
+    "timestamp": "2026-01-16T11:55:17.956147",
+    "type": "info",
+    "message": "Background Job Scout started as persistent daemon. Running every 30 minutes."
+  },
+  {
+    "timestamp": "2026-01-16T11:55:17.956566",
+    "type": "info",
+    "message": "High-match jobs (>= 70%) will be logged to discovered_jobs.csv"
+  },
+  {
+    "timestamp": "2026-01-16T11:55:17.964939",
+    "type": "info",
+    "message": "Preferences.json is re-loaded in EVERY cycle to detect UI updates (Focus, Skills, Roles)."
+  },
+  {
+    "timestamp": "2026-01-16T11:55:17.965284",
+    "type": "info",
+    "message": "Cycle #1 - 2026-01-16T11:55:17.965185"
+  },
+  {
+    "timestamp": "2026-01-16T11:55:17.965608",
+    "type": "info",
+    "message": "Starting job scout cycle at 2026-01-16T11:55:17.965514"
+  },
+  {
+    "timestamp": "2026-01-16T11:55:17.968435",
+    "type": "info",
+    "message": "Loaded preferences (re-loaded in every cycle): 0 potential roles, 0 added skills, Industry Focus=''"
+  },
+  {
+    "timestamp": "2026-01-16T11:55:17.969016",
+    "type": "warning",
+    "message": "No CV text in profile. Skipping scout cycle."
+  },
+  {
+    "timestamp": "2026-01-16T11:55:17.969492",
+    "type": "info",
+    "message": "Waiting 30 minutes until next cycle..."
+  },
+  {
+    "timestamp": "2026-01-16T12:06:43.758901",
+    "type": "info",
+    "message": "Background scout stopped by user"
+  }
+]
