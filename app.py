@@ -465,6 +465,7 @@ def get_core_engine():
     """
     Get or create CoreEngine instance (cached to prevent memory leaks).
     Only initializes once per session and reuses the same instance.
+    CRITICAL: This is lazy-loaded - only called when actually needed, not at script start.
     """
     from core_engine import CoreEngine
     return CoreEngine()
@@ -475,57 +476,15 @@ def get_pdf_generator(_engine):
     """
     Get or create PDFGenerator instance (cached to prevent memory leaks).
     Only initializes once per session and reuses the same instance.
+    CRITICAL: This is lazy-loaded - only called when actually needed, not at script start.
     """
     from pdf_generator import PDFGenerator
     return PDFGenerator()
 
-# Initialize core components using cached functions (prevents memory leaks on Render)
-# Wrap in try-except with loading spinner for stable session management
-# This prevents crashes/freezes immediately after Google Login
-with st.spinner("🚀 Initializing Persona System... Please wait"):
-    try:
-        engine = get_core_engine()
-        print("✅ CoreEngine initialized successfully")
-    except Exception as e:
-        st.error("❌ שגיאה באתחול CoreEngine")
-        st.exception(e)
-        print(f"❌ CoreEngine initialization failed: {e}")
-        st.stop()
+# CRITICAL FIX: Render UI elements FIRST before initializing heavy components
+# This prevents the frozen/blank screen on Render by ensuring UI loads immediately
 
-    try:
-        pdf_generator = get_pdf_generator(engine)
-        # Update active model from engine
-        st.session_state.active_model = engine.model_id
-        print("✅ PDFGenerator initialized successfully")
-    except Exception as e:
-        st.error("❌ שגיאה באתחול PDFGenerator")
-        st.exception(e)
-        print(f"❌ PDFGenerator initialization failed: {e}")
-        st.stop()
-
-    # Initialize Digital Persona if not already loaded (stable session management)
-    try:
-        if not st.session_state.get('digital_persona') and profile and profile.get('master_cv_text'):
-            # Load persona from profile if available
-            if profile.get('digital_persona'):
-                st.session_state.digital_persona = profile['digital_persona']
-                print("✅ Digital Persona loaded from profile")
-    except Exception as e:
-        print(f"⚠️ Warning: Could not initialize Digital Persona: {e}")
-        # Continue without failing - persona will be built on CV upload
-
-# Force Sidebar: Render sidebar immediately after initialization
-# Wrap in try-except for stable session management
-try:
-    must_have_keywords, exclude_keywords = render_sidebar(engine, profile)
-except Exception as e:
-    st.error("❌ שגיאה ב-render_sidebar")
-    st.exception(e)
-    # Set defaults to prevent NameError
-    must_have_keywords = []
-    exclude_keywords = []
-
-# Professional Header with Gradient Text and DNA Pulse
+# Professional Header with Gradient Text and DNA Pulse (render immediately - NO blocking)
 st.markdown("""
 <div style="text-align: center; padding: 20px 0;">
     <h1 class="gradient-text" style="margin-bottom: 10px;">
@@ -534,6 +493,68 @@ st.markdown("""
     <p style="color: #8B949E; font-size: 16px;">Autonomous Digital Recruitment Agent</p>
 </div>
 """, unsafe_allow_html=True)
+
+# Lazy initialize engine - only when actually needed (not at script start)
+# This prevents blocking the UI render on Render's 2GB RAM Professional tier
+engine = None
+pdf_generator = None
+
+# Initialize engine lazily with spinner (only after UI is visible)
+# Store in session state to avoid re-initialization on reruns
+if 'engine_initialized' not in st.session_state:
+    with st.spinner("🚀 Initializing Persona System... Please wait"):
+        try:
+            engine = get_core_engine()
+            st.session_state.engine = engine
+            st.session_state.engine_initialized = True
+            print("✅ CoreEngine initialized successfully")
+        except Exception as e:
+            st.error("❌ שגיאה באתחול CoreEngine")
+            st.exception(e)
+            print(f"❌ CoreEngine initialization failed: {e}")
+            st.stop()
+
+        try:
+            pdf_generator = get_pdf_generator(engine)
+            st.session_state.pdf_generator = pdf_generator
+            # Update active model from engine
+            st.session_state.active_model = engine.model_id
+            print("✅ PDFGenerator initialized successfully")
+        except Exception as e:
+            st.error("❌ שגיאה באתחול PDFGenerator")
+            st.exception(e)
+            print(f"❌ PDFGenerator initialization failed: {e}")
+            st.stop()
+
+        # Initialize Digital Persona if not already loaded (stable session management)
+        try:
+            if not st.session_state.get('digital_persona') and profile and profile.get('master_cv_text'):
+                # Load persona from profile if available
+                if profile.get('digital_persona'):
+                    st.session_state.digital_persona = profile['digital_persona']
+                    print("✅ Digital Persona loaded from profile")
+        except Exception as e:
+            print(f"⚠️ Warning: Could not initialize Digital Persona: {e}")
+            # Continue without failing - persona will be built on CV upload
+else:
+    # Reuse cached engine from session state
+    engine = st.session_state.get('engine')
+    pdf_generator = st.session_state.get('pdf_generator')
+
+# Force Sidebar: Render sidebar with lazy engine (fallback if not ready)
+# Wrap in try-except for stable session management - sidebar must render even if engine not ready
+try:
+    if engine is None:
+        # Render sidebar without engine (fallback mode)
+        must_have_keywords, exclude_keywords = render_sidebar(None, profile)
+    else:
+        must_have_keywords, exclude_keywords = render_sidebar(engine, profile)
+except Exception as e:
+    st.error("❌ שגיאה ב-render_sidebar")
+    st.exception(e)
+    # Set defaults to prevent NameError
+    must_have_keywords = []
+    exclude_keywords = []
 
 # Debug: Show what the AI 'thinks' it knows (temporary debugging)
 if st.session_state.get('digital_persona'):
@@ -643,6 +664,10 @@ if uploaded_files and len(uploaded_files) > 0:
                     cv_texts_list.append(cv_text)
                 
                 # Merge all CVs into Master Profile
+                # Ensure engine is initialized before using it
+                if engine is None:
+                    engine = st.session_state.get('engine') or get_core_engine()
+                    st.session_state.engine = engine
                 status.update(label="🔗 מיזוג קורות חיים מרובים ל-Master Profile...")
                 merged_cv_text = engine.merge_cv_data(cv_texts_list)
                 profile['master_cv_text'] = merged_cv_text
