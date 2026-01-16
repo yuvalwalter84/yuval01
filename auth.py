@@ -7,12 +7,14 @@ import os
 import requests
 import json
 import base64
+from urllib.parse import quote
 
 # Google OAuth Configuration
 GOOGLE_CLIENT_ID = None
 GOOGLE_CLIENT_SECRET = None
-# Get redirect URI from environment (production) or default to localhost (development)
-REDIRECT_URI = os.getenv("STREAMLIT_SERVER_URL", os.getenv("REDIRECT_URI", "http://localhost:8501"))
+# Get redirect URI directly from REDIRECT_URI environment variable
+# Fallback to Render URL if env var is missing
+REDIRECT_URI = os.getenv("REDIRECT_URI", "https://yuval01.onrender.com/auth/callback")
 
 def init_oauth_config():
     """
@@ -50,11 +52,14 @@ def get_google_oauth_url(state=None):
     client_id, _ = init_oauth_config()
     redirect_uri = REDIRECT_URI
     
+    # URL-encode redirect_uri to ensure proper handling (required by Google OAuth)
+    redirect_uri_encoded = quote(redirect_uri, safe='')
+    
     # Google OAuth 2.0 authorization endpoint
     auth_url = (
         "https://accounts.google.com/o/oauth2/v2/auth?"
         f"client_id={client_id}&"
-        f"redirect_uri={redirect_uri}&"
+        f"redirect_uri={redirect_uri_encoded}&"
         "response_type=code&"
         "scope=openid email profile&"
         f"state={state or 'default'}&"
