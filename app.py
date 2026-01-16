@@ -45,22 +45,6 @@ st.set_page_config(page_title="Persona: Your Career, Synchronized", layout="wide
 inject_global_css()
 
 # ============================================================================
-# SUPABASE MIGRATION CHECK (Zero-Loss Migration)
-# ============================================================================
-# Check if migration is needed and perform it automatically
-try:
-    from utils import migrate_to_supabase, use_supabase
-    if use_supabase():
-        # Run migration check (verify-only on first load, actual migration on user action)
-        if 'supabase_migration_checked' not in st.session_state:
-            migration_status = migrate_to_supabase(verify_only=True)
-            st.session_state.supabase_migration_checked = True
-            if migration_status.get('warnings'):
-                print(f"ℹ️ Supabase migration status: {migration_status}")
-except Exception as migration_error:
-    print(f"⚠️ Migration check failed (non-blocking): {migration_error}")
-
-# ============================================================================
 # DARK MODE THEME & GLOBAL CSS (Additional styling)
 # ============================================================================
 st.markdown("""
@@ -307,6 +291,24 @@ if 'user_id' not in st.session_state or st.session_state.user_id != user_email:
 # Sandbox Enforcement: Ensure all file paths use data/{user_email}/
 user_id = st.session_state.user_id  # This is the Google email
 
+# ============================================================================
+# POST-AUTHENTICATION INITIALIZATION (Only runs after successful auth)
+# ============================================================================
+# Move all heavy initialization here to prevent memory issues on Render
+
+# SUPABASE MIGRATION CHECK (Zero-Loss Migration) - Only after auth
+try:
+    from utils import migrate_to_supabase, use_supabase
+    if use_supabase():
+        # Run migration check (verify-only on first load, actual migration on user action)
+        if 'supabase_migration_checked' not in st.session_state:
+            migration_status = migrate_to_supabase(verify_only=True)
+            st.session_state.supabase_migration_checked = True
+            if migration_status.get('warnings'):
+                print(f"ℹ️ Supabase migration status: {migration_status}")
+except Exception as migration_error:
+    print(f"⚠️ Migration check failed (non-blocking): {migration_error}")
+
 # User Onboarding: Check if user's directory exists. If not, redirect to CV upload.
 if not check_user_onboarding():
     # User needs to upload CV - show onboarding message
@@ -388,11 +390,29 @@ pdf_generator = None
 # All file paths automatically use data/{user_email}/ via get_user_file_path()
 
 # Try to load profile from database first (primary), then fallback to JSON
+# Use cached database manager to prevent memory leaks on Render
 profile = None
 try:
-    from utils import get_db_manager
-    db = get_db_manager()
-    persona_data = db.get_persona(user_id)
+    from utils import get_cached_supabase_manager, get_cached_db_manager, use_supabase
+    persona_data = None
+    
+    # Try Supabase first (if enabled), then fallback to SQLite
+    if use_supabase():
+        try:
+            supabase = get_cached_supabase_manager()
+            if supabase:
+                persona_data = supabase.get_persona(user_id)
+        except Exception as supabase_error:
+            print(f"⚠️ Supabase load failed, falling back to SQLite: {supabase_error}")
+    
+    # Fallback to SQLite if Supabase didn't return data
+    if not persona_data:
+        try:
+            db = get_cached_db_manager()
+            persona_data = db.get_persona(user_id)
+        except Exception as db_error:
+            print(f"⚠️ SQLite load failed, falling back to JSON: {db_error}")
+    
     if persona_data:
         # Convert database persona to profile format
         digital_persona = persona_data.get('digital_persona', {})
@@ -439,19 +459,36 @@ if not profile:
 if not profile:
     profile = {"master_cv_text": "", "auto_query": ""}
 
-# Lazy load CoreEngine only when needed (reduces memory footprint on Render)
-try:
+# Use st.cache_resource for CoreEngine to prevent memory leaks and reuse connection
+@st.cache_resource
+def get_core_engine():
+    """
+    Get or create CoreEngine instance (cached to prevent memory leaks).
+    Only initializes once per session and reuses the same instance.
+    """
     from core_engine import CoreEngine
-    engine = CoreEngine()
+    return CoreEngine()
+
+# Use st.cache_resource for PDFGenerator to prevent memory leaks and reuse connection
+@st.cache_resource
+def get_pdf_generator(_engine):
+    """
+    Get or create PDFGenerator instance (cached to prevent memory leaks).
+    Only initializes once per session and reuses the same instance.
+    """
+    from pdf_generator import PDFGenerator
+    return PDFGenerator()
+
+# Initialize core components using cached functions (prevents memory leaks on Render)
+try:
+    engine = get_core_engine()
 except Exception as e:
     st.error("❌ שגיאה באתחול CoreEngine")
     st.exception(e)
     st.stop()
 
-# Lazy load PDFGenerator only when needed (reduces memory footprint on Render)
 try:
-    from pdf_generator import PDFGenerator
-    pdf_generator = PDFGenerator()
+    pdf_generator = get_pdf_generator(engine)
     # Update active model from engine
     st.session_state.active_model = engine.model_id
 except Exception as e:
@@ -770,45 +807,11 @@ if uploaded_files and len(uploaded_files) > 0:
                 # Set flag to rerun once after processing completes
                 st.session_state.should_rerun_after_pdf = True
                 
-                # Auto-Start: Immediately after CV processing (after hashing), trigger background_scout.py subprocess
-                # Task 1: Auto-Start Scout - Start background_scout.py if it's not already running
-                try:
-                    import subprocess
-                    import sys
-                    
-                    # Check if background_scout.py exists
-                    if os.path.exists('background_scout.py'):
-                        # Check if background_scout_process is already running in session_state
-                        should_start = True
-                        if 'background_scout_process' in st.session_state:
-                            # Check if process is still alive
-                            existing_process = st.session_state.background_scout_process
-                            if existing_process is not None:
-                                # Check if process is still running (poll() returns None if running, return code if finished)
-                                if existing_process.poll() is None:
-                                    print(f"✅ Auto-Start: Background scout is already running (PID: {existing_process.pid})")
-                                    # Process is already running, don't start another one
-                                    should_start = False
-                                else:
-                                    # Process has finished, need to start a new one
-                                    print(f"⚠️ Auto-Start: Previous background scout process finished. Starting new one.")
-                        
-                        if should_start:
-                            # Start background scout in a separate process (persistent daemon)
-                            scout_process = subprocess.Popen(
-                                [sys.executable, 'background_scout.py'],
-                                stdout=subprocess.PIPE,
-                                stderr=subprocess.PIPE,
-                                text=True
-                            )
-                            st.session_state.background_scout_process = scout_process
-                            print(f"✅ Auto-Start: Background scout started (PID: {scout_process.pid})")
-                            st.info("🚀 **Auto-Start:** Background job scout has been started automatically.")
-                    else:
-                        print(f"⚠️ background_scout.py not found. Skipping auto-start.")
-                except Exception as scout_error:
-                    print(f"⚠️ Failed to start background scout: {scout_error}")
-                    # Don't block the app if scout fails to start
+                # DISABLED: Background scout auto-start on launch (prevents Render crashes)
+                # Background processes should only start when explicitly requested by user
+                # This prevents "Stopping..." crashes on Render due to memory/process limits
+                # Users can manually start background scout via UI if needed
+                print("ℹ️ Background scout auto-start disabled to prevent Render crashes. Start manually if needed.")
                     
             except Exception as pdf_error:
                 status.update(label=f"❌ שגיאה: {pdf_error}", state="error")

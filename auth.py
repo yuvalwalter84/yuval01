@@ -52,6 +52,12 @@ def get_google_oauth_url(state=None):
     client_id, _ = init_oauth_config()
     redirect_uri = REDIRECT_URI
     
+    # CRITICAL: Verify redirect_uri is exactly https://yuval01.onrender.com/auth/callback
+    if redirect_uri != "https://yuval01.onrender.com/auth/callback":
+        print(f"⚠️ WARNING: REDIRECT_URI mismatch! Expected 'https://yuval01.onrender.com/auth/callback', got '{redirect_uri}'")
+    else:
+        print(f"✅ REDIRECT_URI verified: {redirect_uri}")
+    
     # URL-encode redirect_uri to ensure proper handling (required by Google OAuth)
     redirect_uri_encoded = quote(redirect_uri, safe='')
     
@@ -66,6 +72,10 @@ def get_google_oauth_url(state=None):
         "access_type=offline&"
         "prompt=consent"
     )
+    
+    # Debug: Log the exact URL being sent (first 200 chars)
+    print(f"🔍 OAuth URL (first 200 chars): {auth_url[:200]}...")
+    
     return auth_url
 
 def exchange_code_for_token(code):

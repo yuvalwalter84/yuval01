@@ -34,7 +34,11 @@ _db_manager = None
 _supabase_manager = None
 
 def get_db_manager():
-    """Get or create DatabaseManager singleton instance (SQLite - legacy/local)."""
+    """
+    Get or create DatabaseManager singleton instance (SQLite - legacy/local).
+    Note: This is not cached with st.cache_resource because it's used in background threads
+    where Streamlit context may not be available. The singleton pattern prevents memory leaks.
+    """
     global _db_manager
     if _db_manager is None:
         from database_manager import DatabaseManager
@@ -42,7 +46,11 @@ def get_db_manager():
     return _db_manager
 
 def get_supabase_manager():
-    """Get or create SupabaseDatabaseManager singleton instance (Cloud - production)."""
+    """
+    Get or create SupabaseDatabaseManager singleton instance (Cloud - production).
+    Note: This is not cached with st.cache_resource because it's used in background threads
+    where Streamlit context may not be available. The singleton pattern prevents memory leaks.
+    """
     global _supabase_manager
     if _supabase_manager is None:
         try:
@@ -52,6 +60,33 @@ def get_supabase_manager():
             print(f"⚠️ Failed to initialize Supabase manager: {e}")
             return None
     return _supabase_manager
+
+# Cached versions for use within Streamlit context (prevents memory leaks)
+def get_cached_db_manager():
+    """
+    Get or create DatabaseManager with st.cache_resource (prevents memory leaks on Render).
+    Use this version when called from Streamlit UI context.
+    """
+    @st.cache_resource
+    def _create_db_manager():
+        from database_manager import DatabaseManager
+        return DatabaseManager(db_path="data/persona_db.sqlite")
+    return _create_db_manager()
+
+def get_cached_supabase_manager():
+    """
+    Get or create SupabaseDatabaseManager with st.cache_resource (prevents memory leaks on Render).
+    Use this version when called from Streamlit UI context.
+    """
+    @st.cache_resource
+    def _create_supabase_manager():
+        from supabase_manager import SupabaseDatabaseManager
+        return SupabaseDatabaseManager()
+    try:
+        return _create_supabase_manager()
+    except Exception as e:
+        print(f"⚠️ Failed to initialize Supabase manager: {e}")
+        return None
 
 def use_supabase():
     """Check if Supabase should be used (based on env/config)."""
