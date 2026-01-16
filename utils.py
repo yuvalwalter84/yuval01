@@ -805,9 +805,20 @@ class APIClient:
         
         # OpenRouter API headers
         # Note: Free models still require API key in Authorization header
+        # Get Streamlit URL from environment (production) or default to localhost (development)
+        streamlit_url = os.getenv("STREAMLIT_SERVER_URL", "http://localhost:8501")
+        try:
+            import streamlit as st
+            # Try to get from Streamlit config if available
+            if hasattr(st, 'config') and hasattr(st.config, 'server'):
+                server_url = getattr(st.config.server, 'baseUrlPath', None) or streamlit_url
+                streamlit_url = server_url
+        except Exception:
+            pass
+        
         headers = {
             "Authorization": f"Bearer {self.api_key}",
-            "HTTP-Referer": "http://localhost:8501",
+            "HTTP-Referer": streamlit_url,
             "X-Title": "JobHunter_Agent",
             "Content-Type": "application/json"
         }

@@ -1,32 +1,240 @@
-# Vision Stack 2026: Project Manifesto & Guardrails
+# Persona - Vision Stack 2026: Cursor AI Rules
+# ==============================================
+# These rules govern ALL AI actions in this project.
+# Must be followed strictly to prevent regressions and maintain system integrity.
+# ==============================================
 
-## 🎯 Project Goals
-Build an Autonomous CTO Agent that manages the job application lifecycle with 100% honesty, zero regressions, and full transparency.
+## 1. PROJECT IDENTITY
+# ===================
+# System Name: Persona
+# Full Name: Vision Stack 2026 - Autonomous CTO Agent (Persona)
+# All references must use "Persona" as the primary system identifier.
 
-## 🛠️ Core Capabilities (Never Remove)
-1. **Gatekeeper (Scoring & Matching):** Every job MUST be analyzed against the Master CV using AI. Display a match score (0-100%), honest reasoning, and specific Gap Analysis.
-2. **Honest Reframing (Tailoring):** Generate CV highlights by reframing existing experience. **STRICT RULE: DO NOT invent skills or experience.**
-3. **ATS Auto-fill:** Automate form filling for Greenhouse, Lever, and LinkedIn using `profile_data.json`.
-4. **Human-in-the-Loop:** Mandatory 'Draft' stage in the UI for manual review and editing before any 'Final Launch'.
-5. **Anti-Black-Hole (Tracking & Notification):**
-   - Log every application in `applications_history.csv`.
-   - Send a confirmation SMTP email to the user after every successful submission.
-6. **Persistence:** Centralize all user data and knockout answers in `profile_data.json`.
+## 2. MODULAR ARCHITECTURE - STRICT SEPARATION OF CONCERNS
+# ==========================================================
+# CRITICAL: Never mix responsibilities between modules.
+# Each module has a SINGLE, CLEAR purpose. Maintain strict boundaries.
 
-## 🛡️ Development Rules (Regression Protection)
-- **Full Scripts Only:** Always provide the complete code for a file. Never provide snippets or "parts" to prevent accidental deletion of core logic.
-- **Don't Be Lazy:** If a request is made to add a feature, the AI must ensure that all existing features (SMTP, Matching, etc.) are integrated into the new version.
-- **Integrity Check:** Before outputting code, verify that `analyze_match`, `send_confirmation_email`, and `auto_fill_ats` are still present.
-- **Dependency Awareness:** Maintain integration between `streamlit`, `playwright`, `google-generativeai`, and `jobspy`.
+### core_engine.py
+# Purpose: AI logic and Digital Persona core functionality
+# Contains:
+#   - Digital Persona building and analysis
+#   - Job match scoring (Persona DNA scoring)
+#   - Career horizon analysis
+#   - Hard constraints filtering
+#   - Vector similarity calculations
+#   - Search strategy generation
+# DO NOT: Add UI code, database operations, or file I/O here
 
-## 📝 Verification Checklist for AI
-Before suggesting any code change, you MUST verify:
-1. Does this maintain the `analyze_match` scoring and Gap Analysis logic?
-2. Is the SMTP email notification (`send_confirmation_email`) still active in `browser_bot.py`?
-3. Is `profile_data.json` still the single source of truth?
-4. Does the UI still require a manual 'Final Launch' click after the 'Draft' stage?
-5. Is the script provided in its FULL length?
+### pdf_generator.py
+# Purpose: CV tailoring and PDF generation logic
+# Contains:
+#   - PDF creation from templates
+#   - CV formatting and styling
+#   - PDF export functionality
+# DO NOT: Add AI logic, UI code, or API calls here
 
-**Failure to follow these rules will result in a core system regression.**
-- **No Code Shrinkage:** A script should never get shorter when adding features. If the line count drops significantly, it's a red flag for regression. 
-- **Full Scripts Only:** Always provide the COMPLETE code for a file. Never snippets.
+### ui_layout.py
+# Purpose: UI rendering and Sidebar management
+# Contains:
+#   - Streamlit UI components
+#   - Custom HTML/CSS rendering
+#   - Sidebar layout and navigation
+#   - Job card displays
+#   - DNA visualization components
+# DO NOT: Add business logic, database operations, or API calls here
+
+### app.py
+# Purpose: Main Orchestrator - Coordinates all modules
+# Contains:
+#   - Streamlit app initialization
+#   - Route handling and page flow
+#   - Module coordination
+#   - Session state management
+# DO NOT: Add AI logic, database queries, or detailed UI components here
+
+### utils.py
+# Purpose: Sole source for API calls and Scrapers
+# Contains:
+#   - APIClient class (centralized API calls)
+#   - All scraping functions (job scraping, Israeli job boards)
+#   - HTTP request handling
+#   - Retry logic and error handling
+#   - Database manager access
+# DO NOT: Add UI code, AI logic, or business rules here
+
+### supabase_manager.py
+# Purpose: Supabase database operations
+# Contains:
+#   - Database connection management
+#   - CRUD operations for profiles and jobs
+#   - Multi-tenant isolation
+# DO NOT: Add business logic, UI code, or API calls here
+
+### database_manager.py
+# Purpose: SQLite database operations (local/fallback)
+# Contains:
+#   - Local database management
+#   - User data persistence
+# DO NOT: Add business logic, UI code, or API calls here
+
+## 3. NO CODE TRUNCATION - FULL SCRIPTS ONLY
+# ===========================================
+# CRITICAL RULE: Never shorten or truncate files.
+# Always provide the COMPLETE code for a file when making changes.
+# Never use "... (existing code) ..." or "// ... rest of file ..."
+# 
+# Rationale: Truncation risks accidental deletion of existing logic.
+# 
+# When updating a file:
+#   1. Read the entire file first
+#   2. Make targeted changes using search_replace with full context
+#   3. Verify the file length hasn't decreased significantly
+#   4. If a file gets shorter, it's a red flag - review immediately
+
+## 4. INTEGRITY PROTECTION - VERIFY BEFORE UPDATING
+# ==================================================
+# Before applying any update, verify that previous features remain functional:
+# 
+# Core Features to Preserve:
+#   ✓ Job scraping functionality (utils.py scrapers)
+#   ✓ CV analysis and Digital Persona extraction (core_engine.py)
+#   ✓ PDF export and tailoring (pdf_generator.py)
+#   ✓ Cover letter generation (1200-character logic in pdf_tailor.py)
+#   ✓ Match scoring with Persona DNA (core_engine.py)
+#   ✓ Hard constraints pre-filtering (core_engine.py)
+#   ✓ Soft traits injection (core_engine.py)
+#   ✓ SMTP email notifications (browser_bot.py)
+#   ✓ ATS auto-fill functionality (browser_bot.py)
+#   ✓ Multi-tenant database operations (supabase_manager.py)
+#   ✓ Vector similarity search (core_engine.py)
+# 
+# Verification Checklist:
+#   1. Does this maintain job scraping capabilities?
+#   2. Does this preserve CV analysis logic?
+#   3. Does this keep PDF export working?
+#   4. Does this maintain module separation?
+#   5. Does this preserve all existing features?
+
+## 5. ANTI-BLOCKING STANDARDS - SCRAPER ROBUSTNESS
+# ==================================================
+# All scrapers in utils.py MUST implement:
+# 
+# a) Random Waits
+#   - Use random.uniform() for delays between requests
+#   - Minimum 1-3 seconds between requests
+#   - Variable timing to mimic human behavior
+# 
+# b) Scroll Simulation
+#   - Simulate page scrolling before scraping
+#   - Multiple scroll actions with delays
+#   - Progressive loading simulation
+# 
+# c) 429 Error Handling
+#   - Detect HTTP 429 (Too Many Requests) responses
+#   - Implement exponential backoff retry logic
+#   - Respect Retry-After headers
+#   - Graceful degradation on rate limits
+# 
+# d) User-Agent Rotation
+#   - Rotate User-Agent strings
+#   - Use realistic browser User-Agents
+#   - Avoid obvious bot patterns
+# 
+# Example Pattern:
+#   - Random delay: time.sleep(random.uniform(1.5, 3.5))
+#   - 429 handling: Check response status, backoff, retry
+#   - Scroll simulation: Multiple scroll actions with delays
+
+## 6. PERSISTENCE - MAINTAIN MODULAR CONNECTIONS
+# ===============================================
+# When replacing or updating scripts:
+# 
+# a) Verify Import Statements
+#   - Ensure all imports are correct
+#   - Check that module paths match actual file locations
+#   - Verify function/class names haven't changed
+# 
+# b) Maintain Function Signatures
+#   - Don't change function parameters without updating all callers
+#   - Preserve return value formats
+#   - Maintain backward compatibility where possible
+# 
+# c) Test Module Integration
+#   - After updates, verify modules can still communicate
+#   - Check that data flows correctly between modules
+#   - Ensure no circular import issues
+# 
+# d) Database Connections
+#   - Maintain connection patterns
+#   - Preserve tenant isolation logic
+#   - Keep fallback mechanisms intact
+
+## 7. ADDITIONAL MANDATORY RULES
+# ===============================
+
+### Code Quality
+# - Always use type hints where appropriate
+# - Follow PEP 8 style guidelines
+# - Document complex logic with comments
+# - Use descriptive variable names
+
+### Error Handling
+# - Always use try/except blocks for external operations
+# - Log errors appropriately
+# - Provide meaningful error messages
+# - Never silently fail on critical operations
+
+### Security
+# - Never hardcode credentials or API keys
+# - Always use environment variables or secrets management
+# - Sanitize user inputs
+# - Validate data before processing
+
+### Testing
+# - After any change, verify the system still works
+# - Test core workflows (CV upload, job analysis, PDF generation)
+# - Check that integrations still function
+# - Verify no regressions introduced
+
+### Documentation
+# - Update README when adding features
+# - Document API changes
+# - Note breaking changes explicitly
+# - Keep migration guides updated
+
+## 8. DEPLOYMENT READINESS
+# =========================
+# Before deployment:
+# - Verify all dependencies in requirements.txt
+# - Check that render.yaml is correctly configured
+# - Ensure environment variables are documented
+# - Test that all imports resolve correctly
+# - Verify no syntax errors (run py_compile)
+# - Check that .gitignore protects sensitive files
+
+## 9. VERSION CONTROL RULES
+# ==========================
+# - Never commit .env files or secrets
+# - Always commit requirements.txt updates
+# - Commit modular changes separately when possible
+# - Use descriptive commit messages
+# - Test before committing critical changes
+
+## 10. AI ASSISTANT BEHAVIOR
+# ===========================
+# When working on this project:
+# - Always read the entire file before modifying
+# - Use search_replace with full context
+# - Verify file integrity after changes
+# - Check that related modules still work
+# - Provide complete code blocks, not snippets
+# - Acknowledge when rules are being followed
+# - Alert if a change might violate these rules
+
+# ==============================================
+# END OF CURSOR RULES
+# ==============================================
+# These rules are MANDATORY and must be followed
+# in ALL future interactions with this codebase.
+# ==============================================

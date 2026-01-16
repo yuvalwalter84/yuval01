@@ -11,7 +11,8 @@ import base64
 # Google OAuth Configuration
 GOOGLE_CLIENT_ID = None
 GOOGLE_CLIENT_SECRET = None
-REDIRECT_URI = "http://localhost:8501"
+# Get redirect URI from environment (production) or default to localhost (development)
+REDIRECT_URI = os.getenv("STREAMLIT_SERVER_URL", os.getenv("REDIRECT_URI", "http://localhost:8501"))
 
 def init_oauth_config():
     """
