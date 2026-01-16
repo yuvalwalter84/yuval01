@@ -3545,3 +3545,93 @@ class CoreEngine:
         except Exception as e:
             print(f"WARN: Failed to refine persona with answers: {e}")
             return digital_persona if digital_persona else {}
+    
+    def universal_scraper(self, company_career_urls: list, digital_persona: dict = None, dna_embedding: list = None, min_match_score: float = 0.7) -> dict:
+        """
+        Universal Scraper: Scrape multiple company career pages and filter jobs using Persona DNA.
+        
+        This is a placeholder for the Universal Scraper capability. It's designed to:
+        1. Take a list of company career URLs
+        2. Scrape job listings from each URL (using utils.py scrapers with Anti-Blocking standards)
+        3. Filter jobs using Persona DNA Signature (vector similarity) before expensive AI analysis
+        4. Return filtered, scored job matches
+        
+        Args:
+            company_career_urls: List of company career page URLs to scrape
+                Example: ["https://company.com/careers", "https://another.com/jobs"]
+            digital_persona: Digital Persona dict (optional, falls back to session state)
+            dna_embedding: Personal DNA Signature embedding for vector filtering (optional)
+            min_match_score: Minimum match score threshold (0.0-1.0, default 0.7)
+        
+        Returns:
+            dict: {
+                "total_found": int,
+                "filtered_count": int,
+                "matches": [
+                    {
+                        "title": str,
+                        "company": str,
+                        "job_url": str,
+                        "description": str,
+                        "match_score": float,
+                        "vector_score": float,
+                        "filter_reason": str
+                    }
+                ],
+                "errors": [str],
+                "scraping_stats": [
+                    {
+                        "url": str,
+                        "jobs_found": int,
+                        "status": str
+                    }
+                ]
+            }
+        
+        TODO: Implementation steps:
+        1. Use utils.py scrapers (scrape_jobs_with_timeout) for each URL
+        2. Apply Anti-Blocking standards (random waits, 429 handling, User-Agent rotation)
+        3. Use DNA embedding for vector similarity pre-filtering (if available)
+        4. Pass filtered jobs to analyze_match() for AI scoring
+        5. Return structured results with match scores
+        """
+        # Placeholder implementation - returns structure for future development
+        print("🔧 Universal Scraper: Placeholder method called")
+        print(f"   Input: {len(company_career_urls)} company URLs")
+        
+        # Use session state persona if not provided
+        if digital_persona is None:
+            try:
+                import streamlit as st
+                digital_persona = st.session_state.get('digital_persona', {})
+            except Exception:
+                digital_persona = {}
+        
+        # Validate inputs
+        if not isinstance(company_career_urls, list) or len(company_career_urls) == 0:
+            return {
+                "total_found": 0,
+                "filtered_count": 0,
+                "matches": [],
+                "errors": ["Invalid company_career_urls: must be non-empty list"],
+                "scraping_stats": []
+            }
+        
+        result = {
+            "total_found": 0,
+            "filtered_count": 0,
+            "matches": [],
+            "errors": [],
+            "scraping_stats": []
+        }
+        
+        # TODO: Implementation placeholder
+        # Step 1: Scrape each URL using utils.py scrapers (with Anti-Blocking standards)
+        # Step 2: Pre-filter using DNA embedding vector similarity (low-cost filtering)
+        # Step 3: AI analysis for filtered jobs using analyze_match() (high-cost, precise)
+        # Step 4: Return structured results
+        
+        print("⚠️ Universal Scraper: Not yet implemented - returning placeholder structure")
+        result["errors"].append("Universal Scraper not yet implemented - this is a placeholder")
+        
+        return result

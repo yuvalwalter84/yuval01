@@ -3,11 +3,11 @@ Vision Stack 2026: Full Autonomous Mode - Main Orchestrator
 This file acts as the main orchestrator, importing functions from modular components.
 """
 # Lightweight imports only at top level to reduce memory footprint on Render
+# Heavy imports (PyPDF2, Playwright, OpenAI) are lazy-loaded inside functions
 import streamlit as st
 import asyncio
 import json
 import os
-import PyPDF2
 import hashlib
 import pandas as pd
 
@@ -480,24 +480,42 @@ def get_pdf_generator(_engine):
     return PDFGenerator()
 
 # Initialize core components using cached functions (prevents memory leaks on Render)
-try:
-    engine = get_core_engine()
-except Exception as e:
-    st.error("❌ שגיאה באתחול CoreEngine")
-    st.exception(e)
-    st.stop()
+# Wrap in try-except with loading spinner for stable session management
+# This prevents crashes/freezes immediately after Google Login
+with st.spinner("🚀 Initializing Persona System... Please wait"):
+    try:
+        engine = get_core_engine()
+        print("✅ CoreEngine initialized successfully")
+    except Exception as e:
+        st.error("❌ שגיאה באתחול CoreEngine")
+        st.exception(e)
+        print(f"❌ CoreEngine initialization failed: {e}")
+        st.stop()
 
-try:
-    pdf_generator = get_pdf_generator(engine)
-    # Update active model from engine
-    st.session_state.active_model = engine.model_id
-except Exception as e:
-    st.error("❌ שגיאה באתחול PDFGenerator")
-    st.exception(e)
-    st.stop()
+    try:
+        pdf_generator = get_pdf_generator(engine)
+        # Update active model from engine
+        st.session_state.active_model = engine.model_id
+        print("✅ PDFGenerator initialized successfully")
+    except Exception as e:
+        st.error("❌ שגיאה באתחול PDFGenerator")
+        st.exception(e)
+        print(f"❌ PDFGenerator initialization failed: {e}")
+        st.stop()
 
-# Force Sidebar: Render sidebar immediately after initialization - NO try-except wrapper
-# This ensures sidebar is always visible, even if there are errors later
+    # Initialize Digital Persona if not already loaded (stable session management)
+    try:
+        if not st.session_state.get('digital_persona') and profile and profile.get('master_cv_text'):
+            # Load persona from profile if available
+            if profile.get('digital_persona'):
+                st.session_state.digital_persona = profile['digital_persona']
+                print("✅ Digital Persona loaded from profile")
+    except Exception as e:
+        print(f"⚠️ Warning: Could not initialize Digital Persona: {e}")
+        # Continue without failing - persona will be built on CV upload
+
+# Force Sidebar: Render sidebar immediately after initialization
+# Wrap in try-except for stable session management
 try:
     must_have_keywords, exclude_keywords = render_sidebar(engine, profile)
 except Exception as e:
@@ -615,6 +633,8 @@ if uploaded_files and len(uploaded_files) > 0:
                 cv_texts_list = []
                 
                 # Extract text from all uploaded CVs
+                # Lazy load PyPDF2 to reduce memory footprint on Render
+                import PyPDF2
                 for i, uploaded_file in enumerate(uploaded_files, 1):
                     status.update(label=f"📖 קורא קובץ PDF {i}/{len(uploaded_files)}...")
                     uploaded_file.seek(0)  # Reset file pointer
