@@ -2,8 +2,8 @@
 Vision Stack 2026: Full Autonomous Mode - Main Orchestrator
 This file acts as the main orchestrator, importing functions from modular components.
 """
-# Lightweight imports only at top level to reduce memory footprint on Render
-# Heavy imports (PyPDF2, Playwright, OpenAI) are lazy-loaded inside functions
+# CRITICAL FAST-BOOT: Minimal imports at top level for instant Render startup
+# Heavy imports (core_engine, pdf_generator, ui_layout, browser_bot) are lazy-loaded inside functions
 import streamlit as st
 import asyncio
 import json
@@ -11,7 +11,7 @@ import os
 import hashlib
 import pandas as pd
 
-# Google OAuth Authentication - Must be imported first
+# Google OAuth Authentication - Must be imported first (lightweight)
 from auth import authenticate_user, render_login_page, check_user_onboarding
 
 # Import lightweight utilities from modular components
@@ -23,10 +23,6 @@ from utils import (
     load_preferences, save_preferences, check_if_applied, load_recycle_bin, get_cv_metadata,
     get_user_id, get_user_file_path, log_event
 )
-from ui_layout import (
-    render_sidebar, render_job_list, render_human_in_the_loop,
-    inject_global_css, render_custom_job_card, create_circular_gauge_svg
-)
 
 # Application Status Constants (for tracking flow)
 APPLICATION_STATUS_DRAFT = 'Draft'
@@ -35,14 +31,30 @@ APPLICATION_STATUS_FINAL_LAUNCH = 'Final Launch'
 # Health check log before st.set_page_config (required by Streamlit)
 print('Persona System: Booting sequence complete')
 
-# הגדרות עמוד
+# הגדרות עמוד (must be first before any st.title/st.write calls)
 st.set_page_config(page_title="Persona: Your Career, Synchronized", layout="wide", initial_sidebar_state="expanded")
+
+# ============================================================================
+# ROOT ROUTE: Render immediately for Render health check (CRITICAL FAST-BOOT)
+# ============================================================================
+# This ensures the app responds instantly to Render's health check
+# Render these FIRST before any heavy imports/initialization
+st.title('Persona')
+st.write('System starting...')
 
 # ============================================================================
 # FORCE GLOBAL CSS INJECTION (Must be first, before any UI rendering)
 # ============================================================================
-# Note: inject_global_css is already imported above, call it immediately
-inject_global_css()
+# Lazy load ui_layout functions to prevent blocking on Render startup
+def inject_global_css_safe():
+    """Lazy load inject_global_css to prevent blocking on Render startup."""
+    try:
+        from ui_layout import inject_global_css
+        inject_global_css()
+    except Exception as e:
+        print(f"⚠️ CSS injection failed (non-blocking): {e}")
+
+inject_global_css_safe()
 
 # ============================================================================
 # DARK MODE THEME & GLOBAL CSS (Additional styling)
@@ -543,7 +555,9 @@ else:
 
 # Force Sidebar: Render sidebar with lazy engine (fallback if not ready)
 # Wrap in try-except for stable session management - sidebar must render even if engine not ready
+# Lazy load render_sidebar to prevent blocking on Render startup
 try:
+    from ui_layout import render_sidebar
     if engine is None:
         # Render sidebar without engine (fallback mode)
         must_have_keywords, exclude_keywords = render_sidebar(None, profile)
@@ -1789,7 +1803,8 @@ if 'jobs' in st.session_state and st.session_state.jobs is not None and not st.s
                     role_title = job_dict.get('role', job_dict.get('title', 'Unknown Role'))
                     score = analysis.get('match_score', analysis.get('score', 0))
                     
-                    # Render custom HTML job card
+                    # Render custom HTML job card (lazy load ui_layout)
+                    from ui_layout import render_custom_job_card
                     card_html = render_custom_job_card(
                         job_dict, analysis, job_key, index, score, company_name, role_title
                     )
@@ -1842,8 +1857,9 @@ else:
             st.warning("לא נמצאו משרות להצגה כעת (יתכן שהחיפוש לא הניב תוצאות מתאימות או שישנה שגיאה בנתונים).")
             print("INFO: st.session_state.jobs is None or empty -- nothing to display.")
 
-# Render Human-in-the-Loop section
+# Render Human-in-the-Loop section (lazy load ui_layout)
 try:
+    from ui_layout import render_human_in_the_loop
     render_human_in_the_loop(engine, pdf_generator)
 except Exception as e:
     st.error("❌ שגיאה ב-render_human_in_the_loop")
